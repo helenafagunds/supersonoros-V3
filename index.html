@@ -631,104 +631,60 @@
 
   /* ---------------- JOGOS ---------------- */
   const GAMES = {
-    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet"><style>
-      body{font-family:'Comic Neue',cursive,sans-serif;font-weight:700;background:#2C4E9B;color:#171512;margin:0;padding:16px;min-height:100vh;}
-      .panel{background:#FBF6EA;border:4px solid #171512;border-radius:16px;box-shadow:5px 5px 0 #171512;padding:18px 16px;text-align:center;max-width:400px;margin:0 auto;}
-      h1{font-family:'Bangers',cursive;color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:24px;letter-spacing:1px;text-align:center;margin-top:0;}
-      .dot{width:22px;height:22px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;background:#fff;margin:0 3px;}
+    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+      body{font-family:Arial,sans-serif;background:#2C4E9B;color:#171512;margin:0;padding:16px;min-height:100vh;}
+      .panel{background:#FBF6EA;border:4px solid #171512;border-radius:16px;box-shadow:5px 5px 0 #171512;padding:16px;text-align:center;max-width:400px;margin:0 auto;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;text-align:center;margin-top:0;}
+      .dot{width:22px;height:22px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:bold;background:#fff;margin:0 2px;}
       .dot.done{background:#E63946;color:#fff;}
-      .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:10px;padding:12px 14px;margin-bottom:10px;font-size:14px;cursor:pointer;}
+      .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:10px;padding:10px;margin-bottom:8px;font-weight:600;font-size:13px;cursor:pointer;}
       .opt:active{background:#F4C531;}
-      .btn{width:100%;padding:12px;font-family:'Bangers',cursive;letter-spacing:1px;border:3px solid #171512;border-radius:10px;background:#F4C531;cursor:pointer;font-size:17px;text-transform:uppercase;margin-top:10px;}
-      .badge{width:72px;height:72px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:30px;font-family:'Bangers',cursive;color:#fff;border:3px solid #171512;}
+      .btn{width:100%;padding:12px;font-weight:bold;border:3px solid #171512;border-radius:10px;background:#F4C531;cursor:pointer;font-size:13px;text-transform:uppercase;margin-top:8px;}
+      .badge{width:70px;height:70px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;border:3px solid #171512;}
     </style></head><body>
     <h1>QUAL É O SEU<br>SUPERPODER?</h1>
-    <div class="panel" id="app">Carregando perguntas...</div>
+    <div class="panel" id="app"></div>
     <script>
-      var Q = [
-        {t:"Você trava numa parte difícil da música. O que faz?", o:[["Repito até sair certinho","disciplina"],["Pergunto pro colega","escuta"],["Invento um jeito diferente","autenticidade"],["Toco mesmo com medo de errar","iniciativa"]]},
-        {t:"Na hora de criar algo novo, você prefere...", o:[["Juntar ideias com a banda","escuta"],["Testar algo bem diferente","autenticidade"],["Praticar sozinho antes","disciplina"],["Mostrar mesmo sem estar pronto","iniciativa"]]},
-        {t:"Antes de subir no palco pela 1ª vez, você pensa...", o:[["Vou dar o primeiro passo","iniciativa"],["Já ensaiei bastante","disciplina"],["Vou fazer do meu jeito","autenticidade"],["Vou sentir o clima da banda","escuta"]]},
-        {t:"Um colega copia o ídolo dele. Você pensa...", o:[["Prefiro criar meu som","autenticidade"],["Será que treinou o bastante?","disciplina"],["Será que ele escuta a banda?","escuta"],["Pelo menos teve coragem","iniciativa"]]},
-        {t:"Qual frase parece mais com você?", o:[["Tento de novo até sair certo","disciplina"],["Escuto antes de falar","escuta"],["Faço diferente de todo mundo","autenticidade"],["Começo logo, mesmo com dúvida","iniciativa"]]}
+      var Q=[
+        {t:"Você trava numa parte difícil da música. O que faz?",o:[["Repito até sair certinho","disciplina"],["Pergunto pro colega","escuta"],["Invento um jeito diferente","autenticidade"],["Toco mesmo com medo de errar","iniciativa"]]},
+        {t:"Na hora de criar algo novo, você prefere...",o:[["Juntar ideias com a banda","escuta"],["Testar algo bem diferente","autenticidade"],["Praticar sozinho antes","disciplina"],["Mostrar mesmo sem estar pronto","iniciativa"]]},
+        {t:"Antes de subir no palco pela 1ª vez, você pensa...",o:[["Vou dar o primeiro passo","iniciativa"],["Já ensaiei bastante","disciplina"],["Vou fazer do meu jeito","autenticidade"],["Vou sentir o clima da banda","escuta"]]},
+        {t:"Um colega copia o ídolo dele. Você pensa...",o:[["Prefiro criar meu som","autenticidade"],["Será que treinou o bastante?","disciplina"],["Será que ele escuta a banda?","escuta"],["Pelo menos teve coragem","iniciativa"]]},
+        {t:"Qual frase parece mais com você?",o:[["Tento de novo até sair certo","disciplina"],["Escuto antes de falar","escuta"],["Faço diferente de todo mundo","autenticidade"],["Começo logo, mesmo com dúvida","iniciativa"]]}
       ];
-      var R = {
+      var R={
         autenticidade:{c:"#8E5FC7",n:"Autenticidade",e:"Ensaio 1",d:"Seu superpoder: confiar na própria voz e ter a coragem de ser você mesmo!"},
         escuta:{c:"#D9A62B",n:"Escuta",e:"Ensaio 2",d:"Seu superpoder: perceber tudo ao redor — a harmonia, a banda e o tempo perfeito."},
         disciplina:{c:"#E8792B",n:"Disciplina",e:"Ensaio 3",d:"Seu superpoder: treino e repeteco para transformar dedicação em segurança."},
         iniciativa:{c:"#3CB878",n:"Iniciativa",e:"Ensaio 4",d:"Seu superpoder: a coragem de agir e tocar o primeiro acorde no palco!"}
       };
-      var cur = 0;
-      var sc = {autenticidade:0, escuta:0, disciplina:0, iniciativa:0};
-
-      function renderDots(){
-        var h = "";
-        for(var i=0; i<Q.length; i++){
-          h += '<span class="dot' + (i<cur ? ' done' : '') + '">' + (i+1) + '</span>';
-        }
-        return h;
-      }
-
+      var cur=0, sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};
+      function dots(){var h="";for(var i=0;i<Q.length;i++){h+='<span class="dot'+(i<cur?" done":"")+'">'+(i+1)+"</span>";}return h;}
       function renderQ(){
-        var container = document.getElementById("app");
-        if(!container){
-          setTimeout(renderQ, 50);
-          return;
+        var q=Q[cur];
+        var optsHtml = "";
+        for(var i=0; i<q.o.length; i++){
+          optsHtml += '<div class="opt" onclick="pick(\\'' + q.o[i][1] + '\\')">' + q.o[i][0] + '</div>';
         }
-        var q = Q[cur];
-        container.innerHTML = '<div>' + renderDots() + '</div><h3 style="font-size:15.5px;margin:14px 0 16px;">' + q.t + '</h3><div id="optsBox"></div>';
-        var optsBox = document.getElementById("optsBox");
-        q.o.forEach(function(item){
-          var btn = document.createElement("div");
-          btn.className = "opt";
-          btn.textContent = item[0];
-          btn.onclick = function(){ pick(item[1]); };
-          optsBox.appendChild(btn);
-        });
+        document.getElementById("app").innerHTML =
+          '<div>'+dots()+'</div><h3 style="font-size:15px;margin:12px 0;">'+q.t+'</h3>' + optsHtml;
       }
-
-      function pick(key){
-        sc[key]++;
-        cur++;
-        if(cur >= Q.length){
-          renderResult();
-        } else {
-          renderQ();
-        }
+      function pick(k){
+        sc[k]++; cur++;
+        if(cur>=Q.length){ result(); } else { renderQ(); }
       }
-
-      function renderResult(){
-        var container = document.getElementById("app");
-        if(!container) return;
-        var win = "autenticidade";
-        var max = -1;
-        for(var k in sc){
-          if(sc[k] > max){
-            max = sc[k];
-            win = k;
-          }
-        }
-        var r = R[win];
-        container.innerHTML =
-          '<div class="badge" style="background:' + r.c + ';">' + r.n.charAt(0) + '</div>' +
-          '<h2 style="font-family:\'Bangers\',cursive;font-size:24px;margin:4px 0;">' + r.n + '</h2>' +
-          '<p style="color:#666;font-size:13px;margin:0 0 12px;">Trabalhado no ' + r.e + '</p>' +
-          '<p style="text-align:left;background:#F4EFE1;padding:12px 14px;border-radius:10px;border-left:4px solid #171512;font-size:14px;line-height:1.45;">' + r.d + '</p>' +
-          '<button class="btn" id="btnRestart">Refazer Quiz</button>';
-        document.getElementById("btnRestart").onclick = restart;
+      function result(){
+        var w="autenticidade",m=-1;
+        for(var k in sc){if(sc[k]>m){m=sc[k];w=k;}}
+        var r=R[w];
+        document.getElementById("app").innerHTML =
+          '<div class="badge" style="background:'+r.c+';">'+r.n.charAt(0)+'</div>'+
+          '<h2 style="margin:4px 0;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:12px;margin:0 0 10px;">Trabalhado no '+r.e+'</p>'+
+          '<p style="text-align:left;background:#F4EFE1;padding:10px;border-radius:8px;border-left:4px solid #171512;font-size:13px;line-height:1.4;">'+r.d+'</p>'+
+          '<button class="btn" onclick="restart()">Refazer Quiz</button>';
       }
-
-      function restart(){
-        cur = 0;
-        sc = {autenticidade:0, escuta:0, disciplina:0, iniciativa:0};
-        renderQ();
-      }
-
-      if(document.readyState === "loading"){
-        document.addEventListener("DOMContentLoaded", renderQ);
-      } else {
-        renderQ();
-      }
+      function restart(){cur=0;sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};renderQ();}
+      renderQ();
     <\/script>
     </body></html>`,
 
