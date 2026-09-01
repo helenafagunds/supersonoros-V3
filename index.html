@@ -106,7 +106,6 @@
   }
 
   /* ---- GRIDS PERFEITAMENTE SIMÉTRICAS ---- */
-  /* Mobile: 1 coluna | Desktop: exatamente 2 colunas (2 em cima, 2 embaixo) */
   .grid-2-even{
     display:grid;
     grid-template-columns:1fr;
@@ -119,7 +118,6 @@
     }
   }
 
-  /* Grid dos Joguinhos: 1 coluna no mobile, 3 colunas no desktop */
   .grid-3-games{
     display:grid;
     grid-template-columns:1fr;
@@ -137,7 +135,6 @@
     .grid-3-games .item-dot{margin-bottom:8px; width:54px; height:54px; font-size:22px;}
   }
 
-  /* Detalhe do Ensaio / Sessão: 2 colunas no desktop */
   .grid-detail-cols{
     display:grid;
     grid-template-columns:1fr;
@@ -405,7 +402,7 @@
         <div class="item-card" onclick="openGame('quiz')">
           <div class="item-dot" style="background:var(--purple);">❓</div>
           <div class="item-info">
-            <div class="item-name">Qual é seu 1º desafio?</div>
+            <div class="item-name">Qual é o seu superpoder?</div>
             <div class="item-meta">Quiz interativo da Liga</div>
           </div>
           <div class="arrow">›</div>
@@ -648,42 +645,80 @@
     <h1>QUAL É O SEU<br>SUPERPODER?</h1>
     <div class="panel" id="app"></div>
     <script>
-      const Q=[
-        {t:"Você trava numa parte difícil da música. O que faz?",o:[["Repito até sair certinho","disciplina"],["Pergunto pro colega","escuta"],["Invento um jeito diferente","autenticidade"],["Toco mesmo com medo de errar","iniciativa"]]},
-        {t:"Na hora de criar algo novo, você prefere...",o:[["Juntar ideias com a banda","escuta"],["Testar algo bem diferente","autenticidade"],["Praticar sozinho antes","disciplina"],["Mostrar mesmo sem estar pronto","iniciativa"]]},
-        {t:"Antes de subir no palco pela 1ª vez, você pensa...",o:[["Vou dar o primeiro passo","iniciativa"],["Já ensaiei bastante","disciplina"],["Vou fazer do meu jeito","autenticidade"],["Vou sentir o clima da banda","escuta"]]},
-        {t:"Um colega copia o ídolo dele. Você pensa...",o:[["Prefiro criar meu som","autenticidade"],["Será que treinou o bastante?","disciplina"],["Será que ele escuta a banda?","escuta"],["Pelo menos teve coragem","iniciativa"]]},
-        {t:"Qual frase parece mais com você?",o:[["Tento de novo até sair certo","disciplina"],["Escuto antes de falar","escuta"],["Faço diferente de todo mundo","autenticidade"],["Começo logo, mesmo com dúvida","iniciativa"]]},
+      var Q = [
+        {t:"Você trava numa parte difícil da música. O que faz?", o:[["Repito até sair certinho","disciplina"],["Pergunto pro colega","escuta"],["Invento um jeito diferente","autenticidade"],["Toco mesmo com medo de errar","iniciativa"]]},
+        {t:"Na hora de criar algo novo, você prefere...", o:[["Juntar ideias com a banda","escuta"],["Testar algo bem diferente","autenticidade"],["Praticar sozinho antes","disciplina"],["Mostrar mesmo sem estar pronto","iniciativa"]]},
+        {t:"Antes de subir no palco pela 1ª vez, você pensa...", o:[["Vou dar o primeiro passo","iniciativa"],["Já ensaiei bastante","disciplina"],["Vou fazer do meu jeito","autenticidade"],["Vou sentir o clima da banda","escuta"]]},
+        {t:"Um colega copia o ídolo dele. Você pensa...", o:[["Prefiro criar meu som","autenticidade"],["Será que treinou o bastante?","disciplina"],["Será que ele escuta a banda?","escuta"],["Pelo menos teve coragem","iniciativa"]]},
+        {t:"Qual frase parece mais com você?", o:[["Tento de novo até sair certo","disciplina"],["Escuto antes de falar","escuta"],["Faço diferente de todo mundo","autenticidade"],["Começo logo, mesmo com dúvida","iniciativa"]]}
       ];
-      const R={
+      var R = {
         autenticidade:{c:"#8E5FC7",n:"Autenticidade",e:"Ensaio 1",d:"Seu superpoder: confiar na própria voz e ter a coragem de ser você mesmo!"},
         escuta:{c:"#D9A62B",n:"Escuta",e:"Ensaio 2",d:"Seu superpoder: perceber tudo ao redor — a harmonia, a banda e o tempo perfeito."},
         disciplina:{c:"#E8792B",n:"Disciplina",e:"Ensaio 3",d:"Seu superpoder: treino e repeteco para transformar dedicação em segurança."},
-        iniciativa:{c:"#3CB878",n:"Iniciativa",e:"Ensaio 4",d:"Seu superpoder: a coragem de agir e tocar o primeiro acorde no palco!"},
+        iniciativa:{c:"#3CB878",n:"Iniciativa",e:"Ensaio 4",d:"Seu superpoder: a coragem de agir e tocar o primeiro acorde no palco!"}
       };
-      let cur=0, sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};
-      function dots(){let h="";for(let i=0;i<Q.length;i++){h+='<span class="dot'+(i<cur?" done":"")+'">'+(i+1)+"</span>";}return h;}
+      var cur = 0;
+      var sc = {autenticidade:0, escuta:0, disciplina:0, iniciativa:0};
+
+      function renderDots(){
+        var h = "";
+        for(var i=0; i<Q.length; i++){
+          h += '<span class="dot' + (i<cur ? ' done' : '') + '">' + (i+1) + '</span>';
+        }
+        return h;
+      }
+
       function renderQ(){
-        const q=Q[cur];
-        document.getElementById("app").innerHTML =
-          '<div>'+dots()+'</div><h3 style="font-size:15.5px;margin:14px 0 16px;">'+q.t+'</h3>'+
-          q.o.map(o=>'<div class="opt" onclick="pick(\\''+o[1]+'\\')">'+o[0]+'</div>').join('');
+        var q = Q[cur];
+        var container = document.getElementById("app");
+        container.innerHTML = '<div>' + renderDots() + '</div><h3 style="font-size:15.5px;margin:14px 0 16px;">' + q.t + '</h3><div id="optsBox"></div>';
+        var optsBox = document.getElementById("optsBox");
+        q.o.forEach(function(item){
+          var btn = document.createElement("div");
+          btn.className = "opt";
+          btn.textContent = item[0];
+          btn.onclick = function(){ pick(item[1]); };
+          optsBox.appendChild(btn);
+        });
       }
-      function pick(k){
-        sc[k]++; cur++;
-        if(cur>=Q.length){ result(); } else { renderQ(); }
+
+      function pick(key){
+        sc[key]++;
+        cur++;
+        if(cur >= Q.length){
+          renderResult();
+        } else {
+          renderQ();
+        }
       }
-      function result(){
-        let w="autenticidade",m=-1;
-        Object.keys(sc).forEach(k=>{if(sc[k]>m){m=sc[k];w=k;}});
-        const r=R[w];
-        document.getElementById("app").innerHTML =
-          '<div class="badge" style="background:'+r.c+';">'+r.n[0]+'</div>'+
-          '<h2 style="font-family:\'Bangers\',cursive;font-size:24px;margin:4px 0;">'+r.n+'</h2><p style="color:#666;font-size:13px;margin:0 0 12px;">Trabalhado no '+r.e+'</p>'+
-          '<p style="text-align:left;background:#F4EFE1;padding:12px 14px;border-radius:10px;border-left:4px solid #171512;font-size:14px;line-height:1.45;">'+r.d+'</p>'+
-          '<button class="btn" onclick="restart()">Refazer Quiz</button>';
+
+      function renderResult(){
+        var win = "autenticidade";
+        var max = -1;
+        for(var k in sc){
+          if(sc[k] > max){
+            max = sc[k];
+            win = k;
+          }
+        }
+        var r = R[win];
+        var container = document.getElementById("app");
+        container.innerHTML =
+          '<div class="badge" style="background:' + r.c + ';">' + r.n.charAt(0) + '</div>' +
+          '<h2 style="font-family:\'Bangers\',cursive;font-size:24px;margin:4px 0;">' + r.n + '</h2>' +
+          '<p style="color:#666;font-size:13px;margin:0 0 12px;">Trabalhado no ' + r.e + '</p>' +
+          '<p style="text-align:left;background:#F4EFE1;padding:12px 14px;border-radius:10px;border-left:4px solid #171512;font-size:14px;line-height:1.45;">' + r.d + '</p>' +
+          '<button class="btn" id="btnRestart">Refazer Quiz</button>';
+        document.getElementById("btnRestart").onclick = restart;
       }
-      function restart(){cur=0;sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};renderQ();}
+
+      function restart(){
+        cur = 0;
+        sc = {autenticidade:0, escuta:0, disciplina:0, iniciativa:0};
+        renderQ();
+      }
+
       renderQ();
     <\/script>
     </body></html>`,
