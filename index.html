@@ -22,50 +22,61 @@
     font-family:'Comic Neue', cursive, sans-serif;
     font-weight:700;
     background:var(--red); color:var(--ink); min-height:100vh;
-    display:flex; justify-content:center; padding:28px 16px 56px; transition:background .4s ease;
+    display:flex; justify-content:center; padding:clamp(20px, 4vw, 40px) clamp(12px, 3vw, 24px) 60px;
+    transition:background .4s ease;
   }
   body::before{
     content:"";position:fixed;inset:0;
     background-image:radial-gradient(rgba(255,255,255,.14) 1.6px, transparent 1.6px);
     background-size:16px 16px;pointer-events:none;
   }
-  .stage{width:100%;max-width:460px;position:relative;z-index:1;transition:max-width .3s ease;}
+  
+  /* Container principal verdadeiramente fluido */
+  .stage{
+    width:100%;
+    max-width:min(980px, 94vw);
+    position:relative;
+    z-index:1;
+  }
 
   /* ---- LOGOS E TOPO ---- */
   .brand-banner{
-    display:flex; align-items:center; justify-content:center; gap:24px;
+    display:flex; align-items:center; justify-content:center; gap:clamp(16px, 4vw, 36px);
     margin-bottom:18px; padding:8px 0;
   }
-  .logo-gta{height:46px; width:auto; max-width:45%; object-fit:contain;}
-  .logo-super{height:76px; width:auto; max-width:50%; object-fit:contain;}
+  .logo-gta{height:clamp(40px, 6vw, 60px); width:auto; max-width:45%; object-fit:contain;}
+  .logo-super{height:clamp(66px, 10vw, 100px); width:auto; max-width:50%; object-fit:contain;}
 
-  .header-intro{text-align:center; margin-bottom:20px;}
+  .header-intro{text-align:center; margin-bottom:22px;}
   .eyebrow{
-    display:inline-block; font-family:'Bangers', cursive; font-size:15px; letter-spacing:1px;
+    display:inline-block; font-family:'Bangers', cursive; font-size:clamp(13px, 2vw, 16px); letter-spacing:1px;
     text-transform:uppercase; background:var(--ink); color:var(--yellow); padding:6px 18px;
     border-radius:999px; margin-bottom:12px; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.4);
   }
   h1{
-    font-family:'Bangers', cursive; font-size:32px; letter-spacing:1.5px;
+    font-family:'Bangers', cursive; font-size:clamp(28px, 4vw, 38px); letter-spacing:1.5px;
     text-transform:uppercase; line-height:1.15; color:var(--yellow);
     -webkit-text-stroke:1.5px var(--ink); text-shadow:3px 3px 0 var(--ink);
     margin:0 0 8px; text-align:center;
   }
   p.lede{
-    color:rgba(255,255,255,.96); font-size:14.5px; line-height:1.5;
-    margin:0 auto; max-width:400px; text-align:center;
+    color:rgba(255,255,255,.96); font-size:clamp(14px, 1.8vw, 16.5px); line-height:1.5;
+    margin:0 auto; max-width:680px; text-align:center;
   }
 
   /* ---- PAINÉIS ---- */
   .panel{
     background:var(--cream); border:4px solid var(--ink); border-radius:20px;
-    box-shadow:7px 7px 0 var(--ink); padding:22px 18px; margin-bottom:18px;
+    box-shadow:7px 7px 0 var(--ink); padding:clamp(16px, 2.5vw, 24px); margin-bottom:18px;
   }
 
-  /* ---- ABAS ---- */
-  .tabs{display:flex; gap:8px; margin-bottom:18px;}
+  /* ---- ABAS FLUÍDAS ---- */
+  .tabs{
+    display:flex; gap:8px; margin:0 auto 20px;
+    max-width:650px; width:100%;
+  }
   .tab{
-    flex:1; text-align:center; font-family:'Bangers', cursive; font-size:16.5px; letter-spacing:1px;
+    flex:1; text-align:center; font-family:'Bangers', cursive; font-size:clamp(14.5px, 2vw, 18px); letter-spacing:1px;
     text-transform:uppercase; background:#fff; border:3px solid var(--ink); border-radius:12px;
     padding:10px 4px; cursor:pointer; box-shadow:3px 3px 0 var(--ink);
     transition:transform .12s ease, box-shadow .12s ease;
@@ -76,15 +87,33 @@
   .view{display:none;}
   .view.active{display:block;}
 
+  /* ---- GRIDS AUTO-RESPONSIVAS (FLEX / GRID FLUIDO) ---- */
+  .responsive-grid-2{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:14px;
+  }
+
+  .responsive-grid-3{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:14px;
+  }
+
+  .detail-grid-layout{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+    gap:18px;
+    align-items:start;
+  }
+
   /* ---- CARDS DE LISTA ---- */
-  .cards-grid{display:block;}
   .item-card{
     display:flex; align-items:center; gap:14px; background:#fff;
     border:3px solid var(--ink); border-radius:16px; padding:14px 16px;
-    margin-bottom:12px; cursor:pointer; box-shadow:4px 4px 0 var(--ink);
+    cursor:pointer; box-shadow:4px 4px 0 var(--ink);
     transition:transform .12s ease, box-shadow .12s ease;
   }
-  .item-card:last-child{margin-bottom:0;}
   .item-card:active{transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink);}
   
   .item-dot{
@@ -100,7 +129,7 @@
   /* ---- AVISO DE ENSAIO ---- */
   .notice-box{
     background:#FFF9E6; border:3px solid var(--ink); border-radius:14px;
-    padding:14px 16px; margin-bottom:18px; font-size:13.5px; line-height:1.5;
+    padding:14px 16px; margin-bottom:18px; font-size:14px; line-height:1.5;
   }
   .btn-whats{
     display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--whatsapp); color:#fff;
@@ -176,76 +205,15 @@
   .story-box{background:#fff; border:3px solid var(--ink); border-radius:14px; padding:14px 16px; margin-bottom:12px; font-size:14px; line-height:1.55;}
   .story-box:last-child{margin-bottom:0;}
 
-  footer.credit{text-align:center; color:rgba(255,255,255,.9); font-size:13px; margin-top:18px; letter-spacing:.3px;}
-  .hidden{display:none;}
+  footer.credit{text-align:center; color:rgba(255,255,255,.9); font-size:13.5px; margin-top:22px; letter-spacing:.3px;}
+  .hidden{display:none !important;}
 
-  /* ---- MODAL ---- */
+  /* ---- MODAL DE JOGOS ---- */
   .modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,.75); display:none; align-items:center; justify-content:center; z-index:50; padding:16px;}
   .modal-overlay.show{display:flex;}
-  .modal-box{width:100%; max-width:440px; height:90vh; background:#fff; border-radius:20px; overflow:hidden; position:relative; border:4px solid var(--ink);}
+  .modal-box{width:100%; max-width:520px; height:88vh; background:#fff; border-radius:20px; overflow:hidden; position:relative; border:4px solid var(--ink);}
   .modal-close{position:absolute; top:10px; right:10px; z-index:5; background:var(--ink); color:#fff; border:none; border-radius:50%; width:34px; height:34px; font-size:16px; cursor:pointer; font-weight:bold;}
   .modal-box iframe{width:100%; height:100%; border:none;}
-
-  /* =========================================================
-     ADAPTAÇÃO DESKTOP & TELAS MAIORES (A partir de 768px)
-     ========================================================= */
-  @media (min-width: 768px) {
-    body { padding: 40px 24px 70px; }
-    .stage { max-width: 960px; }
-
-    .brand-banner { gap: 36px; margin-bottom: 22px; }
-    .logo-gta { height: 56px; }
-    .logo-super { height: 96px; }
-
-    p.lede { max-width: 680px; font-size: 16px; }
-
-    .tabs { max-width: 650px; margin: 0 auto 24px; }
-    .tab { font-size: 18px; padding: 12px 6px; }
-
-    /* Grid de 2 colunas para cards de Ensaios e Sessões */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .cards-grid .item-card { margin-bottom: 0; }
-
-    /* Grid de 3 colunas para a aba de Joguinhos */
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .games-grid .item-card {
-      flex-direction: column;
-      text-align: center;
-      padding: 24px 16px;
-      margin-bottom: 0;
-    }
-    .games-grid .item-card .arrow { display: none; }
-    .games-grid .item-dot { margin-bottom: 6px; width: 54px; height: 54px; font-size: 22px; }
-
-    /* Detalhe do Ensaio em 2 Colunas Lado a Lado */
-    .ensaio-detail-columns {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 18px;
-      align-items: start;
-    }
-    .ensaio-detail-columns .panel { margin-bottom: 0; }
-
-    /* Sessões em 2 Colunas no Desktop */
-    .session-detail-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items: start;
-    }
-    .session-detail-columns .panel { margin-bottom: 0; }
-
-    /* Janela do Jogo mais ampla */
-    .modal-box { max-width: 520px; height: 85vh; }
-  }
 </style>
 </head>
 <body id="body">
@@ -284,7 +252,7 @@
     <div id="view-ensaios-home">
       <div class="panel">
         <div class="section-title">Grandes Ensaios da Liga</div>
-        <div id="ensaiosList" class="cards-grid"></div>
+        <div id="ensaiosList" class="responsive-grid-2"></div>
       </div>
     </div>
 
@@ -301,9 +269,9 @@
         </div>
       </div>
 
-      <!-- DESENVOLVIMENTO, O QUE FAREMOS & VILÃO + FOTOS (LADO A LADO NO DESKTOP) -->
-      <div class="ensaio-detail-columns">
-        <div class="panel">
+      <!-- DETALHE AUTO-AJUSTÁVEL: 1 COLUNA NO MOBILE, 2 COLUNAS NO DESKTOP -->
+      <div class="detail-grid-layout">
+        <div class="panel" style="margin-bottom:0;">
           <div class="section-title">O que faremos no ensaio</div>
           <div id="ensAgendaBox"></div>
 
@@ -318,7 +286,7 @@
           </div>
         </div>
 
-        <div class="panel">
+        <div class="panel" style="margin-bottom:0;">
           <div class="section-title">Fotos deste Ensaio</div>
           <div class="photo-grid">
             <div class="photo-slot">📷<span>Foto 1</span></div>
@@ -339,7 +307,7 @@
     <div id="view-sessoes-home">
       <div class="panel">
         <div class="section-title">Sessões do Espetáculo</div>
-        <div id="sessionList" class="cards-grid"></div>
+        <div id="sessionList" class="responsive-grid-2"></div>
       </div>
     </div>
 
@@ -351,7 +319,7 @@
         <p class="lede" style="color:#555;margin-bottom:0;text-align:left;max-width:none;" id="sessSubtitle">24/10 · 16h</p>
       </div>
 
-      <div class="session-detail-columns" style="margin-bottom:18px;">
+      <div class="detail-grid-layout" style="margin-bottom:18px;">
         <div class="panel" style="margin-bottom:0;">
           <div class="section-title">Ordem de apresentação</div>
           <div id="lineupList"></div>
@@ -372,7 +340,7 @@
         </div>
       </div>
 
-      <div class="session-detail-columns">
+      <div class="detail-grid-layout">
         <div class="panel" style="margin-bottom:0;">
           <div class="section-title">Informações práticas</div>
           <div class="info-item"><span class="info-icon">🗺️</span><span>Teatro Unisinos — [Endereço completo / Link Maps].</span></div>
@@ -400,7 +368,7 @@
     <div class="panel">
       <div class="section-title">Joguinhos da Jornada</div>
 
-      <div class="games-grid">
+      <div class="responsive-grid-3">
         <div class="item-card" onclick="openGame('quiz')">
           <div class="item-dot" style="background:var(--purple);">❓</div>
           <div class="item-info">
@@ -436,7 +404,7 @@
     <div class="panel">
       <div class="section-title">O Universo SuperSonoros</div>
       
-      <div class="cards-grid">
+      <div class="responsive-grid-2">
         <div class="story-box" style="margin-bottom:0;">
           <h3 style="font-family:'Bangers', cursive; font-size:18.5px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--blue);">A Liga dos Artistas</h3>
           <p style="margin:0;color:#333;">SuperSonoros é a liga dos artistas da Guitarríssima. Ser um herói do som não significa possuir poderes mágicos, mas sim desenvolver atitudes diárias que transformam qualquer músico em um artista extraordinário.</p>
@@ -448,7 +416,7 @@
         </div>
       </div>
 
-      <div class="story-box" style="background:#171512;color:#fff;margin-top:16px;">
+      <div class="story-box" style="background:#171512;color:#fff;margin-top:14px;">
         <h3 style="font-family:'Bangers', cursive; font-size:18.5px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--yellow);">A Grande Batalha</h3>
         <p style="margin:0;color:#ddd;">Cada ensaio revela um novo comportamento a ser superado. No palco, a união de todos os acordes derrotará a grande ameaça que tenta apagar a música!</p>
       </div>
