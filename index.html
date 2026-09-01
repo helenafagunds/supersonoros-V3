@@ -643,7 +643,7 @@
       .badge{width:72px;height:72px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:30px;font-family:'Bangers',cursive;color:#fff;border:3px solid #171512;}
     </style></head><body>
     <h1>QUAL É O SEU<br>SUPERPODER?</h1>
-    <div class="panel" id="app"></div>
+    <div class="panel" id="app">Carregando perguntas...</div>
     <script>
       var Q = [
         {t:"Você trava numa parte difícil da música. O que faz?", o:[["Repito até sair certinho","disciplina"],["Pergunto pro colega","escuta"],["Invento um jeito diferente","autenticidade"],["Toco mesmo com medo de errar","iniciativa"]]},
@@ -670,8 +670,12 @@
       }
 
       function renderQ(){
-        var q = Q[cur];
         var container = document.getElementById("app");
+        if(!container){
+          setTimeout(renderQ, 50);
+          return;
+        }
+        var q = Q[cur];
         container.innerHTML = '<div>' + renderDots() + '</div><h3 style="font-size:15.5px;margin:14px 0 16px;">' + q.t + '</h3><div id="optsBox"></div>';
         var optsBox = document.getElementById("optsBox");
         q.o.forEach(function(item){
@@ -694,6 +698,8 @@
       }
 
       function renderResult(){
+        var container = document.getElementById("app");
+        if(!container) return;
         var win = "autenticidade";
         var max = -1;
         for(var k in sc){
@@ -703,7 +709,6 @@
           }
         }
         var r = R[win];
-        var container = document.getElementById("app");
         container.innerHTML =
           '<div class="badge" style="background:' + r.c + ';">' + r.n.charAt(0) + '</div>' +
           '<h2 style="font-family:\'Bangers\',cursive;font-size:24px;margin:4px 0;">' + r.n + '</h2>' +
@@ -719,7 +724,11 @@
         renderQ();
       }
 
-      renderQ();
+      if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", renderQ);
+      } else {
+        renderQ();
+      }
     <\/script>
     </body></html>`,
 
