@@ -22,7 +22,7 @@
     font-family:'Comic Neue', cursive, sans-serif;
     font-weight:700;
     background:var(--red); color:var(--ink); min-height:100vh;
-    display:flex; justify-content:center; padding:clamp(20px, 4vw, 40px) clamp(12px, 3vw, 24px) 60px;
+    display:flex; justify-content:center; padding:32px 20px 60px;
     transition:background .4s ease;
   }
   body::before{
@@ -31,54 +31,54 @@
     background-size:16px 16px;pointer-events:none;
   }
   
-  /* Container principal verdadeiramente fluido */
+  /* Container principal amplo e proporcional */
   .stage{
     width:100%;
-    max-width:min(980px, 94vw);
+    max-width:1180px;
     position:relative;
     z-index:1;
   }
 
   /* ---- LOGOS E TOPO ---- */
   .brand-banner{
-    display:flex; align-items:center; justify-content:center; gap:clamp(16px, 4vw, 36px);
-    margin-bottom:18px; padding:8px 0;
+    display:flex; align-items:center; justify-content:center; gap:clamp(18px, 4vw, 36px);
+    margin-bottom:20px; padding:6px 0;
   }
-  .logo-gta{height:clamp(40px, 6vw, 60px); width:auto; max-width:45%; object-fit:contain;}
-  .logo-super{height:clamp(66px, 10vw, 100px); width:auto; max-width:50%; object-fit:contain;}
+  .logo-gta{height:clamp(44px, 5vw, 64px); width:auto; max-width:45%; object-fit:contain;}
+  .logo-super{height:clamp(72px, 8vw, 104px); width:auto; max-width:50%; object-fit:contain;}
 
-  .header-intro{text-align:center; margin-bottom:22px;}
+  .header-intro{text-align:center; margin-bottom:24px;}
   .eyebrow{
-    display:inline-block; font-family:'Bangers', cursive; font-size:clamp(13px, 2vw, 16px); letter-spacing:1px;
-    text-transform:uppercase; background:var(--ink); color:var(--yellow); padding:6px 18px;
+    display:inline-block; font-family:'Bangers', cursive; font-size:clamp(13px, 1.5vw, 16px); letter-spacing:1px;
+    text-transform:uppercase; background:var(--ink); color:var(--yellow); padding:6px 20px;
     border-radius:999px; margin-bottom:12px; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.4);
   }
   h1{
-    font-family:'Bangers', cursive; font-size:clamp(28px, 4vw, 38px); letter-spacing:1.5px;
+    font-family:'Bangers', cursive; font-size:clamp(28px, 3.5vw, 40px); letter-spacing:1.5px;
     text-transform:uppercase; line-height:1.15; color:var(--yellow);
     -webkit-text-stroke:1.5px var(--ink); text-shadow:3px 3px 0 var(--ink);
     margin:0 0 8px; text-align:center;
   }
   p.lede{
-    color:rgba(255,255,255,.96); font-size:clamp(14px, 1.8vw, 16.5px); line-height:1.5;
-    margin:0 auto; max-width:680px; text-align:center;
+    color:rgba(255,255,255,.96); font-size:clamp(14px, 1.4vw, 17px); line-height:1.5;
+    margin:0 auto; max-width:760px; text-align:center;
   }
 
   /* ---- PAINÉIS ---- */
   .panel{
     background:var(--cream); border:4px solid var(--ink); border-radius:20px;
-    box-shadow:7px 7px 0 var(--ink); padding:clamp(16px, 2.5vw, 24px); margin-bottom:18px;
+    box-shadow:7px 7px 0 var(--ink); padding:clamp(18px, 2.5vw, 28px); margin-bottom:20px;
   }
 
-  /* ---- ABAS FLUÍDAS ---- */
+  /* ---- ABAS ---- */
   .tabs{
-    display:flex; gap:8px; margin:0 auto 20px;
-    max-width:650px; width:100%;
+    display:flex; gap:10px; margin:0 auto 22px;
+    max-width:720px; width:100%;
   }
   .tab{
-    flex:1; text-align:center; font-family:'Bangers', cursive; font-size:clamp(14.5px, 2vw, 18px); letter-spacing:1px;
+    flex:1; text-align:center; font-family:'Bangers', cursive; font-size:clamp(15px, 1.8vw, 19px); letter-spacing:1px;
     text-transform:uppercase; background:#fff; border:3px solid var(--ink); border-radius:12px;
-    padding:10px 4px; cursor:pointer; box-shadow:3px 3px 0 var(--ink);
+    padding:11px 6px; cursor:pointer; box-shadow:3px 3px 0 var(--ink);
     transition:transform .12s ease, box-shadow .12s ease;
   }
   .tab.active{background:var(--yellow);}
@@ -87,125 +87,156 @@
   .view{display:none;}
   .view.active{display:block;}
 
-  /* ---- GRIDS AUTO-RESPONSIVAS (FLEX / GRID FLUIDO) ---- */
-  .responsive-grid-2{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-    gap:14px;
+  /* ---- AVISO DE ENSAIO (COMPACTO NO DESKTOP) ---- */
+  .notice-box{
+    background:#FFF9E6; border:3px solid var(--ink); border-radius:16px;
+    padding:14px 20px; margin-bottom:20px; font-size:14.5px; line-height:1.5;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  @media (min-width: 720px) {
+    .notice-box{
+      flex-direction:row; align-items:center; justify-content:space-between;
+    }
+  }
+  .btn-whats{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--whatsapp); color:#fff;
+    font-family:'Bangers', cursive; font-size:16px; letter-spacing:1px; text-transform:uppercase;
+    padding:9px 18px; border-radius:10px; border:2.5px solid var(--ink); text-decoration:none;
+    box-shadow:3px 3px 0 var(--ink); text-shadow:1px 1px 0 rgba(0,0,0,0.4); flex-shrink:0;
   }
 
-  .responsive-grid-3{
+  /* ---- GRIDS PERFEITAMENTE SIMÉTRICAS ---- */
+  /* Mobile: 1 coluna | Desktop: exatamente 2 colunas (2 em cima, 2 embaixo) */
+  .grid-2-even{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns:1fr;
     gap:14px;
   }
+  @media (min-width: 720px) {
+    .grid-2-even{
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+  }
 
-  .detail-grid-layout{
+  /* Grid dos Joguinhos: 1 coluna no mobile, 3 colunas no desktop */
+  .grid-3-games{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  @media (min-width: 768px) {
+    .grid-3-games{
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+    .grid-3-games .item-card{
+      flex-direction:column; text-align:center; padding:26px 18px;
+    }
+    .grid-3-games .item-card .arrow{display:none;}
+    .grid-3-games .item-dot{margin-bottom:8px; width:54px; height:54px; font-size:22px;}
+  }
+
+  /* Detalhe do Ensaio / Sessão: 2 colunas no desktop */
+  .grid-detail-cols{
+    display:grid;
+    grid-template-columns:1fr;
     gap:18px;
     align-items:start;
+  }
+  @media (min-width: 840px) {
+    .grid-detail-cols{
+      grid-template-columns:1.15fr 0.85fr;
+      gap:22px;
+    }
   }
 
   /* ---- CARDS DE LISTA ---- */
   .item-card{
     display:flex; align-items:center; gap:14px; background:#fff;
-    border:3px solid var(--ink); border-radius:16px; padding:14px 16px;
+    border:3px solid var(--ink); border-radius:16px; padding:16px 18px;
     cursor:pointer; box-shadow:4px 4px 0 var(--ink);
     transition:transform .12s ease, box-shadow .12s ease;
   }
   .item-card:active{transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink);}
   
   .item-dot{
-    width:46px; height:46px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center;
-    color:#fff; font-family:'Bangers', cursive; font-size:19px; letter-spacing:.5px;
+    width:48px; height:48px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-family:'Bangers', cursive; font-size:20px; letter-spacing:.5px;
     border:3px solid var(--ink); text-shadow:1.5px 1.5px 0 var(--ink);
   }
   .item-info{flex:1;}
-  .item-name{font-family:'Bangers', cursive; font-size:20px; letter-spacing:.8px; text-transform:uppercase; margin:0 0 3px;}
-  .item-meta{font-size:13px; color:#555; line-height:1.35;}
+  .item-name{font-family:'Bangers', cursive; font-size:21px; letter-spacing:.8px; text-transform:uppercase; margin:0 0 3px;}
+  .item-meta{font-size:13.5px; color:#555; line-height:1.35;}
   .arrow{font-size:22px; font-weight:bold; color:var(--ink);}
-
-  /* ---- AVISO DE ENSAIO ---- */
-  .notice-box{
-    background:#FFF9E6; border:3px solid var(--ink); border-radius:14px;
-    padding:14px 16px; margin-bottom:18px; font-size:14px; line-height:1.5;
-  }
-  .btn-whats{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--whatsapp); color:#fff;
-    font-family:'Bangers', cursive; font-size:16px; letter-spacing:1px; text-transform:uppercase;
-    padding:9px 16px; border-radius:10px; border:2.5px solid var(--ink); text-decoration:none; margin-top:10px;
-    box-shadow:3px 3px 0 var(--ink); text-shadow:1px 1px 0 rgba(0,0,0,0.4);
-  }
 
   /* ---- BOTÕES E AÇÕES ---- */
   .btn{
     display:flex; align-items:center; justify-content:center; gap:8px; width:100%; border:3px solid var(--ink); border-radius:14px;
     background:var(--yellow); color:var(--ink); font-family:'Bangers', cursive; font-size:18px; letter-spacing:1.2px;
-    text-transform:uppercase; padding:12px 16px; cursor:pointer; box-shadow:4px 4px 0 var(--ink); text-decoration:none;
+    text-transform:uppercase; padding:13px 18px; cursor:pointer; box-shadow:4px 4px 0 var(--ink); text-decoration:none;
   }
   .btn:active{transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink);}
   .btn.ghost{background:#fff;}
 
   .back-btn{
     display:inline-flex; align-items:center; gap:8px; background:var(--ink); color:#fff;
-    font-family:'Bangers', cursive; font-size:14.5px; letter-spacing:1px; text-transform:uppercase;
-    border:none; border-radius:999px; padding:8px 18px; margin-bottom:16px; cursor:pointer;
+    font-family:'Bangers', cursive; font-size:15px; letter-spacing:1px; text-transform:uppercase;
+    border:none; border-radius:999px; padding:8px 20px; margin-bottom:16px; cursor:pointer;
   }
 
   .section-title{
-    font-family:'Bangers', cursive; font-size:19px; letter-spacing:1.5px;
-    text-transform:uppercase; color:var(--red); margin:0 0 14px;
+    font-family:'Bangers', cursive; font-size:20px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--red); margin:0 0 16px;
     text-shadow:1px 1px 0 rgba(0,0,0,0.1);
   }
 
-  .lineup-row{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:2px dashed #e6e0d2; font-size:14.5px;}
+  .lineup-row{display:flex; justify-content:space-between; align-items:center; padding:11px 0; border-bottom:2px dashed #e6e0d2; font-size:15px;}
   .lineup-row:last-child{border-bottom:none;}
   .lineup-order{font-family:'Bangers', cursive; color:var(--blue); font-size:19px; white-space:nowrap; margin-left:10px;}
 
-  .info-item{display:flex; gap:12px; align-items:flex-start; margin-bottom:12px; font-size:14px; line-height:1.45;}
+  .info-item{display:flex; gap:12px; align-items:flex-start; margin-bottom:12px; font-size:14.5px; line-height:1.45;}
   .info-item:last-child{margin-bottom:0;}
   .info-icon{font-size:18px; flex-shrink:0; line-height:1.2;}
 
-  .recap-box{background:#F4EFE1; border-left:4px solid var(--ink); border-radius:8px; padding:14px 16px; font-size:14px; line-height:1.55; color:#333;}
-  .chip-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  .recap-box{background:#F4EFE1; border-left:4px solid var(--ink); border-radius:8px; padding:16px 18px; font-size:14.5px; line-height:1.55; color:#333;}
+  .chip-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
   .power-chip{
-    font-family:'Bangers', cursive; font-size:14.5px; letter-spacing:.6px; text-transform:uppercase;
-    color:#fff; padding:5px 14px; border-radius:999px; border:2px solid var(--ink);
+    font-family:'Bangers', cursive; font-size:15px; letter-spacing:.6px; text-transform:uppercase;
+    color:#fff; padding:5px 15px; border-radius:999px; border:2px solid var(--ink);
     text-shadow:1px 1px 0 rgba(0,0,0,0.35);
   }
 
   /* ---- SILHUETAS & VILÕES ---- */
   .silhouette-card{
     display:flex; gap:16px; align-items:center; background:#171512; color:#fff;
-    border-radius:16px; padding:14px 16px; border:3px solid var(--ink); box-shadow:4px 4px 0 var(--ink); margin-top:14px;
+    border-radius:16px; padding:16px 18px; border:3px solid var(--ink); box-shadow:4px 4px 0 var(--ink); margin-top:16px;
   }
   .silhouette-avatar{
-    width:72px; height:88px; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    width:76px; height:92px; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center;
     border:2.5px solid var(--yellow); flex-shrink:0; padding:6px; overflow:hidden;
   }
   .silhouette-img{width:100%; height:100%; object-fit:contain; display:block;}
 
   /* ---- LISTAS PEDAGÓGICAS ---- */
-  .agenda-list{margin:0; padding-left:20px; font-size:14px; line-height:1.6; color:#333;}
+  .agenda-list{margin:0; padding-left:22px; font-size:14.5px; line-height:1.65; color:#333;}
   .agenda-list li{margin-bottom:8px;}
   .agenda-list li:last-child{margin-bottom:0;}
   .agenda-sublist{margin:6px 0 6px; padding-left:18px; list-style-type:circle;}
   .agenda-sublist li{margin-bottom:4px;}
 
   /* ---- FOTOS ---- */
-  .photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:12px;}
+  .photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px;}
   .photo-slot{
-    aspect-ratio:1/1; background:#EFE9D8; border:2px dashed #c9c0a8; border-radius:10px;
-    display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:18px; color:#9b927a;
+    aspect-ratio:1/1; background:#EFE9D8; border:2px dashed #c9c0a8; border-radius:12px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:20px; color:#9b927a;
   }
-  .photo-slot span{font-family:'Bangers', cursive; font-size:12px; letter-spacing:.5px; text-transform:uppercase; margin-top:4px;}
+  .photo-slot span{font-family:'Bangers', cursive; font-size:13px; letter-spacing:.5px; text-transform:uppercase; margin-top:4px;}
 
   /* ---- HISTÓRIA ---- */
-  .story-box{background:#fff; border:3px solid var(--ink); border-radius:14px; padding:14px 16px; margin-bottom:12px; font-size:14px; line-height:1.55;}
-  .story-box:last-child{margin-bottom:0;}
+  .story-box{background:#fff; border:3px solid var(--ink); border-radius:16px; padding:16px 18px; font-size:14.5px; line-height:1.55;}
 
-  footer.credit{text-align:center; color:rgba(255,255,255,.9); font-size:13.5px; margin-top:22px; letter-spacing:.3px;}
+  footer.credit{text-align:center; color:rgba(255,255,255,.9); font-size:14px; margin-top:24px; letter-spacing:.3px;}
   .hidden{display:none !important;}
 
   /* ---- MODAL DE JOGOS ---- */
@@ -241,9 +272,9 @@
   <!-- ===================== 1. ENSAIOS ===================== -->
   <div id="view-ensaios" class="view active">
     
-    <!-- AVISO EXCLUSIVO DA ABA ENSAIOS -->
+    <!-- AVISO COMPACTO -->
     <div class="notice-box">
-      <strong>Atenção às bandas:</strong> Cada banda tem um horário específico de ensaio. Confirme seu horário com a secretaria.
+      <div><strong>Atenção às bandas:</strong> Cada banda tem um horário específico de ensaio. Confirme seu horário com a secretaria.</div>
       <div>
         <a class="btn-whats" href="https://wa.link/isvn9i" target="_blank">Falar com a Secretaria</a>
       </div>
@@ -252,7 +283,8 @@
     <div id="view-ensaios-home">
       <div class="panel">
         <div class="section-title">Grandes Ensaios da Liga</div>
-        <div id="ensaiosList" class="responsive-grid-2"></div>
+        <!-- Grid cravada em 2x2 no Desktop -->
+        <div id="ensaiosList" class="grid-2-even"></div>
       </div>
     </div>
 
@@ -260,7 +292,7 @@
       <button class="back-btn" onclick="goEnsaiosHome()">← Voltar aos Ensaios</button>
 
       <div class="panel">
-        <h1 id="ensTitle" style="font-size:28px;text-align:left;color:var(--yellow);margin:0 0 4px;">Ensaio 1</h1>
+        <h1 id="ensTitle" style="font-size:30px;text-align:left;color:var(--yellow);margin:0 0 4px;">Ensaio 1</h1>
         <p class="lede" style="color:#666;text-align:left;margin-bottom:14px;max-width:none;" id="ensDate">12/09 (sáb)</p>
 
         <div class="info-item">
@@ -269,8 +301,8 @@
         </div>
       </div>
 
-      <!-- DETALHE AUTO-AJUSTÁVEL: 1 COLUNA NO MOBILE, 2 COLUNAS NO DESKTOP -->
-      <div class="detail-grid-layout">
+      <!-- DETALHE EM 2 COLUNAS NO COMPUTADOR -->
+      <div class="grid-detail-cols">
         <div class="panel" style="margin-bottom:0;">
           <div class="section-title">O que faremos no ensaio</div>
           <div id="ensAgendaBox"></div>
@@ -280,8 +312,8 @@
               <img id="ensVillainImg" src="" alt="Silhueta do Vilão" class="silhouette-img" />
             </div>
             <div>
-              <div style="font-family:'Bangers', cursive; font-size:18px; letter-spacing:1px; color:var(--yellow); text-transform:uppercase;" id="ensVillainTitle">Ameaça: Vilão 1</div>
-              <div style="font-size:12.5px; color:#ccc; line-height:1.45; margin-top:3px;">Identidade confidencial! Silhueta detectada nos radares da Guitarríssima.</div>
+              <div style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; color:var(--yellow); text-transform:uppercase;" id="ensVillainTitle">Ameaça: Vilão 1</div>
+              <div style="font-size:13px; color:#ccc; line-height:1.45; margin-top:3px;">Identidade confidencial! Silhueta detectada nos radares da Guitarríssima.</div>
             </div>
           </div>
         </div>
@@ -296,7 +328,7 @@
             <div class="photo-slot">📷<span>Foto 5</span></div>
             <div class="photo-slot">📷<span>Foto 6</span></div>
           </div>
-          <p style="font-size:12px;color:#888;font-style:italic;margin:10px 0 0;">As fotos serão adicionadas aqui após a realização do ensaio.</p>
+          <p style="font-size:12px;color:#888;font-style:italic;margin:12px 0 0;">As fotos serão adicionadas aqui após a realização do ensaio.</p>
         </div>
       </div>
     </div>
@@ -307,7 +339,8 @@
     <div id="view-sessoes-home">
       <div class="panel">
         <div class="section-title">Sessões do Espetáculo</div>
-        <div id="sessionList" class="responsive-grid-2"></div>
+        <!-- Grid cravada em 2x2 no Desktop -->
+        <div id="sessionList" class="grid-2-even"></div>
       </div>
     </div>
 
@@ -315,11 +348,11 @@
       <button class="back-btn" onclick="goSessionHome()">← Voltar às Sessões</button>
 
       <div class="panel">
-        <h1 id="sessTitle" style="font-size:28px;text-align:left;margin:0 0 4px;">Sessão 1</h1>
+        <h1 id="sessTitle" style="font-size:30px;text-align:left;margin:0 0 4px;">Sessão 1</h1>
         <p class="lede" style="color:#555;margin-bottom:0;text-align:left;max-width:none;" id="sessSubtitle">24/10 · 16h</p>
       </div>
 
-      <div class="detail-grid-layout" style="margin-bottom:18px;">
+      <div class="grid-detail-cols" style="margin-bottom:20px;">
         <div class="panel" style="margin-bottom:0;">
           <div class="section-title">Ordem de apresentação</div>
           <div id="lineupList"></div>
@@ -335,12 +368,12 @@
               <span class="power-chip" style="background:#E8792B;">Disciplina</span>
               <span class="power-chip" style="background:#3CB878;">Iniciativa</span>
             </div>
-            <p style="margin:12px 0 0;">No palco, toda essa energia sonora será liberada para derrotar de vez o Devorador de Sons!</p>
+            <p style="margin:14px 0 0;">No palco, toda essa energia sonora será liberada para derrotar de vez o Devorador de Sons!</p>
           </div>
         </div>
       </div>
 
-      <div class="detail-grid-layout">
+      <div class="grid-detail-cols">
         <div class="panel" style="margin-bottom:0;">
           <div class="section-title">Informações práticas</div>
           <div class="info-item"><span class="info-icon">🗺️</span><span>Teatro Unisinos — [Endereço completo / Link Maps].</span></div>
@@ -350,8 +383,8 @@
 
         <div class="panel" style="margin-bottom:0;">
           <div class="section-title">Compartilhe o momento</div>
-          <p style="font-size:14px;line-height:1.5;margin:0 0 12px;">Marque a Guitarríssima e use a hashtag oficial nos seus stories e posts do show!</p>
-          <div class="chip-list" style="margin-bottom:16px;">
+          <p style="font-size:14.5px;line-height:1.5;margin:0 0 14px;">Marque a Guitarríssima e use a hashtag oficial nos seus stories e posts do show!</p>
+          <div class="chip-list" style="margin-bottom:18px;">
             <span class="power-chip" style="background:var(--blue);">#SUPERSONOROS</span>
             <span class="power-chip" style="background:var(--red);">@guitarrissima</span>
           </div>
@@ -368,7 +401,7 @@
     <div class="panel">
       <div class="section-title">Joguinhos da Jornada</div>
 
-      <div class="responsive-grid-3">
+      <div class="grid-3-games">
         <div class="item-card" onclick="openGame('quiz')">
           <div class="item-dot" style="background:var(--purple);">❓</div>
           <div class="item-info">
@@ -404,20 +437,20 @@
     <div class="panel">
       <div class="section-title">O Universo SuperSonoros</div>
       
-      <div class="responsive-grid-2">
+      <div class="grid-2-even">
         <div class="story-box" style="margin-bottom:0;">
-          <h3 style="font-family:'Bangers', cursive; font-size:18.5px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--blue);">A Liga dos Artistas</h3>
+          <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--blue);">A Liga dos Artistas</h3>
           <p style="margin:0;color:#333;">SuperSonoros é a liga dos artistas da Guitarríssima. Ser um herói do som não significa possuir poderes mágicos, mas sim desenvolver atitudes diárias que transformam qualquer músico em um artista extraordinário.</p>
         </div>
 
         <div class="story-box" style="margin-bottom:0;">
-          <h3 style="font-family:'Bangers', cursive; font-size:18.5px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--ink);">Os 4 Superpoderes</h3>
+          <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--ink);">Os 4 Superpoderes</h3>
           <p style="margin:0;color:#444;">• <strong>Autenticidade:</strong> Ser único e valorizar a própria voz.<br>• <strong>Escuta:</strong> Tocar junto e respeitar o som do grupo.<br>• <strong>Disciplina:</strong> O Repeteco que constrói segurança.<br>• <strong>Iniciativa:</strong> A coragem de dar o primeiro acorde.</p>
         </div>
       </div>
 
-      <div class="story-box" style="background:#171512;color:#fff;margin-top:14px;">
-        <h3 style="font-family:'Bangers', cursive; font-size:18.5px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--yellow);">A Grande Batalha</h3>
+      <div class="story-box" style="background:#171512;color:#fff;margin-top:16px;">
+        <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--yellow);">A Grande Batalha</h3>
         <p style="margin:0;color:#ddd;">Cada ensaio revela um novo comportamento a ser superado. No palco, a união de todos os acordes derrotará a grande ameaça que tenta apagar a música!</p>
       </div>
     </div>
@@ -452,7 +485,7 @@
       id:1, name:"Ensaio 1", date:"12/09 (sáb)", color:"#8E5FC7", villain:"Vilão 1", 
       img:"vilao1.png",
       agenda: `
-        <p style="margin:0 0 10px;font-size:14px;"><strong>Superpoder trabalhado:</strong> Autenticidade (descobrir a própria voz e criar identidade)</p>
+        <p style="margin:0 0 10px;font-size:14.5px;"><strong>Superpoder trabalhado:</strong> Autenticidade (descobrir a própria voz e criar identidade)</p>
         <ul class="agenda-list">
           <li><strong>Integração do grupo:</strong> A professora de performance se apresenta e conduz uma dinâmica rápida de entrosamento entre os alunos.</li>
           <li><strong>Nome da banda:</strong> Definição oficial do nome do grupo logo após a apresentação.</li>
@@ -465,7 +498,7 @@
       id:2, name:"Ensaio 2", date:"27/09 (dom)", color:"#D9A62B", villain:"Vilão 2", 
       img:"vilao2.png",
       agenda: `
-        <p style="margin:0 0 10px;font-size:14px;"><strong>Superpoder trabalhado:</strong> Escuta (tocar junto e equilibrar o som do grupo)</p>
+        <p style="margin:0 0 10px;font-size:14.5px;"><strong>Superpoder trabalhado:</strong> Escuta (tocar junto e equilibrar o som do grupo)</p>
         <ul class="agenda-list">
           <li><strong>Definições da banda:</strong> Finalizar o que tiver ficado pendente sobre o nome do grupo.</li>
           <li><strong>Planejamento do figurino:</strong> Conversar sobre a mensagem da música e combinar as ideias de visual que combinem com a banda.</li>
@@ -484,7 +517,7 @@
       id:3, name:"Ensaio 3", date:"03/10 (sáb)", color:"#E8792B", villain:"Vilão 3", 
       img:"vilao3.png",
       agenda: `
-        <p style="margin:0 0 10px;font-size:14px;"><strong>Superpoder trabalhado:</strong> Disciplina (o método do Repeteco)</p>
+        <p style="margin:0 0 10px;font-size:14.5px;"><strong>Superpoder trabalhado:</strong> Disciplina (o método do Repeteco)</p>
         <ul class="agenda-list">
           <li><strong>Treino intensivo:</strong> Prática com o método do Repeteco para consolidar as passagens da música.</li>
           <li><strong>Alinhamento dinâmico:</strong> Ajustes de entradas, finalizações e postura de palco.</li>
@@ -495,7 +528,7 @@
       id:4, name:"Ensaio 4", date:"17/10 (sáb)", color:"#3CB878", villain:"Vilão 4", 
       img:"vilao4.png",
       agenda: `
-        <p style="margin:0 0 10px;font-size:14px;"><strong>Superpoder trabalhado:</strong> Iniciativa (coragem para subir ao palco)</p>
+        <p style="margin:0 0 10px;font-size:14.5px;"><strong>Superpoder trabalhado:</strong> Iniciativa (coragem para subir ao palco)</p>
         <ul class="agenda-list">
           <li><strong>Passagem geral:</strong> Ensaio corrido simulando as condições reais do palco do espetáculo.</li>
           <li><strong>Preparação final:</strong> Ajustes finais com a equipe e orientações para o grande dia.</li>
