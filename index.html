@@ -38,15 +38,15 @@
     z-index:1;
   }
 
-  /* ---- LOGO TOPO (SUPERSONOROS) ---- */
+  /* ---- LOGO TOPO (SUPERSONOROS AMPLIADA) ---- */
   .brand-banner-single{
     display:flex; align-items:center; justify-content:center;
-    margin-bottom:20px; padding:6px 0;
+    margin-bottom:24px; padding:8px 0;
   }
   .logo-super{
-    height:clamp(80px, 10vw, 120px);
-    width:auto; max-width:85%; object-fit:contain;
-    filter:drop-shadow(4px 4px 0 var(--ink));
+    height:clamp(110px, 14vw, 170px);
+    width:auto; max-width:92%; object-fit:contain;
+    filter:drop-shadow(5px 5px 0 var(--ink));
     transition:transform .2s ease;
   }
 
@@ -90,7 +90,7 @@
   .view{display:none;}
   .view.active{display:block;}
 
-  /* ---- AVISO DE ENSAIO ---- */
+  /* ---- AVISO DE ENSAIO COM WHATSAPP ---- */
   .notice-box{
     background:#FFF9E6; border:3px solid var(--ink); border-radius:16px;
     padding:14px 20px; margin-bottom:20px; font-size:14.5px; line-height:1.5;
@@ -106,6 +106,9 @@
     font-family:'Bangers', cursive; font-size:16px; letter-spacing:1px; text-transform:uppercase;
     padding:9px 18px; border-radius:10px; border:2.5px solid var(--ink); text-decoration:none;
     box-shadow:3px 3px 0 var(--ink); text-shadow:1px 1px 0 rgba(0,0,0,0.4); flex-shrink:0;
+  }
+  .btn-whats svg{
+    width:20px; height:20px; fill:#fff; flex-shrink:0; display:block;
   }
 
   /* ---- GRIDS ---- */
@@ -191,7 +194,7 @@
     text-shadow:1px 1px 0 rgba(0,0,0,0.1);
   }
 
-  /* ---- ORDEM DE APRESENTAÇÃO: SELO NA ESQUERDA, NOME NA DIREITA ---- */
+  /* ---- ORDEM DE APRESENTAÇÃO ---- */
   .lineup-row{
     display:flex; align-items:center; gap:14px; padding:10px 0; border-bottom:2px dashed #e6e0d2; font-size:15px;
   }
@@ -232,10 +235,11 @@
     text-shadow:1px 1px 0 rgba(0,0,0,0.35);
   }
 
-  /* ---- SILHUETAS & VILÕES ---- */
+  /* ---- SILHUETAS & VILÕES (DESTAQUE NO TOPO) ---- */
   .silhouette-card{
     display:flex; gap:16px; align-items:center; background:#171512; color:#fff;
-    border-radius:16px; padding:16px 18px; border:3px solid var(--ink); box-shadow:4px 4px 0 var(--ink); margin-top:16px;
+    border-radius:16px; padding:16px 18px; border:3px solid var(--ink); box-shadow:4px 4px 0 var(--ink);
+    margin-bottom:20px;
   }
   .silhouette-avatar{
     width:76px; height:92px; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center;
@@ -261,7 +265,7 @@
   /* ---- HISTÓRIA ---- */
   .story-box{background:#fff; border:3px solid var(--ink); border-radius:16px; padding:16px 18px; font-size:14.5px; line-height:1.55;}
 
-  /* ---- RODAPÉ INSTITUCIONAL (REALIZADO POR: GUITARRÍSSIMA) ---- */
+  /* ---- RODAPÉ INSTITUCIONAL ---- */
   .footer-signature {
     display: flex;
     flex-direction: column;
@@ -312,7 +316,7 @@
 <body id="body">
 <div class="stage">
 
-  <!-- LOGO DO TOPO (COM TROCA DINÂMICA DE CONTRASTE) -->
+  <!-- LOGO DO TOPO (AMPLIADA COM CONTRASTE AUTOMÁTICO) -->
   <div class="brand-banner-single">
     <img id="mainLogo" src="logo-super.png" alt="SuperSonoros" class="logo-super" />
   </div>
@@ -322,21 +326,50 @@
     <p class="lede">Acompanhe tudo sobre o universo supersonoros: Ensaios, sessões do show, fotos dos ensaios e os joguinhos da jornada — tudo num só lugar.</p>
   </div>
 
-  <!-- ABAS -->
+  <!-- ABAS (HISTÓRIA AGORA É A 1ª) -->
   <div class="tabs">
-    <div class="tab active" id="tabBtnEnsaios" onclick="switchTab('ensaios')">Ensaios</div>
+    <div class="tab active" id="tabBtnHistoria" onclick="switchTab('historia')">História</div>
+    <div class="tab" id="tabBtnEnsaios" onclick="switchTab('ensaios')">Ensaios</div>
     <div class="tab" id="tabBtnSessoes" onclick="switchTab('sessoes')">Sessões</div>
     <div class="tab" id="tabBtnJogos" onclick="switchTab('jogos')">Joguinhos</div>
-    <div class="tab" id="tabBtnHistoria" onclick="switchTab('historia')">História</div>
   </div>
 
-  <!-- ===================== 1. ENSAIOS ===================== -->
-  <div id="view-ensaios" class="view active">
+  <!-- ===================== 1. HISTÓRIA (INICIAL) ===================== -->
+  <div id="view-historia" class="view active">
+    <div class="panel">
+      <div class="section-title">O Universo SuperSonoros</div>
+      
+      <div class="grid-2-even">
+        <div class="story-box" style="margin-bottom:0;">
+          <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--blue);">A Liga dos Artistas</h3>
+          <p style="margin:0;color:#333;">SuperSonoros é a liga dos artistas da Guitarríssima. Ser um herói do som não significa possuir poderes mágicos, mas sim desenvolver atitudes diárias que transformam qualquer músico em um artista extraordinário.</p>
+        </div>
+
+        <div class="story-box" style="margin-bottom:0;">
+          <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--ink);">Os 4 Superpoderes</h3>
+          <p style="margin:0;color:#444;">• <strong>Autenticidade:</strong> Ser único e valorizar a própria voz.<br>• <strong>Escuta:</strong> Tocar junto e respeitar o som do grupo.<br>• <strong>Disciplina:</strong> O Repeteco que constrói segurança.<br>• <strong>Iniciativa:</strong> A coragem de dar o primeiro acorde.</p>
+        </div>
+      </div>
+
+      <div class="story-box" style="background:#171512;color:#fff;margin-top:16px;">
+        <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--yellow);">A Grande Batalha</h3>
+        <p style="margin:0;color:#ddd;">Cada ensaio revela um novo comportamento a ser superado. No palco, a união de todos os acordes derrotará a grande ameaça que tenta apagar a música!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== 2. ENSAIOS ===================== -->
+  <div id="view-ensaios" class="view">
     
     <div class="notice-box">
       <div><strong>Atenção às bandas:</strong> Cada banda tem um horário específico de ensaio. Confirme seu horário com a secretaria.</div>
       <div>
-        <a class="btn-whats" href="https://wa.link/isvn9i" target="_blank">Falar com a Secretaria</a>
+        <a class="btn-whats" href="https://wa.link/isvn9i" target="_blank">
+          <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          Falar com a Secretaria
+        </a>
       </div>
     </div>
 
@@ -361,9 +394,8 @@
 
       <div class="grid-detail-cols">
         <div class="panel" style="margin-bottom:0;">
-          <div class="section-title">O que faremos no ensaio</div>
-          <div id="ensAgendaBox"></div>
-
+          
+          <!-- VILÃO AGORA NO TOPO ABSOLUTO DO ENSAIO -->
           <div class="silhouette-card">
             <div class="silhouette-avatar">
               <img id="ensVillainImg" src="" alt="Silhueta do Vilão" class="silhouette-img" />
@@ -373,6 +405,9 @@
               <div style="font-size:13px; color:#ccc; line-height:1.45; margin-top:3px;">Identidade confidencial! Silhueta detectada nos radares da Guitarríssima.</div>
             </div>
           </div>
+
+          <div class="section-title">O que faremos no ensaio</div>
+          <div id="ensAgendaBox"></div>
         </div>
 
         <div class="panel" style="margin-bottom:0;">
@@ -391,7 +426,7 @@
     </div>
   </div>
 
-  <!-- ===================== 2. SESSÕES ===================== -->
+  <!-- ===================== 3. SESSÕES ===================== -->
   <div id="view-sessoes" class="view">
     <div id="view-sessoes-home">
       <div class="panel">
@@ -451,7 +486,7 @@
     </div>
   </div>
 
-  <!-- ===================== 3. JOGUINHOS ===================== -->
+  <!-- ===================== 4. JOGUINHOS ===================== -->
   <div id="view-jogos" class="view">
     <div class="panel">
       <div class="section-title">Joguinhos da Jornada</div>
@@ -483,30 +518,6 @@
           </div>
           <div class="arrow">›</div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== 4. HISTÓRIA ===================== -->
-  <div id="view-historia" class="view">
-    <div class="panel">
-      <div class="section-title">O Universo SuperSonoros</div>
-      
-      <div class="grid-2-even">
-        <div class="story-box" style="margin-bottom:0;">
-          <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--blue);">A Liga dos Artistas</h3>
-          <p style="margin:0;color:#333;">SuperSonoros é a liga dos artistas da Guitarríssima. Ser um herói do som não significa possuir poderes mágicos, mas sim desenvolver atitudes diárias que transformam qualquer músico em um artista extraordinário.</p>
-        </div>
-
-        <div class="story-box" style="margin-bottom:0;">
-          <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--ink);">Os 4 Superpoderes</h3>
-          <p style="margin:0;color:#444;">• <strong>Autenticidade:</strong> Ser único e valorizar a própria voz.<br>• <strong>Escuta:</strong> Tocar junto e respeitar o som do grupo.<br>• <strong>Disciplina:</strong> O Repeteco que constrói segurança.<br>• <strong>Iniciativa:</strong> A coragem de dar o primeiro acorde.</p>
-        </div>
-      </div>
-
-      <div class="story-box" style="background:#171512;color:#fff;margin-top:16px;">
-        <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--yellow);">A Grande Batalha</h3>
-        <p style="margin:0;color:#ddd;">Cada ensaio revela um novo comportamento a ser superado. No palco, a união de todos os acordes derrotará a grande ameaça que tenta apagar a música!</p>
       </div>
     </div>
   </div>
@@ -553,6 +564,10 @@
     if(tabBtn) tabBtn.classList.add("active");
     if(name==="ensaios") goEnsaiosHome();
     if(name==="sessoes") goSessionHome();
+    if(name==="historia" || name==="jogos") {
+      document.getElementById("body").style.background = "#E63946";
+      updateBrandLogo("#E63946");
+    }
   }
 
   /* ---------------- DADOS DOS ENSAIOS ---------------- */
@@ -785,7 +800,7 @@
       *{box-sizing:border-box;}
       body{font-family:Arial,sans-serif;background:#E8792B;color:#171512;margin:0;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
       .box-wrap{width:100%;max-width:380px;text-align:center;}
-      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 8px;text-transform:uppercase;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 8px;}
       .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:12px;text-align:center;margin-bottom:8px;}
       .badgeWrap{width:140px;height:140px;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;}
       .badgeImg{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));}
