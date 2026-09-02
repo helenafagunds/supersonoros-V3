@@ -38,13 +38,17 @@
     z-index:1;
   }
 
-  /* ---- LOGOS E TOPO ---- */
-  .brand-banner{
-    display:flex; align-items:center; justify-content:center; gap:clamp(18px, 4vw, 36px);
+  /* ---- LOGO TOPO (SUPERSONOROS) ---- */
+  .brand-banner-single{
+    display:flex; align-items:center; justify-content:center;
     margin-bottom:20px; padding:6px 0;
   }
-  .logo-gta{height:clamp(44px, 5vw, 64px); width:auto; max-width:45%; object-fit:contain;}
-  .logo-super{height:clamp(72px, 8vw, 104px); width:auto; max-width:50%; object-fit:contain;}
+  .logo-super{
+    height:clamp(80px, 10vw, 120px);
+    width:auto; max-width:85%; object-fit:contain;
+    filter:drop-shadow(4px 4px 0 var(--ink));
+    transition:transform .2s ease;
+  }
 
   .header-intro{text-align:center; margin-bottom:24px;}
   .eyebrow{
@@ -187,14 +191,34 @@
     text-shadow:1px 1px 0 rgba(0,0,0,0.1);
   }
 
-  /* ---- AJUSTE ORDINAL (1º, 2º...) ---- */
-  .lineup-row{display:flex; justify-content:space-between; align-items:center; padding:11px 0; border-bottom:2px dashed #e6e0d2; font-size:15px;}
+  /* ---- ORDEM DE APRESENTAÇÃO: SELO NA ESQUERDA, NOME NA DIREITA ---- */
+  .lineup-row{
+    display:flex; align-items:center; gap:14px; padding:10px 0; border-bottom:2px dashed #e6e0d2; font-size:15px;
+  }
   .lineup-row:last-child{border-bottom:none;}
   .lineup-order{
-    font-family:'Bangers', cursive; color:var(--blue); font-size:22px; white-space:nowrap; margin-left:10px; display:inline-flex; align-items:baseline;
+    font-family:'Bangers', cursive;
+    background:var(--blue);
+    color:#fff;
+    border:2px solid var(--ink);
+    border-radius:999px;
+    padding:2px 8px;
+    font-size:15px;
+    letter-spacing:0.5px;
+    box-shadow:2px 2px 0 var(--ink);
+    flex-shrink:0;
+    width:36px;
+    height:22px;
+    box-sizing:border-box;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
   }
-  .ord-symbol{
-    font-family:'Comic Neue', cursive, sans-serif; font-size:14px; font-weight:900; margin-left:1px; vertical-align:super;
+  .lineup-name{
+    flex:1;
+    font-size:15px;
+    font-weight:700;
   }
 
   .info-item{display:block; margin-bottom:10px; font-size:14.5px; line-height:1.45;}
@@ -237,7 +261,44 @@
   /* ---- HISTÓRIA ---- */
   .story-box{background:#fff; border:3px solid var(--ink); border-radius:16px; padding:16px 18px; font-size:14.5px; line-height:1.55;}
 
-  footer.credit{text-align:center; color:rgba(255,255,255,.9); font-size:14px; margin-top:24px; letter-spacing:.3px;}
+  /* ---- RODAPÉ INSTITUCIONAL (REALIZADO POR: GUITARRÍSSIMA) ---- */
+  .footer-signature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 36px;
+  }
+  .footer-label {
+    font-family: 'Bangers', cursive;
+    font-size: 15px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 1.5px 1.5px 0 rgba(0,0,0,0.5);
+  }
+  .footer-logo-card {
+    background: #FFFFFF;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 8px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-gta-footer {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+  }
+  .footer-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+  }
+
   .hidden{display:none !important;}
 
   /* ---- MODAL DE JOGOS ---- */
@@ -251,14 +312,13 @@
 <body id="body">
 <div class="stage">
 
-  <!-- LOGOS SOLTAS SEM BOX -->
-  <div class="brand-banner">
-    <img src="logo-gta.png" alt="Guitarríssima" class="logo-gta" />
-    <img src="logo-super.png" alt="SuperSonoros" class="logo-super" />
+  <!-- LOGO DO TOPO (COM TROCA DINÂMICA DE CONTRASTE) -->
+  <div class="brand-banner-single">
+    <img id="mainLogo" src="logo-super.png" alt="SuperSonoros" class="logo-super" />
   </div>
 
   <div class="header-intro">
-    <span class="eyebrow">Guitarríssima · Espetáculo de final de ano</span>
+    <span class="eyebrow">Espetáculo de final de ano</span>
     <p class="lede">Acompanhe tudo sobre o universo supersonoros: Ensaios, sessões do show, fotos dos ensaios e os joguinhos da jornada — tudo num só lugar.</p>
   </div>
 
@@ -451,7 +511,15 @@
     </div>
   </div>
 
-  <footer class="credit">Guitarríssima · Ser único é o seu superpoder.</footer>
+  <!-- RODAPÉ INSTITUCIONAL (REALIZADO POR: GUITARRÍSSIMA) -->
+  <footer class="footer-signature">
+    <div class="footer-label">Realizado por:</div>
+    <div class="footer-logo-card">
+      <img src="logo-gta.png" alt="Guitarríssima" class="logo-gta-footer">
+    </div>
+    <div class="footer-sub">Ser único é o seu superpoder.</div>
+  </footer>
+
 </div>
 
 <!-- MODAL -->
@@ -463,6 +531,19 @@
 </div>
 
 <script>
+  /* ---------------- CONTROLE DA LOGO DINÂMICA ---------------- */
+  function updateBrandLogo(color) {
+    const logo = document.getElementById("mainLogo");
+    if (!logo) return;
+    
+    // Troca para a logo vermelha quando o fundo for roxo, verde ou azul
+    if (color === "#8E5FC7" || color === "#3CB878" || color === "#2C4E9B") {
+      logo.src = "logo-super-vermelho.png";
+    } else {
+      logo.src = "logo-super.png";
+    }
+  }
+
   /* ---------------- TABS ---------------- */
   function switchTab(name){
     document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
@@ -560,6 +641,8 @@
     vImg.alt = "Silhueta " + e.villain;
 
     document.getElementById("body").style.background = e.color;
+    updateBrandLogo(e.color);
+
     document.getElementById("view-ensaios-home").classList.add("hidden");
     document.getElementById("view-ensaio-detail").classList.remove("hidden");
     window.scrollTo(0,0);
@@ -567,6 +650,8 @@
 
   function goEnsaiosHome(){
     document.getElementById("body").style.background = "#E63946";
+    updateBrandLogo("#E63946");
+
     document.getElementById("view-ensaio-detail").classList.add("hidden");
     document.getElementById("view-ensaios-home").classList.remove("hidden");
     window.scrollTo(0,0);
@@ -604,15 +689,16 @@
     const s = SESSIONS.find(x=>x.id===id);
     document.getElementById("sessTitle").textContent = s.name;
     document.getElementById("sessSubtitle").textContent = s.date + " · Início às " + s.time + " · Teatro Unisinos";
+    
     document.getElementById("body").style.background = s.color;
+    updateBrandLogo(s.color);
 
     const box = document.getElementById("lineupList");
     box.innerHTML = "";
     s.lineup.forEach((band,i)=>{
       const row = document.createElement("div");
       row.className = "lineup-row";
-      /* Correção definitiva com ordinal elevado e fonte adequada */
-      row.innerHTML = "<span>"+band+"</span><span class=\"lineup-order\">"+(i+1)+"<sup class=\"ord-symbol\">º</sup></span>";
+      row.innerHTML = "<span class=\"lineup-order\">#" + (i+1) + "</span><span class=\"lineup-name\">" + band + "</span>";
       box.appendChild(row);
     });
 
@@ -623,6 +709,8 @@
 
   function goSessionHome(){
     document.getElementById("body").style.background = "#E63946";
+    updateBrandLogo("#E63946");
+
     document.getElementById("view-session").classList.add("hidden");
     document.getElementById("view-sessoes-home").classList.remove("hidden");
     window.scrollTo(0,0);
@@ -785,11 +873,9 @@
         var heroText = document.getElementById("nameOut").textContent;
         var imgSource = document.getElementById("badgeImg");
 
-        /* 1. Fundo estilizado */
         ctx.fillStyle = curInsignia.color;
         ctx.fillRect(0, 0, 900, 900);
 
-        /* Padrão de pontos */
         ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
         for (var x = 20; x < 900; x += 30) {
           for (var y = 20; y < 900; y += 30) {
@@ -799,32 +885,27 @@
           }
         }
 
-        /* 2. Moldura estilo quadrinhos */
         ctx.lineWidth = 18;
         ctx.strokeStyle = "#171512";
         ctx.strokeRect(9, 9, 882, 882);
 
-        /* 3. Desenhar a insígnia */
         try {
           var imgSize = 560;
           ctx.drawImage(imgSource, (900 - imgSize) / 2, 90, imgSize, imgSize);
         } catch(e){}
 
-        /* 4. Caixa de texto com sombra */
         ctx.fillStyle = "#FBF6EA";
         ctx.lineWidth = 10;
         ctx.strokeStyle = "#171512";
         ctx.fillRect(100, 680, 700, 110);
         ctx.strokeRect(100, 680, 700, 110);
 
-        /* 5. Nome do Herói */
         ctx.fillStyle = "#171512";
         ctx.font = "bold 52px Arial, sans-serif";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(heroText, 450, 735);
 
-        /* 6. Crédito da Liga */
         ctx.fillStyle = "#F4C531";
         ctx.font = "bold 26px Arial, sans-serif";
         ctx.shadowColor = "#171512";
@@ -833,7 +914,6 @@
         ctx.fillText("SUPERSONOROS · GUITARRÍSSIMA", 450, 835);
         ctx.shadowColor = "transparent";
 
-        /* 7. Disparar Compartilhamento ou Download */
         canvas.toBlob(function(blob){
           var safeName = heroText.toLowerCase().replace(/[^a-z0-9]/g, "-");
           var file = new File([blob], "insignia-" + safeName + ".png", { type: "image/png" });
