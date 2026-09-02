@@ -234,7 +234,7 @@
   footer.credit{text-align:center; color:rgba(255,255,255,.9); font-size:14px; margin-top:24px; letter-spacing:.3px;}
   .hidden{display:none !important;}
 
-  /* ---- MODAL DE JOGOS (ALTURA AUTO-AJUSTÁVEL) ---- */
+  /* ---- MODAL DE JOGOS ---- */
   .modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,.75); display:none; align-items:center; justify-content:center; z-index:50; padding:16px;}
   .modal-overlay.show{display:flex;}
   .modal-box{width:100%; max-width:440px; max-height:90vh; background:transparent; border-radius:20px; position:relative;}
@@ -605,7 +605,6 @@
     s.lineup.forEach((band,i)=>{
       const row = document.createElement("div");
       row.className = "lineup-row";
-      /* Ajuste de 1º, 2º, 3º... */
       row.innerHTML = "<span>"+band+"</span><span class=\"lineup-order\">"+(i+1)+"&ordm;</span>";
       box.appendChild(row);
     });
@@ -689,94 +688,82 @@
 
     insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
       *{box-sizing:border-box;}
-      body{font-family:Arial,sans-serif;background:#E8792B;color:#171512;margin:0;padding:12px;min-height:100vh;}
-      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:12px;text-align:center;max-width:380px;margin:0 auto 10px;}
-      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;text-align:center;margin:0 0 8px;}
-      .badgeWrap{width:110px;height:110px;margin:0 auto 4px;}
-      .row{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-start;margin-bottom:6px;}
-      .chip{width:26px;height:26px;border-radius:50%;border:2px solid #171512;cursor:pointer;}
-      .chip.sel{outline:3px solid #171512;transform:scale(1.1);}
-      .item-btn{padding:5px 8px;background:#fff;border:2px solid #171512;border-radius:6px;font-weight:bold;font-size:11px;cursor:pointer;}
-      .item-btn.sel{background:#F4C531;}
+      body{font-family:Arial,sans-serif;background:#E8792B;color:#171512;margin:0;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
+      .box-wrap{width:100%;max-width:380px;text-align:center;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 8px;}
+      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:12px;text-align:center;margin-bottom:8px;}
+      .badgeWrap{width:140px;height:140px;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;}
+      .badgeImg{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));}
+      .name{font-weight:900;font-size:15px;text-transform:uppercase;margin-top:3px;color:#171512;letter-spacing:0.5px;}
+      .row{display:flex;gap:8px;justify-content:center;margin-bottom:8px;}
+      .chip{width:32px;height:32px;border-radius:50%;border:2px solid #171512;cursor:pointer;box-shadow:2px 2px 0 var(--ink);transition:transform .1s ease;}
+      .chip.sel{outline:3px solid #171512;transform:scale(1.15);}
       .input-wrap{width:100%;margin-top:2px;}
       input{width:100%;box-sizing:border-box;padding:8px 10px;border:2px solid #171512;border-radius:8px;font-size:13px;text-align:center;font-weight:bold;}
-      .name{font-weight:900;font-size:14px;text-transform:uppercase;margin-top:3px;color:#171512;}
-      .lbl{font-weight:900;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#666;margin:4px 0 3px;}
+      .lbl{font-weight:900;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#666;margin:4px 0 6px;}
     </style></head><body>
-    <h1>MONTE SUA INSÍGNIA</h1>
-    <div class="panel">
-      <div class="badgeWrap" id="badgeSvg"></div>
-      <div class="name" id="nameOut">HERÓI DO SOM</div>
-    </div>
-    <div class="panel" style="text-align:left;">
-      <div class="lbl">1. FORMATO DO BRASÃO</div>
-      <div class="row">
-        <button class="item-btn sel" onclick="setShape('star',this)">⭐ Estrela</button>
-        <button class="item-btn" onclick="setShape('shield',this)">🛡️ Escudo</button>
-        <button class="item-btn" onclick="setShape('circle',this)">⭕ Círculo</button>
+    <div class="box-wrap">
+      <h1>MONTE SUA INSÍGNIA</h1>
+      <div class="panel">
+        <div class="badgeWrap">
+          <img id="badgeImg" src="insigniavermelha.png.jpg" alt="Insígnia Guitarríssima" class="badgeImg" />
+        </div>
+        <div class="name" id="nameOut">HERÓI DO SOM</div>
       </div>
+      <div class="panel" style="text-align:left;">
+        <div class="lbl" style="text-align:center;">1. ESCOLHA A COR DA SUA INSÍGNIA</div>
+        <div class="row" id="colorsBox"></div>
 
-      <div class="lbl">2. SÍMBOLO CENTRAL</div>
-      <div class="row">
-        <button class="item-btn sel" onclick="setIcon('⚡',this)">⚡ Raio</button>
-        <button class="item-btn" onclick="setIcon('🎸',this)">🎸 Guitarra</button>
-        <button class="item-btn" onclick="setIcon('🎧',this)">🎧 Fone</button>
-        <button class="item-btn" onclick="setIcon('🎵',this)">🎵 Nota</button>
-      </div>
-
-      <div class="lbl">3. COR DA LIGA</div>
-      <div class="row" id="colorsBox"></div>
-
-      <div class="lbl">4. CODINOME</div>
-      <div class="input-wrap">
-        <input type="text" id="heroName" placeholder="Seu nome heróico" maxlength="16">
+        <div class="lbl" style="text-align:center;margin-top:6px;">2. DIGITE SEU CODINOME</div>
+        <div class="input-wrap">
+          <input type="text" id="heroName" placeholder="Seu nome heróico" maxlength="16">
+        </div>
       </div>
     </div>
     <script>
-      const COLORS=["#E63946","#2C4E9B","#8E5FC7","#D9A62B","#E8792B","#3CB878","#171512"];
-      let curColor=COLORS[0], curShape='star', curIcon='⚡';
+      var INSIGNIAS = [
+        { color: "#E63946", name: "Vermelha", file: "insigniavermelha.png.jpg" },
+        { color: "#2C4E9B", name: "Azul",     file: "insigniaazul.png.jpg" },
+        { color: "#8E5FC7", name: "Roxa",     file: "insigniaroxa.png.jpg" },
+        { color: "#E8792B", name: "Laranja",  file: "insignialaranja.png.jpg" },
+        { color: "#3CB878", name: "Verde",    file: "insigniaverde.png.jpg" },
+        { color: "#E06292", name: "Rosa",     file: "insigniarosa.png.jpg" }
+      ];
 
-      function renderBadge(){
-        let path="";
-        if(curShape==='star'){
-          path='<polygon points="100,4 118,60 175,40 142,88 196,100 142,112 175,160 118,140 100,196 82,140 25,160 58,112 4,100 58,88 25,40 82,60" fill="'+curColor+'" stroke="#171512" stroke-width="8"/>';
-        } else if(curShape==='shield'){
-          path='<path d="M100 10 L180 40 L180 120 Q180 180 100 196 Q20 180 20 120 L20 40 Z" fill="'+curColor+'" stroke="#171512" stroke-width="8"/>';
-        } else {
-          path='<circle cx="100" cy="100" r="90" fill="'+curColor+'" stroke="#171512" stroke-width="8"/>';
-        }
-        document.getElementById("badgeSvg").innerHTML =
-          '<svg viewBox="0 0 200 200" width="100%" height="100%">' + path +
-          '<text x="100" y="115" font-size="60" text-anchor="middle" dominant-baseline="middle">'+curIcon+'</text></svg>';
+      var curInsignia = INSIGNIAS[0];
+
+      function setBadge(item){
+        curInsignia = item;
+        var img = document.getElementById("badgeImg");
+        img.onerror = function(){
+          if(this.src.indexOf('.jpg') !== -1){
+            this.src = item.file.replace('.png.jpg', '.png');
+          } else if(this.src.indexOf('.png') !== -1) {
+            this.src = item.file.replace('.png.jpg', '.jpg');
+          }
+        };
+        img.src = item.file;
+        renderColors();
       }
 
-      function setShape(s,btn){
-        curShape=s;
-        btn.parentElement.querySelectorAll('.item-btn').forEach(b=>b.classList.remove('sel'));
-        btn.classList.add('sel');
-        renderBadge();
-      }
-      function setIcon(i,btn){
-        curIcon=i;
-        btn.parentElement.querySelectorAll('.item-btn').forEach(b=>b.classList.remove('sel'));
-        btn.classList.add('sel');
-        renderBadge();
-      }
       function renderColors(){
-        const box=document.getElementById("colorsBox");
-        box.innerHTML="";
-        COLORS.forEach(c=>{
-          const d=document.createElement("div");
-          d.className="chip"+(c===curColor?" sel":"");
-          d.style.background=c;
-          d.onclick=()=>{curColor=c;renderColors();renderBadge();};
+        var box = document.getElementById("colorsBox");
+        box.innerHTML = "";
+        INSIGNIAS.forEach(function(item){
+          var d = document.createElement("div");
+          d.className = "chip" + (item.file === curInsignia.file ? " sel" : "");
+          d.style.background = item.color;
+          d.title = item.name;
+          d.onclick = function(){ setBadge(item); };
           box.appendChild(d);
         });
       }
-      document.getElementById("heroName").addEventListener("input",e=>{
+
+      document.getElementById("heroName").addEventListener("input", function(e){
         document.getElementById("nameOut").textContent = e.target.value.trim() ? e.target.value.toUpperCase() : "HERÓI DO SOM";
       });
-      renderColors(); renderBadge();
+
+      setBadge(INSIGNIAS[0]);
     <\/script>
     </body></html>`,
 
@@ -821,7 +808,6 @@
           document.getElementById("status").textContent="Os SuperSonoros venceram!";
           return;
         }
-        /* Garante que não repete a pergunta imediatamente anterior */
         let nextIdx;
         do {
           nextIdx = Math.floor(Math.random() * TARGETS.length);
@@ -852,14 +838,13 @@
   };
 
   function openGame(key){
-    /* Ajusta a altura da janela conforme o jogo */
     const frame = document.getElementById("gameFrame");
     if(key === 'quiz') {
-      frame.style.height = "420px";
+      frame.style.height = "380px";
     } else if(key === 'insignia') {
-      frame.style.height = "520px";
+      frame.style.height = "470px";
     } else {
-      frame.style.height = "450px";
+      frame.style.height = "440px";
     }
     frame.srcdoc = GAMES[key];
     document.getElementById("gameModal").classList.add("show");
@@ -874,4 +859,4 @@
   renderSessions();
 </script>
 </body>
-</html>0
+</html>
