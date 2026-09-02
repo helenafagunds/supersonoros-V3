@@ -90,6 +90,69 @@
   .view{display:none;}
   .view.active{display:block;}
 
+  /* ---- ESTILOS VISUAIS HQ COM IMAGENS (HISTÓRIA) ---- */
+  .comic-prologue-card{
+    background:#fff; border:3.5px solid var(--ink); border-radius:18px; padding:18px;
+    box-shadow:5px 5px 0 var(--ink); margin-bottom:24px; position:relative;
+    display:flex; flex-direction:column; gap:16px; align-items:center;
+  }
+  @media(min-width:720px){
+    .comic-prologue-card{
+      flex-direction:row; padding:22px; gap:24px;
+    }
+  }
+  .prologue-img-wrap{
+    width:130px; height:130px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    background:#FFF9E6; border:3px solid var(--ink); border-radius:18px; box-shadow:3px 3px 0 var(--ink);
+    padding:6px;
+  }
+  .prologue-img{width:100%; height:100%; object-fit:contain; filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));}
+  .comic-tag{
+    position:absolute; top:-13px; left:18px; background:var(--ink); color:var(--yellow);
+    font-family:'Bangers', cursive; font-size:13.5px; letter-spacing:1.5px; padding:3px 14px;
+    border-radius:6px; text-transform:uppercase;
+  }
+
+  .comic-act-header{
+    text-align:center; margin:16px 0 18px;
+  }
+  .comic-badge-act{
+    display:inline-block; font-family:'Bangers', cursive; font-size:15px; letter-spacing:1px;
+    text-transform:uppercase; background:var(--red); color:#fff; border:2.5px solid var(--ink);
+    padding:4px 16px; border-radius:999px; box-shadow:3px 3px 0 var(--ink); margin-bottom:4px;
+  }
+
+  /* CARDS VISUAIS DE VILÕES */
+  .comic-villain-strip{
+    display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:24px;
+  }
+  @media(min-width:720px){
+    .comic-villain-strip{
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+  }
+  .comic-villain-card{
+    background:#fff; border:3.5px solid var(--ink); border-radius:18px; padding:16px;
+    box-shadow:5px 5px 0 var(--ink); display:flex; gap:16px; align-items:center;
+  }
+  .villain-avatar-box{
+    width:88px; height:120px; background:#171512; border:3px solid var(--ink); border-radius:14px;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:6px;
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .villain-silhouette{width:100%; height:100%; object-fit:contain; filter:invert(1);}
+  .villain-body-box{flex:1;}
+  .villain-threat-badge{
+    font-family:'Bangers', cursive; font-size:12.5px; letter-spacing:.8px; text-transform:uppercase;
+    color:#fff; padding:2px 8px; border-radius:999px; border:2px solid var(--ink); display:inline-block; margin-bottom:4px;
+  }
+  .villain-comic-phrase{
+    font-family:'Comic Neue', cursive; font-style:italic; font-size:13.5px; color:#222;
+    background:#FBF6EA; border-left:3.5px solid var(--ink); padding:6px 10px; border-radius:4px;
+    margin:6px 0 0; line-height:1.35;
+  }
+
   /* ---- AVISO DE ENSAIO COM WHATSAPP ---- */
   .notice-box{
     background:#FFF9E6; border:3px solid var(--ink); border-radius:16px;
@@ -235,7 +298,7 @@
     text-shadow:1px 1px 0 rgba(0,0,0,0.35);
   }
 
-  /* ---- SILHUETAS & VILÕES (DESTAQUE NO TOPO) ---- */
+  /* ---- SILHUETAS & VILÕES (NOS ENSAIOS) ---- */
   .silhouette-card{
     display:flex; gap:16px; align-items:center; background:#171512; color:#fff;
     border-radius:16px; padding:16px 18px; border:3px solid var(--ink); box-shadow:4px 4px 0 var(--ink);
@@ -326,7 +389,7 @@
     <p class="lede">Acompanhe tudo sobre o universo supersonoros: Ensaios, sessões do show, fotos dos ensaios e os joguinhos da jornada — tudo num só lugar.</p>
   </div>
 
-  <!-- ABAS (HISTÓRIA AGORA É A 1ª) -->
+  <!-- ABAS (HISTÓRIA É A 1ª) -->
   <div class="tabs">
     <div class="tab active" id="tabBtnHistoria" onclick="switchTab('historia')">História</div>
     <div class="tab" id="tabBtnEnsaios" onclick="switchTab('ensaios')">Ensaios</div>
@@ -334,28 +397,107 @@
     <div class="tab" id="tabBtnJogos" onclick="switchTab('jogos')">Joguinhos</div>
   </div>
 
-  <!-- ===================== 1. HISTÓRIA (INICIAL) ===================== -->
+  <!-- ===================== 1. HISTÓRIA (ESTRUTURA VISUAL HQ COM IMAGENS) ===================== -->
   <div id="view-historia" class="view active">
+    
     <div class="panel">
-      <div class="section-title">O Universo SuperSonoros</div>
       
-      <div class="grid-2-even">
-        <div class="story-box" style="margin-bottom:0;">
-          <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--blue);">A Liga dos Artistas</h3>
-          <p style="margin:0;color:#333;">SuperSonoros é a liga dos artistas da Guitarríssima. Ser um herói do som não significa possuir poderes mágicos, mas sim desenvolver atitudes diárias que transformam qualquer músico em um artista extraordinário.</p>
+      <!-- CAPÍTULO 1: O CHAMADO COM INSÍGNIA -->
+      <div class="comic-prologue-card">
+        <span class="comic-tag">Capítulo 1 · O Chamado da Liga</span>
+        <div class="prologue-img-wrap">
+          <img src="insigniavermelha.png" alt="Brasão SuperSonoros" class="prologue-img" />
         </div>
-
-        <div class="story-box" style="margin-bottom:0;">
-          <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--ink);">Os 4 Superpoderes</h3>
-          <p style="margin:0;color:#444;">• <strong>Autenticidade:</strong> Ser único e valorizar a própria voz.<br>• <strong>Escuta:</strong> Tocar junto e respeitar o som do grupo.<br>• <strong>Disciplina:</strong> O Repeteco que constrói segurança.<br>• <strong>Iniciativa:</strong> A coragem de dar o primeiro acorde.</p>
+        <div style="flex:1;">
+          <h2 style="font-family:'Bangers', cursive; font-size:23px; color:var(--red); margin:0 0 8px; text-transform:uppercase;">Toda Grande Jornada Começa por Dentro</h2>
+          <p style="margin:0 0 8px; color:#222; font-size:14.5px; line-height:1.5;">SuperSonoros é a liga dos artistas da Guitarríssima. Aqui, ninguém nasce pronto, ninguém nasce herói e ninguém vence por mágica.</p>
+          <p style="margin:0; color:#444; font-size:14px; line-height:1.5;">O artista extraordinário é forjado nas escolhas repetidas a cada ensaio. Mas antes de subir ao palco, quatro forças silenciosas tentam enfraquecer a verdade da nossa música...</p>
         </div>
       </div>
 
-      <div class="story-box" style="background:#171512;color:#fff;margin-top:16px;">
-        <h3 style="font-family:'Bangers', cursive; font-size:19px; letter-spacing:1px; margin:0 0 8px; text-transform:uppercase; color:var(--yellow);">A Grande Batalha</h3>
-        <p style="margin:0;color:#ddd;">Cada ensaio revela um novo comportamento a ser superado. No palco, a união de todos os acordes derrotará a grande ameaça que tenta apagar a música!</p>
+      <!-- CAPÍTULO 2: AS 4 AMEAÇAS VELADAS (COM AS SILHUETAS REAIS) -->
+      <div class="comic-act-header">
+        <span class="comic-badge-act">Capítulo 2 · Os Quatro Comportamentos Secretos</span>
       </div>
+
+      <div class="comic-villain-strip">
+        
+        <!-- AMEAÇA 1: SILHUETA COPIÃO -->
+        <div class="comic-villain-card" style="border-top:8px solid var(--purple);">
+          <div class="villain-avatar-box">
+            <img src="Silhueta_Copiao (1).png" alt="Ameaça Misteriosa 1" class="villain-silhouette" />
+          </div>
+          <div class="villain-body-box">
+            <span class="villain-threat-badge" style="background:var(--purple);">Desperta: Autenticidade</span>
+            <div style="font-family:'Bangers', cursive; font-size:18px; color:var(--purple); margin:3px 0 2px;">A Sombra da Imitação</div>
+            <div style="font-size:13px; color:#555; line-height:1.35;">Ele não cria nada do zero. Convence o músico a copiar até apagar a própria identidade.</div>
+            <div class="villain-comic-phrase">"Pra que arriscar? É bem mais fácil ser idêntico ao original!"</div>
+          </div>
+        </div>
+
+        <!-- AMEAÇA 2: SILHUETA DECIBÉIS -->
+        <div class="comic-villain-card" style="border-top:8px solid var(--gold);">
+          <div class="villain-avatar-box">
+            <img src="Silhueta_Decibeis (1).png" alt="Ameaça Misteriosa 2" class="villain-silhouette" />
+          </div>
+          <div class="villain-body-box">
+            <span class="villain-threat-badge" style="background:var(--gold);">Desperta: Escuta Coletiva</span>
+            <div style="font-family:'Bangers', cursive; font-size:18px; color:var(--gold); margin:3px 0 2px;">O Duelo Ensurdecedor</div>
+            <div style="font-size:13px; color:#555; line-height:1.35;">Transformam a banda em disputa. Cada um toca mais alto e ninguém ouve o grupo.</div>
+            <div class="villain-comic-phrase">"Toque mais forte! O importante é todo mundo ouvir só você!"</div>
+          </div>
+        </div>
+
+        <!-- AMEAÇA 3: SILHUETA O ENSAIADOR -->
+        <div class="comic-villain-card" style="border-top:8px solid var(--orange);">
+          <div class="villain-avatar-box">
+            <img src="Silhueta_O_Ensaiador (1).png" alt="Ameaça Misteriosa 3" class="villain-silhouette" />
+          </div>
+          <div class="villain-body-box">
+            <span class="villain-threat-badge" style="background:var(--orange);">Desperta: Disciplina / Repeteco</span>
+            <div style="font-family:'Bangers', cursive; font-size:18px; color:var(--orange); margin:3px 0 2px;">A Falsa Segurança</div>
+            <div style="font-size:13px; color:#555; line-height:1.35;">Festeja o primeiro acerto por acaso e convence o aluno a parar antes da hora.</div>
+            <div class="villain-comic-phrase">"Acertou uma vez, já chega! No palco a sorte resolve tudo!"</div>
+          </div>
+        </div>
+
+        <!-- AMEAÇA 4: SILHUETA VÉSPERA -->
+        <div class="comic-villain-card" style="border-top:8px solid var(--green);">
+          <div class="villain-avatar-box">
+            <img src="Vespera_silhueta (1).png" alt="Ameaça Misteriosa 4" class="villain-silhouette" />
+          </div>
+          <div class="villain-body-box">
+            <span class="villain-threat-badge" style="background:var(--green);">Desperta: Iniciativa</span>
+            <div style="font-family:'Bangers', cursive; font-size:18px; color:var(--green); margin:3px 0 2px;">O Medo do Primeiro Acorde</div>
+            <div style="font-size:13px; color:#555; line-height:1.35;">Ela surge no último segundo antes do palco, plantando a dúvida que paralisa.</div>
+            <div class="villain-comic-phrase">"E se você errar na frente de todos? Melhor não tocar hoje..."</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CAPÍTULO 3: O CONFRONTO FINAL -->
+      <div class="panel" style="background:#171512; color:#fff; border-color:var(--yellow); box-shadow:none; margin:0 0 20px; padding:20px;">
+        <div style="margin-bottom:10px;">
+          <span style="background:var(--yellow); color:var(--ink); font-family:'Bangers', cursive; font-size:13.5px; letter-spacing:1px; padding:3px 12px; border-radius:999px; text-transform:uppercase;">Capítulo 3 · O Alimento da Sombra</span>
+        </div>
+        <h3 style="font-family:'Bangers', cursive; font-size:22px; letter-spacing:1.2px; color:var(--yellow); margin:0 0 8px; text-transform:uppercase;">A Batalha Final: A Criatura que Devora o Som</h3>
+        <p style="margin:0 0 10px; color:#ddd; font-size:14px; line-height:1.55;">As quatro armadilhas tinham um propósito secreto: produzir músicas vazias, descuidadas e desatentas — o único alimento que fortalece a Grande Ameaça das Sombras.</p>
+        <p style="margin:0; color:#fff; font-size:14px; line-height:1.55;"><strong>A Fraqueza Mortal:</strong> No grande espetáculo, os SuperSonoros não vencem com força bruta. Eles reúnem <strong>Autenticidade, Escuta, Disciplina e Iniciativa</strong> num só acorde. Quando a música é verdadeira e viva, nenhuma escuridão consegue devorá-la!</p>
+      </div>
+
+      <!-- CAPÍTULO 4: A GRANDE LIÇÃO -->
+      <div class="comic-prologue-card" style="background:#FFF9E6; border-color:var(--ink); margin-bottom:0; text-align:center; justify-content:center;">
+        <div style="max-width:800px; margin:0 auto;">
+          <span class="comic-tag" style="background:var(--red); color:#fff;">Capítulo 4 · A Vitória Real</span>
+          <h2 style="font-family:'Bangers', cursive; font-size:24px; color:var(--ink); margin:6px 0 8px; text-transform:uppercase;">Você Não Vence no Palco. Você Vence nos Ensaios!</h2>
+          <p style="margin:0 0 12px; color:#333; font-size:14.5px; line-height:1.55;">No dia do show, os artistas apenas celebram o que já conquistaram. A vitória aconteceu a cada Repeteco, a cada escuta atenta dos colegas e na coragem de continuar.</p>
+          <div style="font-family:'Bangers', cursive; font-size:24px; letter-spacing:1px; color:var(--red); text-transform:uppercase; text-shadow:1px 1px 0 rgba(0,0,0,0.15);">SER ÚNICO É O SEU SUPERPODER!</div>
+        </div>
+      </div>
+
     </div>
+
   </div>
 
   <!-- ===================== 2. ENSAIOS ===================== -->
@@ -395,7 +537,7 @@
       <div class="grid-detail-cols">
         <div class="panel" style="margin-bottom:0;">
           
-          <!-- VILÃO AGORA NO TOPO ABSOLUTO DO ENSAIO -->
+          <!-- VILÃO NO TOPO DO ENSAIO -->
           <div class="silhouette-card">
             <div class="silhouette-avatar">
               <img id="ensVillainImg" src="" alt="Silhueta do Vilão" class="silhouette-img" />
@@ -570,11 +712,11 @@
     }
   }
 
-  /* ---------------- DADOS DOS ENSAIOS ---------------- */
+  /* ---------------- DADOS DOS ENSAIOS (VINCULADOS ÀS SILHUETAS REAIS) ---------------- */
   const ENSAIOS = [
     { 
       id:1, name:"Ensaio 1", date:"12/09 (sáb)", color:"#8E5FC7", villain:"Vilão 1", 
-      img:"vilao1.png",
+      img:"Silhueta_Copiao (1).png",
       agenda: `
         <p style="margin:0 0 10px;font-size:14.5px;"><strong>Superpoder trabalhado:</strong> Autenticidade (descobrir a própria voz e criar identidade)</p>
         <ul class="agenda-list">
@@ -587,7 +729,7 @@
     },
     { 
       id:2, name:"Ensaio 2", date:"27/09 (dom)", color:"#D9A62B", villain:"Vilão 2", 
-      img:"vilao2.png",
+      img:"Silhueta_Decibeis (1).png",
       agenda: `
         <p style="margin:0 0 10px;font-size:14.5px;"><strong>Superpoder trabalhado:</strong> Escuta (tocar junto e equilibrar o som do grupo)</p>
         <ul class="agenda-list">
@@ -606,7 +748,7 @@
     },
     { 
       id:3, name:"Ensaio 3", date:"03/10 (sáb)", color:"#E8792B", villain:"Vilão 3", 
-      img:"vilao3.png",
+      img:"Silhueta_O_Ensaiador (1).png",
       agenda: `
         <p style="margin:0 0 10px;font-size:14.5px;"><strong>Superpoder trabalhado:</strong> Disciplina (o método do Repeteco)</p>
         <ul class="agenda-list">
@@ -617,7 +759,7 @@
     },
     { 
       id:4, name:"Ensaio 4", date:"17/10 (sáb)", color:"#3CB878", villain:"Vilão 4", 
-      img:"vilao4.png",
+      img:"Vespera_silhueta (1).png",
       agenda: `
         <p style="margin:0 0 10px;font-size:14.5px;"><strong>Superpoder trabalhado:</strong> Iniciativa (coragem para subir ao palco)</p>
         <ul class="agenda-list">
@@ -819,7 +961,7 @@
       <h1>MONTE SUA INSÍGNIA</h1>
       <div class="panel">
         <div class="badgeWrap">
-          <img id="badgeImg" src="insigniavermelha.png.jpg" alt="Insígnia Guitarríssima" class="badgeImg" />
+          <img id="badgeImg" src="insigniavermelha.png" alt="Insígnia Guitarríssima" class="badgeImg" />
         </div>
         <div class="name" id="nameOut">HERÓI DO SOM</div>
       </div>
@@ -841,12 +983,12 @@
 
     <script>
       var INSIGNIAS = [
-        { color: "#E63946", name: "Vermelha", file: "insigniavermelha.png.jpg" },
-        { color: "#2C4E9B", name: "Azul",     file: "insigniaazul.png.jpg" },
-        { color: "#8E5FC7", name: "Roxa",     file: "insigniaroxa.png.jpg" },
-        { color: "#E8792B", name: "Laranja",  file: "insignialaranja.png.jpg" },
-        { color: "#3CB878", name: "Verde",    file: "insigniaverde.png.jpg" },
-        { color: "#E06292", name: "Rosa",     file: "insigniarosa.png.jpg" }
+        { color: "#E63946", name: "Vermelha", file: "insigniavermelha.png" },
+        { color: "#2C4E9B", name: "Azul",     file: "insigniaazul.png" },
+        { color: "#8E5FC7", name: "Roxa",     file: "insigniaroxa.png" },
+        { color: "#E8792B", name: "Laranja",  file: "insignialaranja.png" },
+        { color: "#3CB878", name: "Verde",    file: "insigniaverde.png" },
+        { color: "#E06292", name: "Rosa",     file: "insigniarosa.png" }
       ];
 
       var curInsignia = INSIGNIAS[0];
@@ -855,10 +997,8 @@
         curInsignia = item;
         var img = document.getElementById("badgeImg");
         img.onerror = function(){
-          if(this.src.indexOf('.png.jpg') !== -1){
-            this.src = item.file.replace('.png.jpg', '.png');
-          } else if(this.src.indexOf('.png') !== -1) {
-            this.src = item.file.replace('.png', '.jpg');
+          if(this.src.indexOf('.png') !== -1 && this.src.indexOf('.png.jpg') === -1){
+            this.src = item.file.replace('.png', '.png.jpg');
           }
         };
         img.src = item.file;
