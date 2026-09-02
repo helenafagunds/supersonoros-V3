@@ -31,7 +31,6 @@
     background-size:16px 16px;pointer-events:none;
   }
   
-  /* Container principal amplo e proporcional */
   .stage{
     width:100%;
     max-width:1180px;
@@ -87,7 +86,7 @@
   .view{display:none;}
   .view.active{display:block;}
 
-  /* ---- AVISO DE ENSAIO (COMPACTO NO DESKTOP) ---- */
+  /* ---- AVISO DE ENSAIO ---- */
   .notice-box{
     background:#FFF9E6; border:3px solid var(--ink); border-radius:16px;
     padding:14px 20px; margin-bottom:20px; font-size:14.5px; line-height:1.5;
@@ -105,7 +104,7 @@
     box-shadow:3px 3px 0 var(--ink); text-shadow:1px 1px 0 rgba(0,0,0,0.4); flex-shrink:0;
   }
 
-  /* ---- GRIDS PERFEITAMENTE SIMÉTRICAS ---- */
+  /* ---- GRIDS ---- */
   .grid-2-even{
     display:grid;
     grid-template-columns:1fr;
@@ -190,11 +189,10 @@
 
   .lineup-row{display:flex; justify-content:space-between; align-items:center; padding:11px 0; border-bottom:2px dashed #e6e0d2; font-size:15px;}
   .lineup-row:last-child{border-bottom:none;}
-  .lineup-order{font-family:'Bangers', cursive; color:var(--blue); font-size:19px; white-space:nowrap; margin-left:10px;}
+  .lineup-order{font-family:'Bangers', cursive; color:var(--blue); font-size:20px; white-space:nowrap; margin-left:10px;}
 
-  .info-item{display:flex; gap:12px; align-items:flex-start; margin-bottom:12px; font-size:14.5px; line-height:1.45;}
+  .info-item{display:block; margin-bottom:10px; font-size:14.5px; line-height:1.45;}
   .info-item:last-child{margin-bottom:0;}
-  .info-icon{font-size:18px; flex-shrink:0; line-height:1.2;}
 
   .recap-box{background:#F4EFE1; border-left:4px solid var(--ink); border-radius:8px; padding:16px 18px; font-size:14.5px; line-height:1.55; color:#333;}
   .chip-list{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
@@ -236,12 +234,12 @@
   footer.credit{text-align:center; color:rgba(255,255,255,.9); font-size:14px; margin-top:24px; letter-spacing:.3px;}
   .hidden{display:none !important;}
 
-  /* ---- MODAL DE JOGOS ---- */
+  /* ---- MODAL DE JOGOS (ALTURA AUTO-AJUSTÁVEL) ---- */
   .modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,.75); display:none; align-items:center; justify-content:center; z-index:50; padding:16px;}
   .modal-overlay.show{display:flex;}
-  .modal-box{width:100%; max-width:520px; height:88vh; background:#fff; border-radius:20px; overflow:hidden; position:relative; border:4px solid var(--ink);}
-  .modal-close{position:absolute; top:10px; right:10px; z-index:5; background:var(--ink); color:#fff; border:none; border-radius:50%; width:34px; height:34px; font-size:16px; cursor:pointer; font-weight:bold;}
-  .modal-box iframe{width:100%; height:100%; border:none;}
+  .modal-box{width:100%; max-width:440px; max-height:90vh; background:transparent; border-radius:20px; position:relative;}
+  .modal-close{position:absolute; top:-12px; right:-12px; z-index:10; background:var(--ink); color:#fff; border:2px solid #fff; border-radius:50%; width:34px; height:34px; font-size:16px; cursor:pointer; font-weight:bold;}
+  .modal-box iframe{width:100%; height:540px; border:4px solid var(--ink); border-radius:20px; background:#fff; display:block;}
 </style>
 </head>
 <body id="body">
@@ -269,7 +267,6 @@
   <!-- ===================== 1. ENSAIOS ===================== -->
   <div id="view-ensaios" class="view active">
     
-    <!-- AVISO COMPACTO -->
     <div class="notice-box">
       <div><strong>Atenção às bandas:</strong> Cada banda tem um horário específico de ensaio. Confirme seu horário com a secretaria.</div>
       <div>
@@ -280,7 +277,6 @@
     <div id="view-ensaios-home">
       <div class="panel">
         <div class="section-title">Grandes Ensaios da Liga</div>
-        <!-- Grid cravada em 2x2 no Desktop -->
         <div id="ensaiosList" class="grid-2-even"></div>
       </div>
     </div>
@@ -293,12 +289,10 @@
         <p class="lede" style="color:#666;text-align:left;margin-bottom:14px;max-width:none;" id="ensDate">12/09 (sáb)</p>
 
         <div class="info-item">
-          <span class="info-icon">📍</span>
           <span><strong>Local:</strong> Sede da Guitarríssima — Rua Coronel Corte Real, 889 - Petrópolis, Porto Alegre.</span>
         </div>
       </div>
 
-      <!-- DETALHE EM 2 COLUNAS NO COMPUTADOR -->
       <div class="grid-detail-cols">
         <div class="panel" style="margin-bottom:0;">
           <div class="section-title">O que faremos no ensaio</div>
@@ -336,7 +330,6 @@
     <div id="view-sessoes-home">
       <div class="panel">
         <div class="section-title">Sessões do Espetáculo</div>
-        <!-- Grid cravada em 2x2 no Desktop -->
         <div id="sessionList" class="grid-2-even"></div>
       </div>
     </div>
@@ -373,9 +366,9 @@
       <div class="grid-detail-cols">
         <div class="panel" style="margin-bottom:0;">
           <div class="section-title">Informações práticas</div>
-          <div class="info-item"><span class="info-icon">🗺️</span><span>Teatro Unisinos — [Endereço completo / Link Maps].</span></div>
-          <div class="info-item"><span class="info-icon">🅿️</span><span>Estacionamento: [informações de vagas / valor / local].</span></div>
-          <div class="info-item"><span class="info-icon">🎒</span><span>Deixe seu artista com a equipe responsável antes do espetáculo. Retirada ao final da sessão.</span></div>
+          <div class="info-item"><strong>Local:</strong> Teatro Unisinos — [Endereço completo / Link Maps].</div>
+          <div class="info-item"><strong>Estacionamento:</strong> [informações de vagas / valor / local].</div>
+          <div class="info-item"><strong>Check-in de alunos:</strong> Deixe seu artista com a equipe responsável antes do espetáculo. Retirada ao final da sessão.</div>
         </div>
 
         <div class="panel" style="margin-bottom:0;">
@@ -386,7 +379,6 @@
             <span class="power-chip" style="background:var(--red);">@guitarrissima</span>
           </div>
 
-          <!-- BOTÃO DE AVALIAÇÃO COM LINK DO FORMULÁRIO -->
           <a class="btn ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSeuBO6u9RyqzhI3kh2CdQ-w1-kSxKYqdUPzkxQeM6ZiiEfbxw/viewform?usp=publish-editor" target="_blank">CLIQUE AQUI E AVALIE O ESPETÁCULO</a>
         </div>
       </div>
@@ -458,7 +450,7 @@
 
 <!-- MODAL -->
 <div class="modal-overlay" id="gameModal">
-  <div class="modal-box">
+  <div class="modal-box" id="modalBox">
     <button class="modal-close" onclick="closeGame()">✕</button>
     <iframe id="gameFrame"></iframe>
   </div>
@@ -613,7 +605,8 @@
     s.lineup.forEach((band,i)=>{
       const row = document.createElement("div");
       row.className = "lineup-row";
-      row.innerHTML = "<span>"+band+"</span><span class=\"lineup-order\">"+(i+1)+"º</span>";
+      /* Ajuste de 1º, 2º, 3º... */
+      row.innerHTML = "<span>"+band+"</span><span class=\"lineup-order\">"+(i+1)+"&ordm;</span>";
       box.appendChild(row);
     });
 
@@ -632,18 +625,24 @@
   /* ---------------- JOGOS ---------------- */
   const GAMES = {
     quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
-      body{font-family:Arial,sans-serif;background:#2C4E9B;color:#171512;margin:0;padding:16px;min-height:100vh;}
-      .panel{background:#FBF6EA;border:4px solid #171512;border-radius:16px;box-shadow:5px 5px 0 #171512;padding:16px;text-align:center;max-width:400px;margin:0 auto;}
-      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;text-align:center;margin-top:0;}
-      .dot{width:22px;height:22px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:bold;background:#fff;margin:0 2px;}
+      *{box-sizing:border-box;}
+      html,body{margin:0;padding:0;}
+      body{font-family:Arial,sans-serif;background:#2C4E9B;color:#171512;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
+      .box-wrap{width:100%;max-width:380px;text-align:center;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 10px;text-transform:uppercase;}
+      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:14px;text-align:center;}
+      .dot{width:22px;height:22px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:bold;background:#fff;margin:0 2px;}
       .dot.done{background:#E63946;color:#fff;}
-      .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:10px;padding:10px;margin-bottom:8px;font-weight:600;font-size:13px;cursor:pointer;}
+      .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:8px;padding:9px 12px;margin-bottom:7px;font-weight:600;font-size:13px;cursor:pointer;}
+      .opt:last-child{margin-bottom:0;}
       .opt:active{background:#F4C531;}
-      .btn{width:100%;padding:12px;font-weight:bold;border:3px solid #171512;border-radius:10px;background:#F4C531;cursor:pointer;font-size:13px;text-transform:uppercase;margin-top:8px;}
-      .badge{width:70px;height:70px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;border:3px solid #171512;}
+      .btn{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;cursor:pointer;font-size:13px;text-transform:uppercase;margin-top:10px;}
+      .badge{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;border:3px solid #171512;}
     </style></head><body>
-    <h1>QUAL É O SEU<br>SUPERPODER?</h1>
-    <div class="panel" id="app"></div>
+    <div class="box-wrap">
+      <h1>QUAL É O SEU SUPERPODER?</h1>
+      <div class="panel" id="app"></div>
+    </div>
     <script>
       var Q=[
         {t:"Você trava numa parte difícil da música. O que faz?",o:[["Repito até sair certinho","disciplina"],["Pergunto pro colega","escuta"],["Invento um jeito diferente","autenticidade"],["Toco mesmo com medo de errar","iniciativa"]]},
@@ -659,7 +658,7 @@
         iniciativa:{c:"#3CB878",n:"Iniciativa",e:"Ensaio 4",d:"Seu superpoder: a coragem de agir e tocar o primeiro acorde no palco!"}
       };
       var cur=0, sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};
-      function dots(){var h="";for(var i=0;i<Q.length;i++){h+='<span class="dot'+(i<cur?" done":"")+'">'+(i+1)+"</span>";}return h;}
+      function dots(){var h="";for(var i=0;i<Q.length;i++){h+='<span class="dot'+(i<cur?" done":"")+'">'+(i+1)+'</span>';}return h;}
       function renderQ(){
         var q=Q[cur];
         var optsHtml = "";
@@ -667,7 +666,7 @@
           optsHtml += '<div class="opt" onclick="pick(\\'' + q.o[i][1] + '\\')">' + q.o[i][0] + '</div>';
         }
         document.getElementById("app").innerHTML =
-          '<div>'+dots()+'</div><h3 style="font-size:15px;margin:12px 0;">'+q.t+'</h3>' + optsHtml;
+          '<div style="margin-bottom:8px;">'+dots()+'</div><h3 style="font-size:14px;margin:8px 0 10px;line-height:1.35;">'+q.t+'</h3>' + optsHtml;
       }
       function pick(k){
         sc[k]++; cur++;
@@ -679,8 +678,8 @@
         var r=R[w];
         document.getElementById("app").innerHTML =
           '<div class="badge" style="background:'+r.c+';">'+r.n.charAt(0)+'</div>'+
-          '<h2 style="margin:4px 0;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:12px;margin:0 0 10px;">Trabalhado no '+r.e+'</p>'+
-          '<p style="text-align:left;background:#F4EFE1;padding:10px;border-radius:8px;border-left:4px solid #171512;font-size:13px;line-height:1.4;">'+r.d+'</p>'+
+          '<h2 style="margin:2px 0 4px;font-size:18px;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:11.5px;margin:0 0 8px;">Trabalhado no '+r.e+'</p>'+
+          '<p style="text-align:left;background:#F4EFE1;padding:8px 10px;border-radius:6px;border-left:3px solid #171512;font-size:12.5px;line-height:1.4;margin:0;">'+r.d+'</p>'+
           '<button class="btn" onclick="restart()">Refazer Quiz</button>';
       }
       function restart(){cur=0;sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};renderQ();}
@@ -688,19 +687,21 @@
     <\/script>
     </body></html>`,
 
-    insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet"><style>
-      body{font-family:'Comic Neue',cursive,sans-serif;font-weight:700;background:#E8792B;color:#171512;margin:0;padding:16px;min-height:100vh;}
-      .panel{background:#FBF6EA;border:4px solid #171512;border-radius:16px;box-shadow:4px 4px 0 #171512;padding:16px;text-align:center;max-width:380px;margin:0 auto 12px;}
-      h1{font-family:'Bangers',cursive;color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:24px;letter-spacing:1px;text-align:center;margin-top:0;}
-      .badgeWrap{width:120px;height:120px;margin:0 auto 6px;}
-      .row{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-start;margin-bottom:10px;}
-      .chip{width:30px;height:30px;border-radius:50%;border:2px solid #171512;cursor:pointer;}
+    insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+      *{box-sizing:border-box;}
+      body{font-family:Arial,sans-serif;background:#E8792B;color:#171512;margin:0;padding:12px;min-height:100vh;}
+      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:12px;text-align:center;max-width:380px;margin:0 auto 10px;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;text-align:center;margin:0 0 8px;}
+      .badgeWrap{width:110px;height:110px;margin:0 auto 4px;}
+      .row{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-start;margin-bottom:6px;}
+      .chip{width:26px;height:26px;border-radius:50%;border:2px solid #171512;cursor:pointer;}
       .chip.sel{outline:3px solid #171512;transform:scale(1.1);}
-      .item-btn{padding:6px 10px;background:#fff;border:2px solid #171512;border-radius:8px;font-family:'Comic Neue',cursive;font-weight:700;font-size:12.5px;cursor:pointer;}
+      .item-btn{padding:5px 8px;background:#fff;border:2px solid #171512;border-radius:6px;font-weight:bold;font-size:11px;cursor:pointer;}
       .item-btn.sel{background:#F4C531;}
-      input{width:100%;padding:10px;border:2.5px solid #171512;border-radius:10px;font-size:14px;text-align:center;font-family:'Comic Neue',cursive;font-weight:700;}
-      .name{font-family:'Bangers',cursive;font-size:20px;letter-spacing:1px;text-transform:uppercase;margin-top:6px;color:var(--ink);}
-      .lbl{font-family:'Bangers',cursive;font-size:14.5px;letter-spacing:1px;text-transform:uppercase;color:#666;margin:8px 0 4px;}
+      .input-wrap{width:100%;margin-top:2px;}
+      input{width:100%;box-sizing:border-box;padding:8px 10px;border:2px solid #171512;border-radius:8px;font-size:13px;text-align:center;font-weight:bold;}
+      .name{font-weight:900;font-size:14px;text-transform:uppercase;margin-top:3px;color:#171512;}
+      .lbl{font-weight:900;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#666;margin:4px 0 3px;}
     </style></head><body>
     <h1>MONTE SUA INSÍGNIA</h1>
     <div class="panel">
@@ -708,14 +709,14 @@
       <div class="name" id="nameOut">HERÓI DO SOM</div>
     </div>
     <div class="panel" style="text-align:left;">
-      <div class="lbl">1. Formato do Brasão</div>
+      <div class="lbl">1. FORMATO DO BRASÃO</div>
       <div class="row">
         <button class="item-btn sel" onclick="setShape('star',this)">⭐ Estrela</button>
         <button class="item-btn" onclick="setShape('shield',this)">🛡️ Escudo</button>
         <button class="item-btn" onclick="setShape('circle',this)">⭕ Círculo</button>
       </div>
 
-      <div class="lbl">2. Símbolo Central</div>
+      <div class="lbl">2. SÍMBOLO CENTRAL</div>
       <div class="row">
         <button class="item-btn sel" onclick="setIcon('⚡',this)">⚡ Raio</button>
         <button class="item-btn" onclick="setIcon('🎸',this)">🎸 Guitarra</button>
@@ -723,11 +724,13 @@
         <button class="item-btn" onclick="setIcon('🎵',this)">🎵 Nota</button>
       </div>
 
-      <div class="lbl">3. Cor da Liga</div>
+      <div class="lbl">3. COR DA LIGA</div>
       <div class="row" id="colorsBox"></div>
 
-      <div class="lbl">4. Codinome</div>
-      <input type="text" id="heroName" placeholder="Seu nome heróico" maxlength="16">
+      <div class="lbl">4. CODINOME</div>
+      <div class="input-wrap">
+        <input type="text" id="heroName" placeholder="Seu nome heróico" maxlength="16">
+      </div>
     </div>
     <script>
       const COLORS=["#E63946","#2C4E9B","#8E5FC7","#D9A62B","#E8792B","#3CB878","#171512"];
@@ -744,7 +747,7 @@
         }
         document.getElementById("badgeSvg").innerHTML =
           '<svg viewBox="0 0 200 200" width="100%" height="100%">' + path +
-          '<text x="100" y="115" font-size="64" text-anchor="middle" dominant-baseline="middle">'+curIcon+'</text></svg>';
+          '<text x="100" y="115" font-size="60" text-anchor="middle" dominant-baseline="middle">'+curIcon+'</text></svg>';
       }
 
       function setShape(s,btn){
@@ -777,17 +780,18 @@
     <\/script>
     </body></html>`,
 
-    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet"><style>
-      body{font-family:'Comic Neue',cursive,sans-serif;font-weight:700;background:#171512;color:#fff;margin:0;padding:16px;text-align:center;}
-      .box{background:#23201d;border:4px solid #F4C531;border-radius:16px;padding:16px;max-width:380px;margin:0 auto;}
-      h1{font-family:'Bangers',cursive;color:#FF5A79;font-size:22px;letter-spacing:1px;margin-top:0;text-transform:uppercase;}
-      .hp-bar{background:#444;border-radius:10px;height:16px;overflow:hidden;margin-bottom:12px;border:2px solid #fff;}
+    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+      *{box-sizing:border-box;}
+      body{font-family:Arial,sans-serif;background:#171512;color:#fff;margin:0;padding:12px;text-align:center;}
+      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:14px;padding:14px;max-width:380px;margin:0 auto;}
+      h1{color:#FF5A79;font-size:16px;margin:0 0 8px;text-transform:uppercase;}
+      .hp-bar{background:#444;border-radius:10px;height:16px;overflow:hidden;margin-bottom:8px;border:2px solid #fff;}
       .hp-fill{background:#E63946;height:100%;width:100%;transition:width .2s;}
-      .boss-sprite{font-size:48px;margin:8px 0;}
-      .prompt{background:#fff;color:#171512;padding:10px 12px;border-radius:10px;font-size:14.5px;margin-bottom:14px;}
-      .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-      .btn-atk{padding:10px 6px;font-family:'Bangers',cursive;letter-spacing:1px;border:2px solid #171512;border-radius:10px;font-size:14.5px;cursor:pointer;text-transform:uppercase;color:#fff;}
-      .status{font-size:13.5px;margin-top:10px;min-height:20px;color:#F4C531;}
+      .boss-sprite{font-size:44px;margin:4px 0;}
+      .prompt{background:#fff;color:#171512;padding:8px 10px;border-radius:8px;font-weight:900;font-size:12.5px;margin-bottom:10px;}
+      .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+      .btn-atk{padding:9px 4px;border:2px solid #171512;border-radius:8px;font-weight:900;font-size:11px;cursor:pointer;text-transform:uppercase;color:#fff;}
+      .status{font-size:12px;font-weight:bold;margin-top:8px;min-height:16px;color:#F4C531;}
     </style></head><body>
     <div class="box">
       <h1>Devorador de Sons</h1>
@@ -803,12 +807,12 @@
       <div class="status" id="status">Prepare seus acordes!</div>
     </div>
     <script>
-      let bossHp=100, curNeeded="";
+      let bossHp=100, curNeeded="", lastIndex=-1;
       const TARGETS=[
         {need:"autenticidade",text:"O vilão tenta fazer você copiar os outros!"},
         {need:"escuta",text:"A banda perdeu a sintonia! Escute o grupo!"},
         {need:"disciplina",text:"Solo difícil! Treine com repeteco!"},
-        {need:"iniciativa",text:"O palco está silencioso! Dê o primeiro acorde!"},
+        {need:"iniciativa",text:"O palco está silencioso! Dê o primeiro acorde!"}
       ];
       function nextTurn(){
         if(bossHp<=0){
@@ -817,9 +821,16 @@
           document.getElementById("status").textContent="Os SuperSonoros venceram!";
           return;
         }
-        const t=TARGETS[Math.floor(Math.random()*TARGETS.length)];
-        curNeeded=t.need;
-        document.getElementById("prompt").textContent=t.text;
+        /* Garante que não repete a pergunta imediatamente anterior */
+        let nextIdx;
+        do {
+          nextIdx = Math.floor(Math.random() * TARGETS.length);
+        } while (nextIdx === lastIndex);
+        lastIndex = nextIdx;
+
+        const t = TARGETS[nextIdx];
+        curNeeded = t.need;
+        document.getElementById("prompt").textContent = t.text;
       }
       function attack(p){
         if(bossHp<=0) return;
@@ -829,11 +840,11 @@
           document.getElementById("hp").style.width=bossHp+"%";
           document.getElementById("status").textContent="ACORDE PERFEITO! -25% HP";
           document.getElementById("boss").textContent="⚡👾⚡";
-          setTimeout(()=>{ if(bossHp>0) document.getElementById("boss").textContent="👾"; },300);
+          setTimeout(()=>{ if(bossHp>0) document.getElementById("boss").textContent="👾"; },250);
         } else {
           document.getElementById("status").textContent="Nota errada! Tente outro poder!";
         }
-        setTimeout(nextTurn, 500);
+        setTimeout(nextTurn, 450);
       }
       nextTurn();
     <\/script>
@@ -841,7 +852,16 @@
   };
 
   function openGame(key){
-    document.getElementById("gameFrame").srcdoc = GAMES[key];
+    /* Ajusta a altura da janela conforme o jogo */
+    const frame = document.getElementById("gameFrame");
+    if(key === 'quiz') {
+      frame.style.height = "420px";
+    } else if(key === 'insignia') {
+      frame.style.height = "520px";
+    } else {
+      frame.style.height = "450px";
+    }
+    frame.srcdoc = GAMES[key];
     document.getElementById("gameModal").classList.add("show");
   }
   function closeGame(){
@@ -854,4 +874,4 @@
   renderSessions();
 </script>
 </body>
-</html>
+</html>0
