@@ -187,9 +187,15 @@
     text-shadow:1px 1px 0 rgba(0,0,0,0.1);
   }
 
+  /* ---- AJUSTE ORDINAL (1º, 2º...) ---- */
   .lineup-row{display:flex; justify-content:space-between; align-items:center; padding:11px 0; border-bottom:2px dashed #e6e0d2; font-size:15px;}
   .lineup-row:last-child{border-bottom:none;}
-  .lineup-order{font-family:'Bangers', cursive; color:var(--blue); font-size:20px; white-space:nowrap; margin-left:10px;}
+  .lineup-order{
+    font-family:'Bangers', cursive; color:var(--blue); font-size:22px; white-space:nowrap; margin-left:10px; display:inline-flex; align-items:baseline;
+  }
+  .ord-symbol{
+    font-family:'Comic Neue', cursive, sans-serif; font-size:14px; font-weight:900; margin-left:1px; vertical-align:super;
+  }
 
   .info-item{display:block; margin-bottom:10px; font-size:14.5px; line-height:1.45;}
   .info-item:last-child{margin-bottom:0;}
@@ -237,7 +243,7 @@
   /* ---- MODAL DE JOGOS ---- */
   .modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,.75); display:none; align-items:center; justify-content:center; z-index:50; padding:16px;}
   .modal-overlay.show{display:flex;}
-  .modal-box{width:100%; max-width:440px; max-height:90vh; background:transparent; border-radius:20px; position:relative;}
+  .modal-box{width:100%; max-width:440px; max-height:92vh; background:transparent; border-radius:20px; position:relative;}
   .modal-close{position:absolute; top:-12px; right:-12px; z-index:10; background:var(--ink); color:#fff; border:2px solid #fff; border-radius:50%; width:34px; height:34px; font-size:16px; cursor:pointer; font-weight:bold;}
   .modal-box iframe{width:100%; height:540px; border:4px solid var(--ink); border-radius:20px; background:#fff; display:block;}
 </style>
@@ -404,7 +410,7 @@
           <div class="item-dot" style="background:var(--gold);">⭐</div>
           <div class="item-info">
             <div class="item-name">Monte sua insígnia</div>
-            <div class="item-meta">Crie seu brasão e codinome</div>
+            <div class="item-meta">Crie e compartilhe seu brasão</div>
           </div>
           <div class="arrow">›</div>
         </div>
@@ -605,7 +611,8 @@
     s.lineup.forEach((band,i)=>{
       const row = document.createElement("div");
       row.className = "lineup-row";
-      row.innerHTML = "<span>"+band+"</span><span class=\"lineup-order\">"+(i+1)+"&ordm;</span>";
+      /* Correção definitiva com ordinal elevado e fonte adequada */
+      row.innerHTML = "<span>"+band+"</span><span class=\"lineup-order\">"+(i+1)+"<sup class=\"ord-symbol\">º</sup></span>";
       box.appendChild(row);
     });
 
@@ -690,17 +697,20 @@
       *{box-sizing:border-box;}
       body{font-family:Arial,sans-serif;background:#E8792B;color:#171512;margin:0;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
       .box-wrap{width:100%;max-width:380px;text-align:center;}
-      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 8px;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 8px;text-transform:uppercase;}
       .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:12px;text-align:center;margin-bottom:8px;}
       .badgeWrap{width:140px;height:140px;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;}
       .badgeImg{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));}
       .name{font-weight:900;font-size:15px;text-transform:uppercase;margin-top:3px;color:#171512;letter-spacing:0.5px;}
       .row{display:flex;gap:8px;justify-content:center;margin-bottom:8px;}
-      .chip{width:32px;height:32px;border-radius:50%;border:2px solid #171512;cursor:pointer;box-shadow:2px 2px 0 var(--ink);transition:transform .1s ease;}
+      .chip{width:32px;height:32px;border-radius:50%;border:2px solid #171512;cursor:pointer;box-shadow:2px 2px 0 #171512;transition:transform .1s ease;}
       .chip.sel{outline:3px solid #171512;transform:scale(1.15);}
       .input-wrap{width:100%;margin-top:2px;}
       input{width:100%;box-sizing:border-box;padding:8px 10px;border:2px solid #171512;border-radius:8px;font-size:13px;text-align:center;font-weight:bold;}
       .lbl{font-weight:900;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#666;margin:4px 0 6px;}
+      .btn-export{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;color:#171512;cursor:pointer;font-size:12.5px;text-transform:uppercase;margin-top:8px;display:inline-flex;align-items:center;justify-content:center;gap:6px;}
+      .btn-export:active{transform:translate(2px,2px);}
+      canvas{display:none;}
     </style></head><body>
     <div class="box-wrap">
       <h1>MONTE SUA INSÍGNIA</h1>
@@ -718,8 +728,14 @@
         <div class="input-wrap">
           <input type="text" id="heroName" placeholder="Seu nome heróico" maxlength="16">
         </div>
+
+        <button class="btn-export" onclick="exportBadge()">📲 Baixar / Compartilhar Insígnia</button>
       </div>
     </div>
+
+    <!-- CANVAS OCULTO PARA EXPORTAR ARTE -->
+    <canvas id="exportCanvas" width="900" height="900"></canvas>
+
     <script>
       var INSIGNIAS = [
         { color: "#E63946", name: "Vermelha", file: "insigniavermelha.png.jpg" },
@@ -736,10 +752,10 @@
         curInsignia = item;
         var img = document.getElementById("badgeImg");
         img.onerror = function(){
-          if(this.src.indexOf('.jpg') !== -1){
+          if(this.src.indexOf('.png.jpg') !== -1){
             this.src = item.file.replace('.png.jpg', '.png');
           } else if(this.src.indexOf('.png') !== -1) {
-            this.src = item.file.replace('.png.jpg', '.jpg');
+            this.src = item.file.replace('.png', '.jpg');
           }
         };
         img.src = item.file;
@@ -762,6 +778,80 @@
       document.getElementById("heroName").addEventListener("input", function(e){
         document.getElementById("nameOut").textContent = e.target.value.trim() ? e.target.value.toUpperCase() : "HERÓI DO SOM";
       });
+
+      function exportBadge(){
+        var canvas = document.getElementById("exportCanvas");
+        var ctx = canvas.getContext("2d");
+        var heroText = document.getElementById("nameOut").textContent;
+        var imgSource = document.getElementById("badgeImg");
+
+        /* 1. Fundo estilizado */
+        ctx.fillStyle = curInsignia.color;
+        ctx.fillRect(0, 0, 900, 900);
+
+        /* Padrão de pontos */
+        ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+        for (var x = 20; x < 900; x += 30) {
+          for (var y = 20; y < 900; y += 30) {
+            ctx.beginPath();
+            ctx.arc(x, y, 3, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        /* 2. Moldura estilo quadrinhos */
+        ctx.lineWidth = 18;
+        ctx.strokeStyle = "#171512";
+        ctx.strokeRect(9, 9, 882, 882);
+
+        /* 3. Desenhar a insígnia */
+        try {
+          var imgSize = 560;
+          ctx.drawImage(imgSource, (900 - imgSize) / 2, 90, imgSize, imgSize);
+        } catch(e){}
+
+        /* 4. Caixa de texto com sombra */
+        ctx.fillStyle = "#FBF6EA";
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = "#171512";
+        ctx.fillRect(100, 680, 700, 110);
+        ctx.strokeRect(100, 680, 700, 110);
+
+        /* 5. Nome do Herói */
+        ctx.fillStyle = "#171512";
+        ctx.font = "bold 52px Arial, sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(heroText, 450, 735);
+
+        /* 6. Crédito da Liga */
+        ctx.fillStyle = "#F4C531";
+        ctx.font = "bold 26px Arial, sans-serif";
+        ctx.shadowColor = "#171512";
+        ctx.shadowOffsetX = 3;
+        ctx.shadowOffsetY = 3;
+        ctx.fillText("SUPERSONOROS · GUITARRÍSSIMA", 450, 835);
+        ctx.shadowColor = "transparent";
+
+        /* 7. Disparar Compartilhamento ou Download */
+        canvas.toBlob(function(blob){
+          var safeName = heroText.toLowerCase().replace(/[^a-z0-9]/g, "-");
+          var file = new File([blob], "insignia-" + safeName + ".png", { type: "image/png" });
+
+          if(navigator.canShare && navigator.canShare({ files: [file] })){
+            navigator.share({
+              files: [file],
+              title: "Minha Insígnia SuperSonoros",
+              text: "Minha insígnia oficial da Liga SuperSonoros na Guitarríssima!"
+            }).catch(function(){});
+          } else {
+            var a = document.createElement("a");
+            a.download = "insignia-" + safeName + ".png";
+            a.href = URL.createObjectURL(blob);
+            a.click();
+          }
+        }, "image/png");
+      }
 
       setBadge(INSIGNIAS[0]);
     <\/script>
@@ -842,7 +932,7 @@
     if(key === 'quiz') {
       frame.style.height = "380px";
     } else if(key === 'insignia') {
-      frame.style.height = "470px";
+      frame.style.height = "520px";
     } else {
       frame.style.height = "440px";
     }
