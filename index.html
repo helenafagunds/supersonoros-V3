@@ -38,7 +38,6 @@
     z-index:1;
   }
 
-  /* ---- LOGO TOPO ---- */
   .brand-banner-single{
     display:flex; align-items:center; justify-content:center;
     margin-bottom:18px; padding:4px 0;
@@ -67,13 +66,11 @@
     margin:0 auto; max-width:760px; text-align:center;
   }
 
-  /* ---- PAINÉIS ---- */
   .panel{
     background:var(--cream); border:3.5px solid var(--ink); border-radius:18px;
     box-shadow:5px 5px 0 var(--ink); padding:clamp(14px, 3vw, 28px); margin-bottom:18px;
   }
 
-  /* ---- ABAS RESPONSIVAS ---- */
   .tabs{
     display:flex; gap:6px; margin:0 auto 18px;
     max-width:720px; width:100%;
@@ -92,7 +89,6 @@
   .view{display:none;}
   .view.active{display:block;}
 
-  /* ---- ESTRUTURA HISTÓRIA ---- */
   .comic-prologue-card{
     background:#fff; border:3px solid var(--ink); border-radius:16px; padding:16px;
     box-shadow:4px 4px 0 var(--ink); margin-bottom:20px; position:relative;
@@ -124,7 +120,6 @@
     padding:4px 14px; border-radius:999px; box-shadow:2.5px 2.5px 0 var(--ink); margin-bottom:4px;
   }
 
-  /* ---- CARDS DOS VILÕES EM ESTILO PASTA/DOSSIÊ ---- */
   .comic-villain-strip{
     display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:20px;
     align-items:stretch;
@@ -200,12 +195,14 @@
   }
   .villain-summary-txt{
     font-size:12.5px; color:#333; line-height:1.35;
+    min-height:36px;
     word-break:break-word;
   }
   .villain-comic-phrase{
     font-family:'Comic Neue', cursive; font-style:italic; font-size:12px; color:#222;
-    background:#FBF6EA; border-left:3px solid var(--ink); padding:5px 8px; border-radius:4px;
+    background:#FBF6EA; border-left:3.5px solid var(--ink); padding:6px 10px; border-radius:4px;
     margin:6px 0 0; line-height:1.3;
+    min-height:46px;
     display:flex;
     align-items:center;
   }
@@ -217,7 +214,6 @@
     width:13px; height:13px; object-fit:contain; display:inline-block; vertical-align:middle;
   }
 
-  /* ---- CHEFÃO FINAL CLICÁVEL ---- */
   .clickable-boss{
     cursor:pointer; transition:transform .12s ease, box-shadow .12s ease;
   }
@@ -226,7 +222,6 @@
     box-shadow:5px 5px 0 var(--yellow) !important;
   }
 
-  /* ---- AVISO DE ENSAIO COM WHATSAPP ---- */
   .notice-box{
     background:#FFF9E6; border:3px solid var(--ink); border-radius:16px;
     padding:14px 16px; margin-bottom:18px; font-size:14px; line-height:1.45;
@@ -261,7 +256,6 @@
     padding:8px 12px; border-radius:6px; margin-top:8px; font-size:13px;
   }
 
-  /* ---- GRIDS ---- */
   .grid-2-even{
     display:grid;
     grid-template-columns:1fr;
@@ -304,7 +298,6 @@
     }
   }
 
-  /* ---- CARDS DE LISTA COM HOVER POP ---- */
   .item-card{
     display:flex; align-items:center; gap:12px; background:#fff;
     border:3px solid var(--ink); border-radius:14px; padding:14px;
@@ -332,7 +325,6 @@
   .arrow{font-size:20px; font-weight:bold; color:var(--ink); transition:transform .12s ease; flex-shrink:0;}
   .item-card:hover .arrow{transform:translateX(3px);}
 
-  /* ---- BOTÕES E AÇÕES ---- */
   .btn{
     display:flex; align-items:center; justify-content:center; gap:8px; width:100%; border:3px solid var(--ink); border-radius:12px;
     background:var(--yellow); color:var(--ink); font-family:'Bangers', cursive; font-size:16px; letter-spacing:1px;
@@ -387,7 +379,6 @@
     text-shadow:1px 1px 0 rgba(0,0,0,0.35);
   }
 
-  /* ---- SILHUETAS & VILÕES (NOS ENSAIOS) ---- */
   .silhouette-card{
     display:flex; gap:12px; align-items:center; background:#171512; color:#fff;
     border-radius:14px; padding:12px 14px; border:3px solid var(--ink); box-shadow:3.5px 3.5px 0 var(--ink);
@@ -399,7 +390,6 @@
   }
   .silhouette-img{width:100%; height:100%; object-fit:contain; display:block;}
 
-  /* ---- BLOCO PEDAGÓGICO DE MISSÃO DO ENSAIO ---- */
   .ens-mission-card{
     background:#FFF9E6; border:2.5px solid var(--ink); border-radius:12px;
     padding:12px; margin-bottom:12px;
@@ -412,7 +402,6 @@
   .agenda-list li{margin-bottom:6px;}
   .agenda-list li:last-child{margin-bottom:0;}
 
-  /* ---- FOTOS ---- */
   .photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:12px;}
   .photo-slot{
     aspect-ratio:1/1; background:#EFE9D8; border:2px dashed #c9c0a8; border-radius:10px;
@@ -420,7 +409,6 @@
   }
   .photo-slot span{font-family:'Bangers', cursive; font-size:11.5px; letter-spacing:.5px; text-transform:uppercase; margin-top:2px;}
 
-  /* ---- RODAPÉ INSTITUCIONAL ---- */
   .footer-signature {
     display: flex;
     flex-direction: column;
@@ -461,7 +449,6 @@
 
   .hidden{display:none !important;}
 
-  /* ---- MODAL RESPONSIVO ---- */
   .modal-overlay{
     position:fixed; inset:0; background:rgba(0,0,0,.75); display:none;
     align-items:center; justify-content:center; z-index:999; padding:12px;
@@ -479,7 +466,6 @@
   .modal-close:active{transform:scale(0.95);}
   .modal-box iframe{width:100%; height:520px; max-height:85vh; border:3.5px solid var(--ink); border-radius:18px; background:#fff; display:block;}
 
-  /* ---- MODAL DOSSIÊ DOS VILÕES ---- */
   .villain-dossier-modal-box{
     width:100%; max-width:580px; max-height:84vh; overflow-y:auto;
     background:var(--red);
@@ -557,6 +543,170 @@
     box-shadow:3px 3px 0 rgba(0,0,0,0.25);
   }
   .btn-close-bottom:active{transform:translate(2px, 2px); box-shadow:none;}
+
+  .demo-switcher {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin-bottom: 16px;
+    background: #FFF9E6;
+    padding: 6px;
+    border: 2.5px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  @media(min-width:768px){
+    .demo-switcher {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .demo-btn {
+    font-family: 'Bangers', cursive;
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 8px 4px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--ink);
+    transition: transform .1s, background .1s;
+    text-align: center;
+  }
+  .demo-btn.active {
+    background: var(--yellow);
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  .common-blur-wrap {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .common-blur-bg {
+    filter: blur(5px) grayscale(30%);
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.55;
+  }
+  .common-blur-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(23, 21, 18, 0.72);
+    backdrop-filter: blur(3px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .opt1-badge {
+    width: 50px; height: 50px;
+    background: var(--yellow);
+    border: 2.5px solid var(--ink);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    box-shadow: 2.5px 2.5px 0 var(--ink);
+    margin-bottom: 8px;
+  }
+  .opt1-stamp {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(18px, 4.5vw, 28px);
+    letter-spacing: 1.5px;
+    color: var(--red);
+    background: #fff;
+    border: 2.5px dashed var(--red);
+    padding: 4px 14px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+    box-shadow: 3.5px 3.5px 0 var(--ink);
+    margin-bottom: 8px;
+  }
+  .opt1-msg {
+    color: #fff;
+    font-size: 13px;
+    max-width: 440px;
+    line-height: 1.4;
+    margin: 0;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.6);
+  }
+
+  .opt2-card-locked {
+    position: relative;
+    background: #F4EFE1 !important;
+    border: 2.5px dashed var(--ink) !important;
+    cursor: not-allowed !important;
+    opacity: 0.9;
+  }
+  .opt2-card-locked:hover {
+    transform: none !important;
+    box-shadow: 3.5px 3.5px 0 var(--ink) !important;
+  }
+  .opt2-tape {
+    position: absolute;
+    top: 8px; right: 10px;
+    background: var(--yellow);
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    font-family: 'Bangers', cursive;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .opt3-radar {
+    background: #171512;
+    color: #fff;
+    text-align: center;
+    padding: 28px 16px;
+    border: 3px solid var(--yellow);
+    border-radius: 16px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .opt3-bar-wrap {
+    background: #333;
+    border: 2px solid var(--yellow);
+    border-radius: 999px;
+    height: 14px;
+    max-width: 280px;
+    margin: 12px auto 6px;
+    overflow: hidden;
+  }
+  .opt3-bar-fill {
+    background: var(--yellow);
+    height: 100%;
+    width: 65%;
+    animation: pulseBar 2s infinite ease-in-out;
+  }
+  @keyframes pulseBar {
+    0%, 100% { width: 60%; opacity: 0.85; }
+    50% { width: 75%; opacity: 1; }
+  }
+
+  .opt4-stamp {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(16px, 4vw, 24px);
+    letter-spacing: 1.5px;
+    color: var(--red);
+    background: #fff;
+    border: 2.5px dashed var(--red);
+    padding: 5px 14px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+    box-shadow: 3.5px 3.5px 0 var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
 </style>
 </head>
 <body id="body">
@@ -801,15 +951,79 @@
     </div>
   </div>
 
-  <!-- ===================== 3. SESSÕES ===================== -->
+  <!-- ===================== 3. SESSÕES (4 OPÇÕES DE BLOQUEIO LADO A LADO) ===================== -->
   <div id="view-sessoes" class="view">
     <div id="view-sessoes-home">
-      <div class="panel">
-        <div class="section-title">Sessões do Espetáculo</div>
-        <div id="sessionList" class="grid-2-even"></div>
+      
+      <!-- SELETOR DAS 4 OPÇÕES -->
+      <div class="demo-switcher">
+        <button class="demo-btn active" id="btnDemo1" onclick="switchDemoLock(1)">Opção 1: Blur Carimbo</button>
+        <button class="demo-btn" id="btnDemo2" onclick="switchDemoLock(2)">Opção 2: Cards Trancados</button>
+        <button class="demo-btn" id="btnDemo3" onclick="switchDemoLock(3)">Opção 3: Radar Preto</button>
+        <button class="demo-btn" id="btnDemo4" onclick="switchDemoLock(4)">Opção 4: Radar Blur Ultra</button>
       </div>
+
+      <!-- OPÇÃO 1: CONTAINER BLUR COM CARIMBO DE CADEADO -->
+      <div id="demoLock1" class="panel common-blur-wrap">
+        <div class="section-title">Sessões do Espetáculo</div>
+        <div id="sessionListOpt1" class="grid-2-even common-blur-bg"></div>
+        <div class="common-blur-overlay">
+          <div class="opt1-badge">🔒</div>
+          <div class="opt1-stamp">ARQUIVO ULTRA-SECRETO</div>
+          <p class="opt1-msg">
+            A escala oficial das bandas e a divisão dos palcos estão sob sigilo operacional. As informações completas serão desbloqueadas em breve!
+          </p>
+        </div>
+      </div>
+
+      <!-- OPÇÃO 2: CARDS INDIVIDUAIS COM CADEADO E CAUTION TAPE -->
+      <div id="demoLock2" class="panel hidden">
+        <div class="section-title">Sessões do Espetáculo</div>
+        <p style="font-size:13px; color:#555; margin:0 0 12px;">Confira as datas previstas para as apresentações. A escala de bandas será revelada em breve:</p>
+        <div id="sessionListOpt2" class="grid-2-even"></div>
+      </div>
+
+      <!-- OPÇÃO 3: RADAR DE TRANSMISSÃO CODIFICADA (FUNDO PRETO) -->
+      <div id="demoLock3" class="hidden">
+        <div class="opt3-radar">
+          <div style="font-size:38px; margin-bottom:6px;">📡</div>
+          <div style="font-family:'Bangers', cursive; font-size:24px; color:var(--yellow); letter-spacing:1.5px; margin-bottom:6px;">
+            SINAL CODIFICADO // NÍVEL DE ACESSO 5
+          </div>
+          <p style="color:#ddd; font-size:13.5px; max-width:440px; margin:0 auto 10px; line-height:1.45;">
+            Os radares da Guitarríssima ainda estão mapeando as frequências e horários das apresentações. Fique atento às atualizações da Liga!
+          </p>
+          <div class="opt3-bar-wrap">
+            <div class="opt3-bar-fill"></div>
+          </div>
+          <div style="font-size:11px; font-family:'Bangers', cursive; color:var(--yellow); letter-spacing:1px;">
+            STATUS: DESCRIPTOGRAFANDO ESCALA DE BANDAS...
+          </div>
+        </div>
+      </div>
+
+      <!-- OPÇÃO 4: RADAR DE TRANSMISSÃO + CARIMBO ULTRA-SECRETO COM FUNDO BLUR -->
+      <div id="demoLock4" class="panel common-blur-wrap hidden">
+        <div class="section-title">Sessões do Espetáculo</div>
+        <div id="sessionListOpt4" class="grid-2-even common-blur-bg"></div>
+        <div class="common-blur-overlay">
+          <div style="font-size:34px; margin-bottom:4px;">📡</div>
+          <div class="opt4-stamp">SINAL CODIFICADO // ARQUIVO ULTRA-SECRETO</div>
+          <p class="opt1-msg" style="margin-bottom:6px;">
+            Os radares da Guitarríssima ainda estão mapeando as frequências sonoras e horários das bandas. Aguarde a liberação do sinal!
+          </p>
+          <div class="opt3-bar-wrap" style="width:100%; max-width:240px; margin:6px auto;">
+            <div class="opt3-bar-fill"></div>
+          </div>
+          <div style="font-size:10.5px; font-family:'Bangers', cursive; color:var(--yellow); letter-spacing:1px; text-shadow:1px 1px 0 #000;">
+            STATUS: DESCRIPTOGRAFANDO ESCALAS...
+          </div>
+        </div>
+      </div>
+
     </div>
 
+    <!-- PÁGINA DE DETALHES -->
     <div id="view-session" class="hidden">
       <button class="back-btn" onclick="goSessionHome()">← Voltar às Sessões</button>
 
@@ -1262,20 +1476,49 @@
       lineup:["Banda 13","Banda 14","Intermezzo","Banda 15","Banda 16"] },
   ];
 
-  function renderSessions(){
-    const list = document.getElementById("sessionList");
-    list.innerHTML = "";
-    SESSIONS.forEach(s=>{
-      const card = document.createElement("div");
-      card.className = "item-card";
-      card.onclick = ()=>openSession(s.id);
-      card.innerHTML =
-        '<div class="item-dot" style="background:'+s.color+';">S'+s.id+'</div>'+
-        '<div class="item-info"><div class="item-name">'+s.name+'</div>'+
-        '<div class="item-meta">'+s.date+' · '+s.time+'</div></div>'+
-        '<div class="arrow">›</div>';
-      list.appendChild(card);
+  function renderAllSessionDemos() {
+    const list1 = document.getElementById("sessionListOpt1");
+    const list4 = document.getElementById("sessionListOpt4");
+    list1.innerHTML = "";
+    list4.innerHTML = "";
+
+    SESSIONS.forEach(s => {
+      const cardHtml = `
+        <div class="item-card">
+          <div class="item-dot" style="background:${s.color};">S${s.id}</div>
+          <div class="item-info">
+            <div class="item-name">${s.name}</div>
+            <div class="item-meta">${s.date} · ${s.time}</div>
+          </div>
+          <div class="arrow">›</div>
+        </div>`;
+      list1.innerHTML += cardHtml;
+      list4.innerHTML += cardHtml;
     });
+
+    const list2 = document.getElementById("sessionListOpt2");
+    list2.innerHTML = "";
+    SESSIONS.forEach(s => {
+      list2.innerHTML += `
+        <div class="item-card opt2-card-locked" onclick="alert('As escalas de bandas desta sessão serão liberadas em breve pela secretaria!')">
+          <span class="opt2-tape">Acesso Restrito</span>
+          <div class="item-dot" style="background:${s.color};">🔒</div>
+          <div class="item-info">
+            <div class="item-name">${s.name}</div>
+            <div class="item-meta">${s.date} · Início às ${s.time}</div>
+          </div>
+        </div>`;
+    });
+  }
+
+  function switchDemoLock(optNum) {
+    document.querySelectorAll('.demo-btn').forEach((b, i) => {
+      b.classList.toggle('active', (i + 1) === optNum);
+    });
+    document.getElementById('demoLock1').classList.toggle('hidden', optNum !== 1);
+    document.getElementById('demoLock2').classList.toggle('hidden', optNum !== 2);
+    document.getElementById('demoLock3').classList.toggle('hidden', optNum !== 3);
+    document.getElementById('demoLock4').classList.toggle('hidden', optNum !== 4);
   }
 
   function openSession(id){
@@ -1309,7 +1552,6 @@
     window.scrollTo(0,0);
   }
 
-  /* ---- JOGOS REVISADOS ---- */
   const GAMES = {
     quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
       *{box-sizing:border-box;}
@@ -1323,7 +1565,7 @@
       .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:8px;padding:9px 12px;margin-bottom:7px;font-weight:600;font-size:13px;cursor:pointer;line-height:1.3;}
       .opt:last-child{margin-bottom:0;}
       .opt:active{background:#F4C531;}
-      .btn{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;cursor:pointer;font-size:13px;text-transform:uppercase;margin-top:10px;}
+      .btn{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;cursor:font-size:13px;text-transform:uppercase;margin-top:10px;}
       .badge{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;border:3px solid #171512;}
     </style></head><body>
     <div class="box-wrap">
@@ -1423,53 +1665,81 @@
 
     insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
       *{box-sizing:border-box;}
-      body{font-family:Arial,sans-serif;background:#E8792B;color:#171512;margin:0;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
-      .box-wrap{width:100%;max-width:380px;text-align:center;}
-      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 8px;}
-      .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:12px;text-align:center;margin-bottom:8px;}
-      .badgeWrap{width:140px;height:140px;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;}
-      .badgeImg{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));}
-      .name{font-weight:900;font-size:15px;text-transform:uppercase;margin-top:3px;color:#171512;letter-spacing:0.5px;}
-      .row{display:flex;gap:8px;justify-content:center;margin-bottom:8px;}
-      .chip{width:32px;height:32px;border-radius:50%;border:2px solid #171512;cursor:pointer;box-shadow:2px 2px 0 #171512;transition:transform .1s ease;}
-      .chip.sel{outline:3px solid #171512;transform:scale(1.15);}
-      .input-wrap{width:100%;margin-top:2px;}
-      input{width:100%;box-sizing:border-box;padding:8px 10px;border:2px solid #171512;border-radius:8px;font-size:13px;text-align:center;font-weight:bold;}
-      .lbl{font-weight:900;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#666;margin:4px 0 6px;}
-      .btn-export{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;color:#171512;cursor:pointer;font-size:12.5px;text-transform:uppercase;margin-top:8px;display:inline-flex;align-items:center;justify-content:center;gap:6px;}
+      body{font-family:Arial,sans-serif;background:#E8792B;color:#171512;margin:0;padding:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
+      .box-wrap{width:100%;max-width:390px;text-align:center;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 6px;letter-spacing:1px;}
+      .panel{background:#FBF6EA;border:3px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:12px;text-align:center;margin-bottom:8px;}
+      
+      .story-preview{
+        width:145px; height:258px; margin:0 auto 6px;
+        border:3px solid #171512; border-radius:12px;
+        position:relative; overflow:hidden;
+        display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+        padding:8px 4px; box-shadow:3px 3px 0 #171512;
+      }
+      .bg-layer{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; mix-blend-mode:multiply; opacity:0.65; z-index:0;}
+      .cloud-left{position:absolute; top:-8px; left:-6px; width:46px; height:auto; z-index:1;}
+      .cloud-right{position:absolute; top:-8px; right:-6px; width:46px; height:auto; transform:scaleX(-1); z-index:1;}
+      .badgeImg{width:78px; height:78px; object-fit:contain; z-index:2; margin-top:22px;}
+      .preview-name{font-weight:900; font-size:13px; text-transform:uppercase; z-index:2; color:#fff; text-shadow:2px 2px 0 #171512; margin-top:-6px;}
+      .banner-img{width:115%; height:auto; object-fit:contain; z-index:2; display:block; margin:0 auto;}
+
+      .row{display:flex;gap:6px;justify-content:center;margin-bottom:6px;}
+      .chip{width:30px;height:30px;border-radius:50%;border:2px solid #171512;cursor:pointer;box-shadow:2px 2px 0 #171512;}
+      .chip.sel{outline:3px solid #171512;transform:scale(1.12);}
+      input{width:100%;box-sizing:border-box;padding:7px 8px;border:2px solid #171512;border-radius:8px;font-size:12.5px;text-align:center;font-weight:bold;}
+      .lbl{font-weight:900;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:#555;margin:3px 0 5px;}
+      
+      .btn-export{
+        width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;
+        background:#F4C531;color:#171512;cursor:pointer;font-size:12px;text-transform:uppercase;
+        margin-top:6px;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+      }
       .btn-export:active{transform:translate(2px,2px);}
-      .icon-export{width:14px;height:14px;object-fit:contain;display:inline-block;vertical-align:middle;}
+      .icon-export{width:15px;height:15px;object-fit:contain;}
       canvas{display:none;}
     </style></head><body>
     <div class="box-wrap">
       <h1>MONTE SUA INSÍGNIA</h1>
-      <div class="panel">
-        <div class="badgeWrap">
-          <img id="badgeImg" src="insigniavermelha.png" alt="Insígnia Guitarríssima" class="badgeImg" />
+      
+      <div class="panel" style="padding:8px;">
+        <div class="story-preview" id="storyPreviewBox" style="background:#2C4E9B;">
+          <img src="textura-bg.jpg" class="bg-layer" alt="Textura" />
+          <img src="nuvem.png" class="cloud-left" alt="Nuvem Esquerda" />
+          <img src="nuvem.png" class="cloud-right" alt="Nuvem Direita" />
+          
+          <img id="badgeImg" src="insigniaazul.png" class="badgeImg" alt="Insígnia" />
+          <div class="preview-name" id="nameOut">HELENA</div>
+          
+          <div style="width:100%;z-index:2;margin-bottom:6px;">
+            <img src="faixa-cima.png" class="banner-img" style="margin-bottom:2px;" alt="Minha Insígnia" />
+            <img src="faixa-baixo.png" class="banner-img" alt="Hashtags" />
+          </div>
         </div>
-        <div class="name" id="nameOut">HERÓI DO SOM</div>
       </div>
+
       <div class="panel" style="text-align:left;">
         <div class="lbl" style="text-align:center;">1. ESCOLHA A COR DA SUA INSÍGNIA</div>
         <div class="row" id="colorsBox"></div>
 
-        <div class="lbl" style="text-align:center;margin-top:6px;">2. DIGITE SEU NOME DE SUPERSONORO</div>
-        <div class="input-wrap">
-          <input type="text" id="heroName" placeholder="Seu nome de SuperSonoro" maxlength="16">
+        <div class="lbl" style="text-align:center;">2. DIGITE SEU NOME DE SUPERSONORO</div>
+        <div style="width:100%;">
+          <input type="text" id="heroName" placeholder="Seu nome de SuperSonoro" maxlength="16" value="HELENA">
         </div>
 
-        <button class="btn-export" onclick="exportBadge()">
-          <img src="exportar.png" class="icon-export" alt="Exportar" /> BAIXAR / COMPARTILHAR INSÍGNIA
+        <button class="btn-export" onclick="exportOfficialStory()">
+          <img src="exportar.png" class="icon-export" alt="Exportar" /> BAIXAR PARA OS STORIES (9:16)
         </button>
       </div>
     </div>
 
-    <canvas id="exportCanvas" width="900" height="900"></canvas>
+    <!-- CANVAS NATIVO 9:16 (1080x1920) -->
+    <canvas id="storyCanvas" width="1080" height="1920"></canvas>
 
     <script>
       var INSIGNIAS = [
-        { color: "#E63946", name: "Vermelha", file: "insigniavermelha.png" },
         { color: "#2C4E9B", name: "Azul",     file: "insigniaazul.png" },
+        { color: "#E63946", name: "Vermelha", file: "insigniavermelha.png" },
         { color: "#8E5FC7", name: "Roxa",     file: "insigniaroxa.png" },
         { color: "#E8792B", name: "Laranja",  file: "insignialaranja.png" },
         { color: "#3CB878", name: "Verde",    file: "insigniaverde.png" },
@@ -1478,8 +1748,15 @@
 
       var curInsignia = INSIGNIAS[0];
 
+      // Pré-carregamento dos elementos originais
+      var imgBg = new Image(); imgBg.src = "textura-bg.jpg";
+      var imgCloud = new Image(); imgCloud.src = "nuvem.png";
+      var imgFaixa1 = new Image(); imgFaixa1.src = "faixa-cima.png";
+      var imgFaixa2 = new Image(); imgFaixa2.src = "faixa-baixo.png";
+
       function setBadge(item){
         curInsignia = item;
+        document.getElementById("storyPreviewBox").style.background = item.color;
         var img = document.getElementById("badgeImg");
         img.onerror = function(){
           if(this.src.indexOf('.png') !== -1 && this.src.indexOf('.png.jpg') === -1){
@@ -1504,59 +1781,71 @@
       }
 
       document.getElementById("heroName").addEventListener("input", function(e){
-        document.getElementById("nameOut").textContent = e.target.value.trim() ? e.target.value.toUpperCase() : "HERÓI DO SOM";
+        document.getElementById("nameOut").textContent = e.target.value.trim() ? e.target.value.toUpperCase() : "SUPERSONORO";
       });
 
-      function exportBadge(){
-        var canvas = document.getElementById("exportCanvas");
+      function exportOfficialStory(){
+        var canvas = document.getElementById("storyCanvas");
         var ctx = canvas.getContext("2d");
         var heroText = document.getElementById("nameOut").textContent;
         var imgSource = document.getElementById("badgeImg");
 
+        // 1. Fundo colorido oficial
         ctx.fillStyle = curInsignia.color;
-        ctx.fillRect(0, 0, 900, 900);
+        ctx.fillRect(0, 0, 1080, 1920);
 
-        ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
-        for (var x = 20; x < 900; x += 30) {
-          for (var y = 20; y < 900; y += 30) {
-            ctx.beginPath();
-            ctx.arc(x, y, 3, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-
-        ctx.lineWidth = 18;
-        ctx.strokeStyle = "#171512";
-        ctx.strokeRect(9, 9, 882, 882);
-
+        // 2. Textura pontilhada e raios mesclados
         try {
-          var imgSize = 560;
-          ctx.drawImage(imgSource, (900 - imgSize) / 2, 90, imgSize, imgSize);
+          ctx.save();
+          ctx.globalAlpha = 0.55;
+          ctx.globalCompositeOperation = "multiply";
+          ctx.drawImage(imgBg, 0, 0, 1080, 1920);
+          ctx.restore();
         } catch(e){}
 
-        ctx.fillStyle = "#FBF6EA";
-        ctx.lineWidth = 10;
-        ctx.strokeStyle = "#171512";
-        ctx.fillRect(100, 680, 700, 110);
-        ctx.strokeRect(100, 680, 700, 110);
+        // 3. Nuvem do canto superior esquerdo
+        try {
+          ctx.drawImage(imgCloud, -40, -40, 360, 500);
+        } catch(e){}
 
-        ctx.fillStyle = "#171512";
-        ctx.font = "bold 52px Arial, sans-serif";
+        // 4. Nuvem do canto superior direito (espelhada)
+        try {
+          ctx.save();
+          ctx.translate(1120, -40);
+          ctx.scale(-1, 1);
+          ctx.drawImage(imgCloud, 0, 0, 360, 500);
+          ctx.restore();
+        } catch(e){}
+
+        // 5. Insígnia central
+        var badgeSize = 680;
+        try {
+          ctx.drawImage(imgSource, (1080 - badgeSize) / 2, 430, badgeSize, badgeSize);
+        } catch(e){}
+
+        // 6. Nome do SuperSonoro
+        ctx.save();
+        ctx.fillStyle = "#FFFFFF";
+        ctx.font = "bold 96px 'Comic Neue', Arial, sans-serif";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText(heroText, 450, 735);
+        ctx.lineWidth = 18;
+        ctx.strokeStyle = "#171512";
+        ctx.lineJoin = "round";
+        ctx.strokeText(heroText, 540, 1280);
+        ctx.fillText(heroText, 540, 1280);
+        ctx.restore();
 
-        ctx.fillStyle = "#F4C531";
-        ctx.font = "bold 26px Arial, sans-serif";
-        ctx.shadowColor = "#171512";
-        ctx.shadowOffsetX = 3;
-        ctx.shadowOffsetY = 3;
-        ctx.fillText("SUPERSONOROS · GUITARRÍSSIMA", 450, 835);
-        ctx.shadowColor = "transparent";
+        // 7. Faixas oficiais inferiores
+        try {
+          ctx.drawImage(imgFaixa1, (1080 - 1040) / 2, 1460, 1040, 200);
+          ctx.drawImage(imgFaixa2, (1080 - 1040) / 2, 1660, 1040, 190);
+        } catch(e){}
 
+        // 8. Download / Compartilhamento nativo
         canvas.toBlob(function(blob){
           var safeName = heroText.toLowerCase().replace(/[^a-z0-9]/g, "-");
-          var file = new File([blob], "insignia-" + safeName + ".png", { type: "image/png" });
+          var file = new File([blob], "story-insignia-" + safeName + ".png", { type: "image/png" });
 
           if(navigator.canShare && navigator.canShare({ files: [file] })){
             navigator.share({
@@ -1566,7 +1855,7 @@
             }).catch(function(){});
           } else {
             var a = document.createElement("a");
-            a.download = "insignia-" + safeName + ".png";
+            a.download = "story-insignia-" + safeName + ".png";
             a.href = URL.createObjectURL(blob);
             a.click();
           }
@@ -1725,7 +2014,7 @@
 
   renderDynamicTexts();
   renderEnsaios();
-  renderSessions();
+  renderAllSessionDemos();
 </script>
 </body>
 </html>
