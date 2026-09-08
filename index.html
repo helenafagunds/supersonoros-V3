@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>SuperSonoros — Guitarríssima</title>
 
-<!-- GOOGLE FONTS -->
+<!-- GOOGLE FONTS: Bangers & Comic Neue (Bold) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@
     margin:0 0 8px; text-align:center;
   }
   p.lede{
-    color:rgba(255,255,255,.96); font-size:clamp(13.5px, 3.4vw, 17px); line-height:1.45;
+    color:rgba(255,255,255,.96); font-size:clamp(13px, 3.3vw, 16.5px); line-height:1.45;
     margin:0 auto; max-width:760px; text-align:center;
   }
 
@@ -548,6 +548,7 @@
   }
   .btn-close-bottom:active{transform:translate(2px, 2px); box-shadow:none;}
 
+  /* ---- SESSÕES: BLOQUEIO COM CADEADO.PNG E LINHA ÚNICA TRAVADA ---- */
   .common-blur-wrap {
     position: relative;
     border-radius: 14px;
@@ -587,18 +588,20 @@
   }
   .opt4-stamp {
     font-family: 'Bangers', Impact, sans-serif;
-    font-size: clamp(16px, 4.2vw, 24px);
-    letter-spacing: 1.5px;
+    font-size: clamp(11.5px, 3.2vw, 18px);
+    letter-spacing: 0.6px;
     color: var(--red);
     background: #fff;
-    border: 2.5px dashed var(--red);
-    padding: 5px 14px;
+    border: 2px dashed var(--red);
+    padding: 4px 10px;
     border-radius: 6px;
     text-transform: uppercase;
     transform: rotate(-2deg);
-    box-shadow: 3.5px 3.5px 0 var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
     margin-bottom: 8px;
-    line-height: 1.2;
+    line-height: 1.1;
+    white-space: nowrap;
+    max-width: 96%;
   }
   .opt4-msg {
     color: #fff;
@@ -639,7 +642,7 @@
 
   <div class="header-intro">
     <span class="eyebrow">Espetáculo de final de ano</span>
-    <p class="lede">Acompanhe tudo sobre o universo SuperSonoros: Ensaios, sessões do show, fotos dos ensaios e os joguinhos da jornada — tudo num só lugar.</p>
+    <p class="lede">Acompanhe tudo sobre o universo SuperSonoros: Ensaios, sessões do show, fotos dos ensaios e os joguinhos da jornada — <span style="white-space:nowrap;">tudo num só lugar.</span></p>
   </div>
 
   <div class="tabs">
@@ -1509,7 +1512,7 @@
     <\/script>
     </body></html>`,
 
-    /* GERADOR DE INSÍGNIA NATIVO REVISADO COM RESOLUÇÃO E TIPOGRAFIA CORRETAS */
+    /* JOGO DA INSÍGNIA: PREVIEW PROPORCIONAL E TIPOGRAFIA CORRETA */
     insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1549,7 +1552,6 @@
         letter-spacing:0.3px;
       }
       
-      /* PREVIEW RESPONSIVO COM ALTURA CONTROLADA */
       .preview-stage{
         flex:1;
         width:100%;
@@ -1575,7 +1577,6 @@
         display:block;
       }
 
-      /* DOCK DE CONTROLES INFERIOR */
       .control-dock{
         position:relative;
         z-index:2;
@@ -1737,7 +1738,6 @@
           var canvas = document.getElementById("storyCanvas");
           var ctx = canvas.getContext("2d");
 
-          // Configura nitidez máxima do Canvas
           ctx.imageSmoothingEnabled = true;
           ctx.imageSmoothingQuality = "high";
 
@@ -1759,7 +1759,7 @@
           }
           ctx.restore();
 
-          // 3. Halftone Dots de fundo
+          // 3. Halftone Dots
           ctx.fillStyle = "rgba(17, 17, 17, 0.14)";
           for(var x=20; x<1080; x+=36){
             for(var y=20; y<1920; y+=36){
@@ -1791,7 +1791,6 @@
             ctx.fill();
             ctx.stroke();
 
-            // Sombra cinza da marca
             ctx.fillStyle = "#D6D4D0";
             ctx.beginPath();
             ctx.arc(150, 60, 65, Math.PI*1.7, Math.PI*2.4);
@@ -1817,7 +1816,7 @@
             }
           }catch(e){}
 
-          // 6. Nome do SuperSonoro com contorno de HQ seguro
+          // 6. Nome do SuperSonoro
           ctx.save();
           ctx.font = "900 96px 'Comic Neue', Impact, 'Arial Black', sans-serif";
           ctx.textAlign = "center";
