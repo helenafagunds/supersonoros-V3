@@ -325,6 +325,21 @@
   .arrow{font-size:20px; font-weight:bold; color:var(--ink); transition:transform .12s ease; flex-shrink:0;}
   .item-card:hover .arrow{transform:translateX(3px);}
 
+  .ens-alert-badge {
+    display: inline-block;
+    font-family: 'Bangers', Impact, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    background: var(--yellow);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 3px 10px;
+    margin-top: 8px;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+
   .btn{
     display:flex; align-items:center; justify-content:center; gap:8px; width:100%; border:3px solid var(--ink); border-radius:12px;
     background:var(--yellow); color:var(--ink); font-family:'Bangers', Impact, sans-serif; font-size:16px; letter-spacing:1px;
@@ -548,7 +563,6 @@
   }
   .btn-close-bottom:active{transform:translate(2px, 2px); box-shadow:none;}
 
-  /* ---- SESSÕES: BLOQUEIO COM CADEADO.PNG E LINHA ÚNICA TRAVADA ---- */
   .common-blur-wrap {
     position: relative;
     border-radius: 14px;
@@ -798,47 +812,56 @@
   <!-- ===================== 2. ENSAIOS ===================== -->
   <div id="view-ensaios" class="view">
     
-    <div class="notice-box">
-      <div id="noticeTxt"></div>
-      <div>
-        <a class="btn-whats" href="https://wa.link/isvn9i" target="_blank">
-          <svg viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-          </svg>
-          Falar com a Secretaria
-        </a>
-      </div>
-    </div>
-
-    <div class="ensaios-manifesto-box">
-      <div style="font-family:'Bangers', Impact, sans-serif; font-size:19px; color:var(--red); margin-bottom:4px; letter-spacing:1px; text-transform:uppercase;">
-        A Preparação da Liga SuperSonoros
-      </div>
-      <p style="margin:0 0 6px; color:#171512;">
-        Cada ensaio será uma preparação, onde as bandas enfrentarão as forças dos vilões para despertarem seus verdadeiros superpoderes! Descubra quais serão eles abaixo:
-      </p>
-      <div class="album-callout">
-        <strong>Lembrete importante:</strong> Na medida em que os vilões vão sendo revelados, novas figurinhas são desbloqueadas, então lembre-se de trazer seu <em>Álbum SuperSonoros</em>. Esperamos vocês para salvar Porto Alegre da Música Ruim!
-      </div>
-    </div>
-
+    <!-- TELA INICIAL DOS ENSAIOS (COM OS BOXES DE AVISO) -->
     <div id="view-ensaios-home">
+      
+      <!-- BOX 1: AVISO SECRETARIA COM WHATSAPP -->
+      <div class="notice-box">
+        <div id="noticeTxt"></div>
+        <div>
+          <a class="btn-whats" href="https://wa.link/isvn9i" target="_blank">
+            <svg viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            Falar com a Secretaria
+          </a>
+        </div>
+      </div>
+
+      <!-- BOX 2: MANIFESTO DOS GRANDES ENSAIOS -->
+      <div class="ensaios-manifesto-box">
+        <div style="font-family:'Bangers', Impact, sans-serif; font-size:19px; color:var(--red); margin-bottom:4px; letter-spacing:1px; text-transform:uppercase;">
+          A Preparação da Liga SuperSonoros
+        </div>
+        <p style="margin:0 0 6px; color:#171512;">
+          Cada ensaio será uma preparação, onde as bandas enfrentarão as forças dos vilões para despertarem seus verdadeiros superpoderes! Descubra quais serão eles abaixo:
+        </p>
+        <div class="album-callout">
+          <strong>Lembrete importante:</strong> Na medida em que os vilões vão sendo revelados, novas figurinhas são desbloqueadas, então lembre-se de trazer seu <em>Álbum SuperSonoros</em>. Esperamos vocês para salvar Porto Alegre da Música Ruim!
+        </div>
+      </div>
+
+      <!-- PAINEL DA LISTA DE ENSAIOS -->
       <div class="panel">
         <div class="section-title">Grandes Ensaios da Liga</div>
         <div id="ensaiosList" class="grid-2-even"></div>
       </div>
     </div>
 
+    <!-- TELA DE DETALHES DO ENSAIO (OS BOXES DE CIMA NÃO APARECEM AQUI) -->
     <div id="view-ensaio-detail" class="hidden">
       <button class="back-btn" onclick="goEnsaiosHome()">← Voltar aos Ensaios</button>
 
       <div class="panel">
         <h1 id="ensTitle" style="font-size:26px;text-align:left;color:var(--yellow);margin:0 0 4px;">Ensaio</h1>
-        <p class="lede" style="color:#666;text-align:left;margin-bottom:12px;max-width:none;" id="ensDate"></p>
+        <p class="lede" style="color:#666;text-align:left;margin-bottom:8px;max-width:none;" id="ensDate"></p>
 
-        <div class="info-item">
+        <div class="info-item" style="margin-bottom:6px;">
           <span id="ensLocation"></span>
         </div>
+
+        <!-- AVISO ESPECIAL CONDICIONAL (ENSAIO 1 E 2) -->
+        <div id="ensSpecialBadgeBox"></div>
       </div>
 
       <div class="grid-detail-cols">
@@ -1197,11 +1220,12 @@
       date:"12/09 (sáb)", 
       color:"#8E5FC7", 
       villain:"Vilão 1", 
-      img:"vilao1.png",
+      img:"vilao1.png", 
       metaDesc:"Definição do nome oficial da banda e escolha da música",
+      specialNotice: "🎟️ Início das vendas de ingressos do espetáculo",
       agenda: 
         '<div class="ens-mission-card">' +
-          '<div style="font-family:\'Bangers\', Impact, sans-serif; font-size:16px; color:var(--purple); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
+          '<div style="font-family:\'Bangers\', cursive; font-size:16px; color:var(--purple); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
           '<div style="font-size:13.5px; line-height:1.45; color:#171512;">' +
             'Definição ou validação do nome oficial da banda e a escolha da música que defenderão (para o <em>Guitar Kids</em>, essa decisão já chega pronta e é apresentada como uma missão especial).' +
           '</div>' +
@@ -1224,11 +1248,12 @@
       date:"27/09 (dom)", 
       color:"#D9A62B", 
       villain:"Vilão 2", 
-      img:"vilao2.png",
+      img:"vilao2.png", 
       metaDesc:"Planejamento dos figurinos e foto oficial da banda",
+      specialNotice: "📸 Dia da foto oficial da banda",
       agenda: 
         '<div class="ens-mission-card">' +
-          '<div style="font-family:\'Bangers\', Impact, sans-serif; font-size:16px; color:var(--orange); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
+          '<div style="font-family:\'Bangers\', cursive; font-size:16px; color:var(--orange); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
           '<div style="font-size:13.5px; line-height:1.45; color:#171512;">' +
             'Início do planejamento dos figurinos e registro da foto oficial da banda para o telão e cards de divulgação.' +
           '</div>' +
@@ -1251,8 +1276,9 @@
       date:"03/10 (sáb)", 
       color:"#E8792B", 
       villain:"Vilão 3", 
-      img:"vilao3.png",
+      img:"vilao3.png", 
       metaDesc:"Performance e validação final dos figurinos",
+      specialNotice: null,
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', cursive; font-size:16px; color:var(--orange); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1276,8 +1302,9 @@
       date:"17/10 (sáb)", 
       color:"#3CB878", 
       villain:"Vilão 4", 
-      img:"vilao4.png",
+      img:"vilao4.png", 
       metaDesc:"Movimentação, posicionamento e marcação de palco",
+      specialNotice: null,
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', Impact, sans-serif; font-size:16px; color:var(--green); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1322,6 +1349,15 @@
     document.getElementById("ensAgendaBox").innerHTML = e.agenda;
     document.getElementById("ensVillainTitle").textContent = "Ameaça: " + e.villain;
     
+    const badgeBox = document.getElementById("ensSpecialBadgeBox");
+    if (e.specialNotice) {
+      badgeBox.innerHTML = '<span class="ens-alert-badge">' + e.specialNotice + '</span>';
+      badgeBox.style.display = "block";
+    } else {
+      badgeBox.innerHTML = "";
+      badgeBox.style.display = "none";
+    }
+
     const vImg = document.getElementById("ensVillainImg");
     vImg.src = e.img;
     vImg.alt = "Silhueta " + e.villain;
@@ -1512,7 +1548,7 @@
     <\/script>
     </body></html>`,
 
-    /* JOGO DA INSÍGNIA: PREVIEW PROPORCIONAL E TIPOGRAFIA CORRETA */
+    /* JOGO DA INSÍGNIA: NUVEM.PNG NATIVO E PROPORCIONAL COM CORES DA PALETA */
     insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1696,6 +1732,7 @@
         var activeInsignia = INSIGNIAS[0];
         var currentName = "HELENA";
         var badgeImage = new Image();
+        var cloudImage = new Image();
 
         function init(){
           renderColorButtons();
@@ -1709,6 +1746,15 @@
               this.src = activeInsignia.file.replace(".png", ".png.jpg");
             }
           };
+
+          cloudImage.onload = function(){ renderCanvasStory(); };
+          cloudImage.onerror = function(){
+            if(this.src.indexOf(".png") !== -1 && this.src.indexOf(".png.jpg") === -1){
+              this.src = "nuvem.png.jpg";
+            }
+          };
+          cloudImage.src = "nuvem.png";
+
           loadBadge();
         }
 
@@ -1741,7 +1787,7 @@
           ctx.imageSmoothingEnabled = true;
           ctx.imageSmoothingQuality = "high";
 
-          // 1. Fundo com cor de contraste oficial
+          // 1. Fundo com cor de contraste oficial da paleta
           ctx.fillStyle = activeInsignia.bgColor;
           ctx.fillRect(0, 0, 1080, 1920);
 
@@ -1759,7 +1805,7 @@
           }
           ctx.restore();
 
-          // 3. Halftone Dots
+          // 3. Halftone Dots de fundo
           ctx.fillStyle = "rgba(17, 17, 17, 0.14)";
           for(var x=20; x<1080; x+=36){
             for(var y=20; y<1920; y+=36){
@@ -1769,37 +1815,12 @@
             }
           }
 
-          // 4. Nuvens no topo
-          function drawVectorCloud(cx, cy, scale, flip){
-            ctx.save();
-            ctx.translate(cx, cy);
-            if(flip) ctx.scale(-scale, scale);
-            else ctx.scale(scale, scale);
-            ctx.fillStyle = "#F3F4F1";
-            ctx.lineWidth = 14;
-            ctx.strokeStyle = "#111111";
-            ctx.lineCap = "round";
-            ctx.lineJoin = "round";
-
-            ctx.beginPath();
-            ctx.arc(-80, 0, 85, Math.PI*0.7, Math.PI*1.8);
-            ctx.arc(0, -65, 95, Math.PI*1.1, Math.PI*1.9);
-            ctx.arc(90, -10, 80, Math.PI*1.3, Math.PI*2.2);
-            ctx.arc(150, 60, 75, Math.PI*1.6, Math.PI*2.5);
-            ctx.arc(-30, 80, 105, Math.PI*0.2, Math.PI*0.9);
-            ctx.closePath();
-            ctx.fill();
-            ctx.stroke();
-
-            ctx.fillStyle = "#D6D4D0";
-            ctx.beginPath();
-            ctx.arc(150, 60, 65, Math.PI*1.7, Math.PI*2.4);
-            ctx.arc(-30, 80, 95, Math.PI*0.3, Math.PI*0.85);
-            ctx.fill();
-            ctx.restore();
-          }
-          drawVectorCloud(140, 120, 1.4, false);
-          drawVectorCloud(940, 100, 1.45, true);
+          // 4. Nuvem oficial sobreposta perfeitamente (nuvem.png em 1080x1920)
+          try{
+            if(cloudImage.complete && cloudImage.naturalWidth > 0){
+              ctx.drawImage(cloudImage, 0, 0, 1080, 1920);
+            }
+          }catch(e){}
 
           // 5. Insígnia central proporcional (1:1 sem distorção)
           try{
@@ -1816,7 +1837,7 @@
             }
           }catch(e){}
 
-          // 6. Nome do SuperSonoro
+          // 6. Nome do SuperSonoro com contorno de HQ seguro
           ctx.save();
           ctx.font = "900 96px 'Comic Neue', Impact, 'Arial Black', sans-serif";
           ctx.textAlign = "center";
