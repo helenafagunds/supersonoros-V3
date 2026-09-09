@@ -464,7 +464,7 @@
 
   .hidden{display:none !important;}
 
-  /* MODAL COMPATÍVEL COM IPHONE/SAFARI DYNAMIC VIEWPORT */
+  /* MODAL MODERNO OTIMIZADO PARA MOBILE */
   .modal-overlay{
     position:fixed; inset:0; background:rgba(0,0,0,.82); display:none;
     align-items:center; justify-content:center; z-index:999;
@@ -472,7 +472,7 @@
   }
   .modal-overlay.show{display:flex;}
   .modal-box{
-    width:100%; max-width:440px; height:88vh; height:88dvh; max-height:820px;
+    width:100%; max-width:440px; height:90vh; height:90dvh; max-height:840px;
     background:transparent; border-radius:20px; position:relative;
     display:flex; flex-direction:column;
   }
@@ -676,7 +676,6 @@
     
     <div class="panel">
       
-      <!-- INÍCIO -->
       <div class="comic-prologue-card">
         <span class="comic-tag">Início · O Chamado da Liga</span>
         <div class="prologue-img-wrap">
@@ -689,7 +688,6 @@
         </div>
       </div>
 
-      <!-- AS 4 AMEAÇAS -->
       <div class="comic-act-header">
         <span class="comic-badge-act">As 4 Ameaças</span>
         <p id="threatSubtitle" style="font-size:13px; color:#000000; margin:4px 0 0;"></p>
@@ -697,7 +695,6 @@
 
       <div class="comic-villain-strip">
         
-        <!-- VILÃO 1 -->
         <div class="folder-card-wrap" onclick="openVillainModal('v1')">
           <div class="folder-tab" style="border-top:3px solid var(--purple);">Dossiê #01</div>
           <div class="comic-villain-card" style="border-top:4.5px solid var(--purple);">
@@ -719,7 +716,6 @@
           </div>
         </div>
 
-        <!-- VILÃO 2 -->
         <div class="folder-card-wrap" onclick="openVillainModal('v2')">
           <div class="folder-tab" style="border-top:3px solid var(--gold);">Dossiê #02</div>
           <div class="comic-villain-card" style="border-top:4.5px solid var(--gold);">
@@ -741,7 +737,6 @@
           </div>
         </div>
 
-        <!-- VILÃO 3 -->
         <div class="folder-card-wrap" onclick="openVillainModal('v3')">
           <div class="folder-tab" style="border-top:3px solid var(--orange);">Dossiê #03</div>
           <div class="comic-villain-card" style="border-top:4.5px solid var(--orange);">
@@ -763,7 +758,6 @@
           </div>
         </div>
 
-        <!-- VILÃO 4 -->
         <div class="folder-card-wrap" onclick="openVillainModal('v4')">
           <div class="folder-tab" style="border-top:3px solid var(--green);">Dossiê #04</div>
           <div class="comic-villain-card" style="border-top:4.5px solid var(--green);">
@@ -787,7 +781,6 @@
 
       </div>
 
-      <!-- CHEFÃO FINAL -->
       <div class="panel clickable-boss" style="background:#171512; border-color:var(--yellow); box-shadow:none; margin:0 0 16px; padding:16px;" onclick="openVillainModal('vBoss')">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <span style="background:var(--yellow); color:var(--ink); font-family:'Bangers', Impact, sans-serif; font-size:12.5px; letter-spacing:1px; padding:3px 10px; border-radius:999px; text-transform:uppercase;">A Conexão Sombria</span>
@@ -800,7 +793,6 @@
         <p id="bossDesc2" style="margin:0; color:#FFFFFF; font-size:13.5px; line-height:1.45;"></p>
       </div>
 
-      <!-- EPÍLOGO -->
       <div class="comic-prologue-card" style="background:#FFF9E6; border-color:var(--ink); margin-bottom:0; text-align:center; justify-content:center;">
         <div style="max-width:800px; margin:0 auto;">
           <span class="comic-tag" style="background:var(--red); color:#fff;">Epílogo · O Palco da Decisão</span>
@@ -817,7 +809,6 @@
   <!-- ===================== 2. ENSAIOS ===================== -->
   <div id="view-ensaios" class="view">
     
-    <!-- TELA INICIAL DOS ENSAIOS -->
     <div id="view-ensaios-home">
       
       <div class="notice-box">
@@ -850,7 +841,6 @@
       </div>
     </div>
 
-    <!-- TELA DE DETALHES DO ENSAIO -->
     <div id="view-ensaio-detail" class="hidden">
       <button class="back-btn" onclick="goEnsaiosHome()">← Voltar aos Ensaios</button>
 
@@ -925,7 +915,6 @@
 
     </div>
 
-    <!-- PÁGINA DE DETALHES -->
     <div id="view-session" class="hidden">
       <button class="back-btn" onclick="goSessionHome()">← Voltar às Sessões</button>
 
@@ -1023,7 +1012,7 @@
 
 </div>
 
-<!-- MODAL DE JOGOS OTIMIZADO -->
+<!-- MODAL DE JOGOS OTIMIZADO PARA MOBILE -->
 <div class="modal-overlay" id="gameModal">
   <div class="modal-box" id="modalBox">
     <button class="modal-close" onclick="closeGame()">✕</button>
@@ -1060,7 +1049,7 @@
     document.getElementById("v4Summary").textContent = decodeHex("41747561206e6f20736567756e646f20657861746f20616e746573206461207072696d65697261206e6f74612c20676572616e646f2070656e73616d656e746f7320706172616c6973616e746573207061726120696d70656469722071756520612063616ec3a7c3a36f2061636f6e7465c3a761206e6f2070616c636f2e");
 
     document.getElementById("bossDesc1").textContent = decodeHex("4e656e68756d20646573736573206f627374c3a163756c6f73206f70657261766120736f7a696e686f2e20536575207665726461646569726f2070726f70c3b37369746f2065726120656e667261717565636572206f20726570657274c3b372696f207061726120616c696d656e74617220756d6120666f72c3a761206f63756c74612061696e6461206d61696f722e");
-    document.getElementById("bossDesc2").textContent = decodeHex("41204772616e646520526573706f73746120646f73204dc3ba7369636f733a204e6f2070616c636f20646f2074656174726f2c206e6f73736f7320617274697374617320756e656d20766f7a207072c3b3707269612c2073656e736962696c6964616465206dc3ba7475612c20646564696361c3a7c3a36f20636f6e7374616e7465206520636f726167656d2e205175616e646f20756d61206d656c6f646961206e6173636520617574c3aa6e74696361206520666f636164612c20656c6120736520746f726e6120696e6162616cc3a176656c20636f6e73747261207175616c7175657220736f6d6272612e");
+    document.getElementById("bossDesc2").textContent = decodeHex("41204772616e646520526573706f73746120646f73204dc3ba7369636f733a204e6f2070616c636f20646f2074656174726f2c206e6f73736f7320617274697374617320756e656d20766f7a207072c3b3707269612c2073656e736962696c6964616465206dc3ba7475612c20646564696361c3a7c3a36f20636f6e7374616e7465206520636f726167656d2e205175616e646f20756d61206d656c6f646961206e6173636520617574c3aa6e74696361206520666f636164612c20656c6120736520746f726e6120696e6162616cc3a176656c20636f6e747261207175616c7175657220736f6d6272612e");
 
     document.getElementById("epilogueTxt").textContent = decodeHex("4f20646f6dc3ad6e696f20646f2061727469737461206ec3a36f20736520696d70726f76697361206469616e746520646120706c61746569612e20456c6520666f692063756c74697661646f20656d206361646120726570657469c3a7c3a36f20636f6e736369656e74652c206e61206174656ec3a7c3a36f20646564696361646120c3a0206861726d6f6e696120636f6d206f7320636f6c656761732065206e612064657465726d696e61c3a7c3a36f2064652073757374656e746172206f207072696d6569726f2061636f7264652e204e6f206772616e6465206469612c206f73205375706572536f6e6f726f7320736f62656d20616f2070616c636f20706172612070726f766172206120706f74c3aa6e636961206461207375612063616d696e686164612e");
 
@@ -1549,7 +1538,7 @@
     <\/script>
     </body></html>`,
 
-    /* JOGO DA INSÍGNIA: SEM CORTE NO IPHONE COM NOME INICIAL PADRÃO */
+    /* JOGO DA INSÍGNIA: ZERO DELAY, PRELOAD COMPLETO E PREVIEW AMPLO */
     insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1566,9 +1555,8 @@
         flex-direction:column;
         align-items:center;
         justify-content:flex-start;
-        gap:6px;
-        padding:10px 10px 14px;
-        min-height:100%;
+        gap:14px;
+        padding:12px 10px 24px;
       }
       body::before{
         content:"";position:fixed;inset:0;
@@ -1579,18 +1567,19 @@
       h1{
         font-family:'Bangers',Impact,sans-serif;
         color:#FDD12E;
-        font-size:20px;
+        font-size:24px;
         letter-spacing:1px;
         text-shadow:2px 2px 0 #111111;
-        margin-bottom:1px;
+        margin-bottom:2px;
         line-height:1.1;
       }
       p.sub{
-        font-size:11px;
+        font-size:12px;
         color:rgba(243,244,241,0.85);
         letter-spacing:0.2px;
       }
       
+      /* PREVIEW COM TAMANHO MAXIMIZADO E ROLAGEM CONFORTÁVEL */
       .preview-stage{
         width:100%;
         display:flex;
@@ -1599,14 +1588,14 @@
         z-index:1;
       }
       .preview-card{
-        height:38vh;
-        height:38dvh;
-        max-height:245px;
+        width:100%;
+        max-width:280px;
         aspect-ratio:9/16;
-        border-radius:14px;
+        border-radius:18px;
         overflow:hidden;
-        box-shadow:0 8px 22px rgba(0,0,0,0.7),0 0 0 2px rgba(243,244,241,0.18);
+        box-shadow:0 12px 28px rgba(0,0,0,0.8),0 0 0 2.5px rgba(243,244,241,0.18);
         background:#000;
+        flex-shrink:0;
       }
       #storyCanvas{
         width:100%;
@@ -1614,24 +1603,27 @@
         display:block;
       }
 
+      /* BOX BRANCO DE CONTROLES ABAIXO */
       .control-dock{
         position:relative;
         z-index:2;
         width:100%;
         max-width:340px;
         background:#F3F4F1;
-        border:2.5px solid #111111;
-        border-radius:14px;
-        padding:8px 10px;
-        box-shadow:0 6px 16px rgba(0,0,0,0.4),3px 3px 0 #111111;
+        border:3px solid #111111;
+        border-radius:18px;
+        padding:12px 14px;
+        box-shadow:0 8px 20px rgba(0,0,0,0.4),3.5px 3.5px 0 #111111;
         display:flex;
         flex-direction:column;
-        gap:6px;
+        gap:10px;
+        margin-bottom:8px;
+        flex-shrink:0;
       }
       .dock-label{
         font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
         font-weight:700;
-        font-size:11px;
+        font-size:11.5px;
         letter-spacing:.5px;
         color:#111111;
         text-transform:uppercase;
@@ -1641,31 +1633,31 @@
         display:flex;
         justify-content:space-between;
         align-items:center;
-        padding:0 2px;
+        padding:2px 4px;
       }
       .color-dot{
-        width:26px;
-        height:26px;
+        width:32px;
+        height:32px;
         border-radius:50%;
-        border:2px solid #111111;
+        border:2.5px solid #111111;
         cursor:pointer;
         box-shadow:1.5px 1.5px 0 #111111;
         transition:transform .12s ease;
       }
       .color-dot.selected{
         transform:scale(1.18);
-        outline:2px solid #111111;
+        outline:2.5px solid #111111;
       }
       
       input[type="text"]{
         width:100%;
         background:#fff;
-        border:2px solid #111111;
-        border-radius:8px;
-        padding:6px 8px;
+        border:2.5px solid #111111;
+        border-radius:10px;
+        padding:9px 10px;
         font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
         font-weight:700;
-        font-size:13px;
+        font-size:14px;
         color:#111111;
         text-align:center;
         text-transform:uppercase;
@@ -1676,23 +1668,23 @@
         width:100%;
         background:#FDD12E;
         border:2.5px solid #111111;
-        border-radius:10px;
-        padding:8px 6px;
+        border-radius:12px;
+        padding:11px 8px;
         font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
         font-weight:700;
-        font-size:13px;
+        font-size:13.5px;
         letter-spacing:0.5px;
         text-transform:uppercase;
         color:#111111;
         cursor:pointer;
-        box-shadow:2px 2px 0 #111111;
+        box-shadow:2.5px 2.5px 0 #111111;
         display:inline-flex;
         align-items:center;
         justify-content:center;
-        gap:6px;
+        gap:8px;
       }
       .btn-download:active{transform:translate(2px,2px);box-shadow:none;}
-      .icon-export{width:15px;height:15px;object-fit:contain;flex-shrink:0;}
+      .icon-export{width:16px;height:16px;object-fit:contain;flex-shrink:0;}
     </style></head><body>
       <header>
         <h1>GERADOR DE INSÍGNIA</h1>
@@ -1729,66 +1721,76 @@
           { name:"Laranja",  badgeColor:"#FE7C02", bgColor:"#0383EC", file:"insignialaranja.png" },
           { name:"Verde",    badgeColor:"#019742", bgColor:"#AF7AD4", file:"insigniaverde.png" }
         ];
-        var activeInsignia = INSIGNIAS[0];
+
+        var activeIndex = 0;
         var currentName = "SEU NOME AQUI";
-        var badgeImage = new Image();
+        
+        // PRELOAD TOTAL EM MEMÓRIA (ELIMINA O '?' E LENTIDÃO DO SAFARI)
+        var preloadedBadges = [];
         var cloudImage = new Image();
 
-        function init(){
-          renderColorButtons();
-          document.getElementById("nameField").addEventListener("input", function(e){
-            currentName = e.target.value.trim() ? e.target.value.toUpperCase() : "SEU NOME AQUI";
-            renderCanvasStory();
+        function preloadAllAssets(){
+          INSIGNIAS.forEach(function(item, idx){
+            var img = new Image();
+            img.src = item.file;
+            img.onload = function(){ renderCanvasStory(); };
+            img.onerror = function(){
+              if(this.src.indexOf(".png") !== -1 && this.src.indexOf(".png.jpg") === -1){
+                this.src = item.file.replace(".png", ".png.jpg");
+              }
+            };
+            preloadedBadges[idx] = img;
           });
-          badgeImage.onload = function(){ renderCanvasStory(); };
-          badgeImage.onerror = function(){
-            if(this.src.indexOf(".png") !== -1 && this.src.indexOf(".png.jpg") === -1){
-              this.src = activeInsignia.file.replace(".png", ".png.jpg");
-            }
-          };
 
+          cloudImage.src = "nuvem.png";
           cloudImage.onload = function(){ renderCanvasStory(); };
           cloudImage.onerror = function(){
             if(this.src.indexOf(".png") !== -1 && this.src.indexOf(".png.jpg") === -1){
               this.src = "nuvem.png.jpg";
             }
           };
-          cloudImage.src = "nuvem.png";
+        }
 
-          loadBadge();
+        function init(){
+          preloadAllAssets();
+          renderColorButtons();
+          
+          document.getElementById("nameField").addEventListener("input", function(e){
+            currentName = e.target.value.trim() ? e.target.value.toUpperCase() : "SEU NOME AQUI";
+            renderCanvasStory();
+          });
+
+          renderCanvasStory();
         }
 
         function renderColorButtons(){
           var container = document.getElementById("colorsContainer");
           container.innerHTML = "";
-          INSIGNIAS.forEach(function(item){
+          INSIGNIAS.forEach(function(item, idx){
             var dot = document.createElement("div");
-            dot.className = "color-dot" + (item.file === activeInsignia.file ? " selected" : "");
+            dot.className = "color-dot" + (idx === activeIndex ? " selected" : "");
             dot.style.background = item.badgeColor;
             dot.title = item.name;
             dot.onclick = function(){
-              activeInsignia = item;
+              activeIndex = idx;
               renderColorButtons();
-              loadBadge();
+              renderCanvasStory();
             };
             container.appendChild(dot);
           });
         }
 
-        function loadBadge(){
-          badgeImage.src = activeInsignia.file;
-          renderCanvasStory();
-        }
-
         function renderCanvasStory(){
           var canvas = document.getElementById("storyCanvas");
           var ctx = canvas.getContext("2d");
+          var activeItem = INSIGNIAS[activeIndex];
+          var badgeImage = preloadedBadges[activeIndex];
 
           ctx.imageSmoothingEnabled = true;
           ctx.imageSmoothingQuality = "high";
 
-          // 1. Fundo com cor de contraste
-          ctx.fillStyle = activeInsignia.bgColor;
+          // 1. Fundo com cor de contraste oficial
+          ctx.fillStyle = activeItem.bgColor;
           ctx.fillRect(0, 0, 1080, 1920);
 
           // 2. Raios solares de gibi (Sunburst)
@@ -1817,14 +1819,14 @@
 
           // 4. Nuvem oficial sobreposta (nuvem.png em 1080x1920)
           try{
-            if(cloudImage.complete && cloudImage.naturalWidth > 0){
+            if(cloudImage && cloudImage.complete && cloudImage.naturalWidth > 0){
               ctx.drawImage(cloudImage, 0, 0, 1080, 1920);
             }
           }catch(e){}
 
-          // 5. Insígnia central proporcional (1:1 sem distorção)
+          // 5. Insígnia central proporcional (1:1 sem distorção e sem delay)
           try{
-            if(badgeImage.complete && badgeImage.naturalWidth > 0){
+            if(badgeImage && badgeImage.complete && badgeImage.naturalWidth > 0){
               var maxDim = 680;
               var imgW = badgeImage.naturalWidth;
               var imgH = badgeImage.naturalHeight;
@@ -1837,7 +1839,7 @@
             }
           }catch(e){}
 
-          // 6. Nome do SuperSonoro
+          // 6. Nome do SuperSonoro com contorno de gibi
           ctx.save();
           ctx.font = "900 96px 'Comic Neue', Impact, 'Arial Black', sans-serif";
           ctx.textAlign = "center";
