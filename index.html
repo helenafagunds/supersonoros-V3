@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>SuperSonoros — Guitarríssima</title>
 
 <!-- GOOGLE FONTS: Bangers & Comic Neue (Bold) -->
@@ -21,8 +21,8 @@
   body{
     font-family:'Comic Neue', Impact, 'Arial Black', sans-serif;
     font-weight:700;
-    background:var(--red); color:var(--ink); min-height:100vh;
-    display:flex; justify-content:center; padding:24px 12px 60px;
+    background:var(--red); color:var(--ink); min-height:100vh; min-height:100dvh;
+    display:flex; justify-content:center; padding:24px 12px calc(60px + env(safe-area-inset-bottom));
     transition:background .4s ease;
   }
   body::before{
@@ -464,29 +464,34 @@
 
   .hidden{display:none !important;}
 
+  /* MODAL COMPATÍVEL COM IPHONE/SAFARI DYNAMIC VIEWPORT */
   .modal-overlay{
-    position:fixed; inset:0; background:rgba(0,0,0,.78); display:none;
-    align-items:center; justify-content:center; z-index:999; padding:8px;
+    position:fixed; inset:0; background:rgba(0,0,0,.82); display:none;
+    align-items:center; justify-content:center; z-index:999;
+    padding:calc(10px + env(safe-area-inset-top)) 10px calc(14px + env(safe-area-inset-bottom));
   }
   .modal-overlay.show{display:flex;}
   .modal-box{
-    width:100%; max-width:440px; height:94vh; max-height:860px;
+    width:100%; max-width:440px; height:88vh; height:88dvh; max-height:820px;
     background:transparent; border-radius:20px; position:relative;
     display:flex; flex-direction:column;
   }
   
   .modal-close{
     position:absolute; top:8px; right:8px; z-index:1002; background:var(--ink); color:#fff;
-    border:2.5px solid #fff; border-radius:50%; width:36px; height:36px; font-size:17px;
+    border:2.5px solid #fff; border-radius:50%; width:34px; height:34px; font-size:16px;
     cursor:pointer; font-weight:bold; display:flex; align-items:center; justify-content:center;
     box-shadow:0 3px 6px rgba(0,0,0,0.5);
     outline:none;
   }
   .modal-close:active{transform:scale(0.95);}
-  .modal-box iframe{width:100%; height:100%; border:3.5px solid var(--ink); border-radius:18px; background:#111; display:block;}
+  .modal-box iframe{
+    width:100%; height:100%; border:3.5px solid var(--ink); border-radius:18px;
+    background:#111; display:block;
+  }
 
   .villain-dossier-modal-box{
-    width:100%; max-width:580px; max-height:84vh; overflow-y:auto;
+    width:100%; max-width:580px; max-height:84vh; max-height:84dvh; overflow-y:auto;
     background:var(--red);
     border:3.5px solid var(--ink); border-radius:20px;
     box-shadow:6px 6px 0 var(--ink); padding:16px 12px 14px; position:relative;
@@ -812,10 +817,9 @@
   <!-- ===================== 2. ENSAIOS ===================== -->
   <div id="view-ensaios" class="view">
     
-    <!-- TELA INICIAL DOS ENSAIOS (COM OS BOXES DE AVISO) -->
+    <!-- TELA INICIAL DOS ENSAIOS -->
     <div id="view-ensaios-home">
       
-      <!-- BOX 1: AVISO SECRETARIA COM WHATSAPP -->
       <div class="notice-box">
         <div id="noticeTxt"></div>
         <div>
@@ -828,7 +832,6 @@
         </div>
       </div>
 
-      <!-- BOX 2: MANIFESTO DOS GRANDES ENSAIOS -->
       <div class="ensaios-manifesto-box">
         <div style="font-family:'Bangers', Impact, sans-serif; font-size:19px; color:var(--red); margin-bottom:4px; letter-spacing:1px; text-transform:uppercase;">
           A Preparação da Liga SuperSonoros
@@ -841,14 +844,13 @@
         </div>
       </div>
 
-      <!-- PAINEL DA LISTA DE ENSAIOS -->
       <div class="panel">
         <div class="section-title">Grandes Ensaios da Liga</div>
         <div id="ensaiosList" class="grid-2-even"></div>
       </div>
     </div>
 
-    <!-- TELA DE DETALHES DO ENSAIO (OS BOXES DE CIMA NÃO APARECEM AQUI) -->
+    <!-- TELA DE DETALHES DO ENSAIO -->
     <div id="view-ensaio-detail" class="hidden">
       <button class="back-btn" onclick="goEnsaiosHome()">← Voltar aos Ensaios</button>
 
@@ -860,7 +862,6 @@
           <span id="ensLocation"></span>
         </div>
 
-        <!-- AVISO ESPECIAL CONDICIONAL (ENSAIO 1 E 2) -->
         <div id="ensSpecialBadgeBox"></div>
       </div>
 
@@ -1022,7 +1023,7 @@
 
 </div>
 
-<!-- MODAL DE JOGOS -->
+<!-- MODAL DE JOGOS OTIMIZADO -->
 <div class="modal-overlay" id="gameModal">
   <div class="modal-box" id="modalBox">
     <button class="modal-close" onclick="closeGame()">✕</button>
@@ -1059,7 +1060,7 @@
     document.getElementById("v4Summary").textContent = decodeHex("41747561206e6f20736567756e646f20657861746f20616e746573206461207072696d65697261206e6f74612c20676572616e646f2070656e73616d656e746f7320706172616c6973616e746573207061726120696d70656469722071756520612063616ec3a7c3a36f2061636f6e7465c3a761206e6f2070616c636f2e");
 
     document.getElementById("bossDesc1").textContent = decodeHex("4e656e68756d20646573736573206f627374c3a163756c6f73206f70657261766120736f7a696e686f2e20536575207665726461646569726f2070726f70c3b37369746f2065726120656e667261717565636572206f20726570657274c3b372696f207061726120616c696d656e74617220756d6120666f72c3a761206f63756c74612061696e6461206d61696f722e");
-    document.getElementById("bossDesc2").textContent = decodeHex("41204772616e646520526573706f73746120646f73204dc3ba7369636f733a204e6f2070616c636f20646f2074656174726f2c206e6f73736f7320617274697374617320756e656d20766f7a207072c3b3707269612c2073656e736962696c6964616465206dc3ba7475612c20646564696361c3a7c3a36f20636f6e7374616e7465206520636f726167656d2e205175616e646f20756d61206d656c6f646961206e6173636520617574c3aa6e74696361206520666f636164612c20656c6120736520746f726e6120696e6162616cc3a176656c20636f6e747261207175616c7175657220736f6d6272612e");
+    document.getElementById("bossDesc2").textContent = decodeHex("41204772616e646520526573706f73746120646f73204dc3ba7369636f733a204e6f2070616c636f20646f2074656174726f2c206e6f73736f7320617274697374617320756e656d20766f7a207072c3b3707269612c2073656e736962696c6964616465206dc3ba7475612c20646564696361c3a7c3a36f20636f6e7374616e7465206520636f726167656d2e205175616e646f20756d61206d656c6f646961206e6173636520617574c3aa6e74696361206520666f636164612c20656c6120736520746f726e6120696e6162616cc3a176656c20636f6e73747261207175616c7175657220736f6d6272612e");
 
     document.getElementById("epilogueTxt").textContent = decodeHex("4f20646f6dc3ad6e696f20646f2061727469737461206ec3a36f20736520696d70726f76697361206469616e746520646120706c61746569612e20456c6520666f692063756c74697661646f20656d206361646120726570657469c3a7c3a36f20636f6e736369656e74652c206e61206174656ec3a7c3a36f20646564696361646120c3a0206861726d6f6e696120636f6d206f7320636f6c656761732065206e612064657465726d696e61c3a7c3a36f2064652073757374656e746172206f207072696d6569726f2061636f7264652e204e6f206772616e6465206469612c206f73205375706572536f6e6f726f7320736f62656d20616f2070616c636f20706172612070726f766172206120706f74c3aa6e636961206461207375612063616d696e686164612e");
 
@@ -1438,10 +1439,10 @@
   }
 
   const GAMES = {
-    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><style>
       *{box-sizing:border-box;}
-      html,body{margin:0;padding:0;}
-      body{font-family:'Comic Neue',Impact,'Arial Black',sans-serif;background:#2C4E9B;color:#171512;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
+      html,body{width:100%;height:100%;margin:0;padding:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+      body{font-family:'Comic Neue',Impact,'Arial Black',sans-serif;background:#2C4E9B;color:#171512;padding:14px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;}
       .box-wrap{width:100%;max-width:380px;text-align:center;}
       h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 10px;text-transform:uppercase;font-family:'Bangers',Impact,sans-serif;}
       .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:14px;text-align:center;}
@@ -1548,14 +1549,14 @@
     <\/script>
     </body></html>`,
 
-    /* JOGO DA INSÍGNIA: NUVEM.PNG NATIVO E PROPORCIONAL COM CORES DA PALETA */
+    /* JOGO DA INSÍGNIA: SEM CORTE NO IPHONE COM NOME INICIAL PADRÃO */
     insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
       *{box-sizing:border-box;margin:0;padding:0;}
-      html,body{width:100%;height:100%;overflow:hidden;}
+      html,body{width:100%;height:100%;margin:0;padding:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
       body{
         font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
         font-weight:700;
@@ -1564,47 +1565,47 @@
         display:flex;
         flex-direction:column;
         align-items:center;
-        justify-content:space-between;
-        padding:12px 10px;
+        justify-content:flex-start;
+        gap:6px;
+        padding:10px 10px 14px;
+        min-height:100%;
       }
       body::before{
         content:"";position:fixed;inset:0;
         background-image:radial-gradient(rgba(243,244,241,0.08) 1.5px,transparent 1.5px);
         background-size:16px 16px;pointer-events:none;
       }
-      header{text-align:center;z-index:1;}
+      header{text-align:center;z-index:1;margin-bottom:2px;}
       h1{
         font-family:'Bangers',Impact,sans-serif;
         color:#FDD12E;
-        font-size:22px;
+        font-size:20px;
         letter-spacing:1px;
         text-shadow:2px 2px 0 #111111;
-        margin-bottom:2px;
+        margin-bottom:1px;
         line-height:1.1;
       }
       p.sub{
-        font-size:11.5px;
+        font-size:11px;
         color:rgba(243,244,241,0.85);
-        letter-spacing:0.3px;
+        letter-spacing:0.2px;
       }
       
       .preview-stage{
-        flex:1;
         width:100%;
         display:flex;
         align-items:center;
         justify-content:center;
-        min-height:0;
-        margin:6px 0;
         z-index:1;
       }
       .preview-card{
-        height:100%;
-        max-height:46vh;
+        height:38vh;
+        height:38dvh;
+        max-height:245px;
         aspect-ratio:9/16;
         border-radius:14px;
         overflow:hidden;
-        box-shadow:0 10px 26px rgba(0,0,0,0.7),0 0 0 2.5px rgba(243,244,241,0.18);
+        box-shadow:0 8px 22px rgba(0,0,0,0.7),0 0 0 2px rgba(243,244,241,0.18);
         background:#000;
       }
       #storyCanvas{
@@ -1619,19 +1620,18 @@
         width:100%;
         max-width:340px;
         background:#F3F4F1;
-        border:3px solid #111111;
-        border-radius:16px;
-        padding:9px 12px;
-        box-shadow:0 6px 18px rgba(0,0,0,0.4),3px 3px 0 #111111;
+        border:2.5px solid #111111;
+        border-radius:14px;
+        padding:8px 10px;
+        box-shadow:0 6px 16px rgba(0,0,0,0.4),3px 3px 0 #111111;
         display:flex;
         flex-direction:column;
-        gap:7px;
-        flex-shrink:0;
+        gap:6px;
       }
       .dock-label{
         font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
         font-weight:700;
-        font-size:11.5px;
+        font-size:11px;
         letter-spacing:.5px;
         color:#111111;
         text-transform:uppercase;
@@ -1641,31 +1641,31 @@
         display:flex;
         justify-content:space-between;
         align-items:center;
-        padding:2px 4px;
+        padding:0 2px;
       }
       .color-dot{
-        width:28px;
-        height:28px;
+        width:26px;
+        height:26px;
         border-radius:50%;
-        border:2.5px solid #111111;
+        border:2px solid #111111;
         cursor:pointer;
         box-shadow:1.5px 1.5px 0 #111111;
         transition:transform .12s ease;
       }
       .color-dot.selected{
         transform:scale(1.18);
-        outline:2.5px solid #111111;
+        outline:2px solid #111111;
       }
       
       input[type="text"]{
         width:100%;
         background:#fff;
-        border:2.5px solid #111111;
+        border:2px solid #111111;
         border-radius:8px;
-        padding:7px 8px;
+        padding:6px 8px;
         font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
         font-weight:700;
-        font-size:14px;
+        font-size:13px;
         color:#111111;
         text-align:center;
         text-transform:uppercase;
@@ -1677,22 +1677,22 @@
         background:#FDD12E;
         border:2.5px solid #111111;
         border-radius:10px;
-        padding:9px 8px;
+        padding:8px 6px;
         font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
         font-weight:700;
-        font-size:13.5px;
-        letter-spacing:0.6px;
+        font-size:13px;
+        letter-spacing:0.5px;
         text-transform:uppercase;
         color:#111111;
         cursor:pointer;
-        box-shadow:2.5px 2.5px 0 #111111;
+        box-shadow:2px 2px 0 #111111;
         display:inline-flex;
         align-items:center;
         justify-content:center;
-        gap:8px;
+        gap:6px;
       }
       .btn-download:active{transform:translate(2px,2px);box-shadow:none;}
-      .icon-export{width:16px;height:16px;object-fit:contain;flex-shrink:0;}
+      .icon-export{width:15px;height:15px;object-fit:contain;flex-shrink:0;}
     </style></head><body>
       <header>
         <h1>GERADOR DE INSÍGNIA</h1>
@@ -1712,7 +1712,7 @@
         </div>
         <div>
           <div class="dock-label">2. Digite seu nome de SuperSonoro</div>
-          <input type="text" id="nameField" maxlength="14" value="HELENA" placeholder="SEU NOME">
+          <input type="text" id="nameField" maxlength="14" placeholder="SEU NOME AQUI">
         </div>
         <button class="btn-download" onclick="exportHighResStory()">
           <img src="exportar.png" class="icon-export" alt="Exportar" />
@@ -1730,14 +1730,14 @@
           { name:"Verde",    badgeColor:"#019742", bgColor:"#AF7AD4", file:"insigniaverde.png" }
         ];
         var activeInsignia = INSIGNIAS[0];
-        var currentName = "HELENA";
+        var currentName = "SEU NOME AQUI";
         var badgeImage = new Image();
         var cloudImage = new Image();
 
         function init(){
           renderColorButtons();
           document.getElementById("nameField").addEventListener("input", function(e){
-            currentName = e.target.value.trim() ? e.target.value.toUpperCase() : "SUPERSONORO";
+            currentName = e.target.value.trim() ? e.target.value.toUpperCase() : "SEU NOME AQUI";
             renderCanvasStory();
           });
           badgeImage.onload = function(){ renderCanvasStory(); };
@@ -1787,7 +1787,7 @@
           ctx.imageSmoothingEnabled = true;
           ctx.imageSmoothingQuality = "high";
 
-          // 1. Fundo com cor de contraste oficial da paleta
+          // 1. Fundo com cor de contraste
           ctx.fillStyle = activeInsignia.bgColor;
           ctx.fillRect(0, 0, 1080, 1920);
 
@@ -1815,7 +1815,7 @@
             }
           }
 
-          // 4. Nuvem oficial sobreposta perfeitamente (nuvem.png em 1080x1920)
+          // 4. Nuvem oficial sobreposta (nuvem.png em 1080x1920)
           try{
             if(cloudImage.complete && cloudImage.naturalWidth > 0){
               ctx.drawImage(cloudImage, 0, 0, 1080, 1920);
@@ -1837,7 +1837,7 @@
             }
           }catch(e){}
 
-          // 6. Nome do SuperSonoro com contorno de HQ seguro
+          // 6. Nome do SuperSonoro
           ctx.save();
           ctx.font = "900 96px 'Comic Neue', Impact, 'Arial Black', sans-serif";
           ctx.textAlign = "center";
@@ -1897,10 +1897,11 @@
       <\/script>
     </body></html>`,
 
-    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><style>
       *{box-sizing:border-box;}
-      body{font-family:'Comic Neue',Impact,'Arial Black',sans-serif;background:#171512;color:#fff;margin:0;padding:12px;text-align:center;}
-      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:14px;padding:14px;max-width:390px;margin:0 auto;}
+      html,body{width:100%;height:100%;margin:0;padding:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+      body{font-family:'Comic Neue',Impact,'Arial Black',sans-serif;background:#171512;color:#fff;margin:0;padding:12px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100%;}
+      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:14px;padding:14px;max-width:390px;width:100%;margin:0 auto;}
       h1{color:#FF5A79;font-size:16px;margin:0 0 8px;text-transform:uppercase;font-family:'Bangers',Impact,sans-serif;}
       .hp-bar{background:#444;border-radius:10px;height:16px;overflow:hidden;margin-bottom:8px;border:2px solid #fff;}
       .hp-fill{background:#E63946;height:100%;width:100%;transition:width .2s;}
@@ -2021,13 +2022,6 @@
 
   function openGame(key){
     const frame = document.getElementById("gameFrame");
-    if(key === 'quiz') {
-      frame.style.height = "380px";
-    } else if(key === 'insignia') {
-      frame.style.height = "100%";
-    } else {
-      frame.style.height = "460px";
-    }
     frame.srcdoc = GAMES[key];
     document.getElementById("gameModal").classList.add("show");
   }
