@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>SuperSonoros — Guitarríssima</title>
 
-<!-- GOOGLE FONTS: Bangers & Comic Neue (Bold) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
@@ -19,7 +18,7 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;overflow-x:hidden;}
   body{
-    font-family:'Comic Neue', Impact, 'Arial Black', sans-serif;
+    font-family:'Comic Neue', cursive, sans-serif;
     font-weight:700;
     background:var(--red); color:var(--ink); min-height:100vh; min-height:100dvh;
     display:flex; justify-content:center; padding:24px 12px calc(60px + env(safe-area-inset-bottom));
@@ -89,22 +88,31 @@
   .view{display:none;}
   .view.active{display:block;}
 
+  .story-loose-wrap{
+    display:flex; flex-direction:column; gap:18px; margin-bottom:20px;
+  }
+
   .comic-prologue-card{
-    background:#fff; border:3px solid var(--ink); border-radius:16px; padding:16px;
-    box-shadow:4px 4px 0 var(--ink); margin-bottom:20px; position:relative;
+    background:#fff; border:3.5px solid var(--ink); border-radius:18px; padding:18px;
+    box-shadow:5px 5px 0 var(--ink); position:relative;
     display:flex; flex-direction:column; gap:14px; align-items:center;
   }
   @media(min-width:720px){
     .comic-prologue-card{
-      flex-direction:row; padding:22px; gap:24px;
+      flex-direction:row; padding:24px; gap:24px;
     }
   }
+
+  /* INSÍGNIA SEM BOX EM VOLTA */
   .prologue-img-wrap{
-    width:110px; height:110px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
-    background:#FFF9E6; border:3px solid var(--ink); border-radius:16px; box-shadow:3px 3px 0 var(--ink);
-    padding:6px;
+    width:clamp(90px, 22vw, 130px); height:clamp(90px, 22vw, 130px);
+    flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    background:transparent; border:none; box-shadow:none; padding:0;
   }
-  .prologue-img{width:100%; height:100%; object-fit:contain; filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));}
+  .prologue-img{
+    width:100%; height:100%; object-fit:contain;
+    filter:drop-shadow(3px 3px 0 rgba(0,0,0,0.18));
+  }
   .comic-tag{
     position:absolute; top:-12px; left:14px; background:var(--ink); color:var(--yellow);
     font-family:'Bangers', Impact, sans-serif; font-size:12px; letter-spacing:1px; padding:3px 12px;
@@ -112,16 +120,16 @@
   }
 
   .comic-act-header{
-    text-align:center; margin:14px 0 16px;
+    text-align:center; margin:8px 0 6px;
   }
   .comic-badge-act{
-    display:inline-block; font-family:'Bangers', Impact, sans-serif; font-size:14px; letter-spacing:1px;
-    text-transform:uppercase; background:var(--red); color:#fff; border:2px solid var(--ink);
-    padding:4px 14px; border-radius:999px; box-shadow:2.5px 2.5px 0 var(--ink); margin-bottom:4px;
+    display:inline-block; font-family:'Bangers', Impact, sans-serif; font-size:15px; letter-spacing:1px;
+    text-transform:uppercase; background:var(--yellow); color:var(--ink); border:2.5px solid var(--ink);
+    padding:4px 16px; border-radius:999px; box-shadow:3px 3px 0 var(--ink); margin-bottom:4px;
   }
 
   .comic-villain-strip{
-    display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:20px;
+    display:grid; grid-template-columns:1fr; gap:16px;
     align-items:stretch;
   }
   @media(min-width:720px){
@@ -169,22 +177,27 @@
   }
 
   .comic-villain-card{
-    background:#fff; border:3px solid var(--ink); border-radius:0 16px 16px 16px; padding:14px;
-    box-shadow:4px 4px 0 var(--ink); display:flex; gap:12px; align-items:stretch;
+    background:#fff; border:3.5px solid var(--ink); border-radius:0 18px 18px 18px; padding:14px;
+    box-shadow:4px 4px 0 var(--ink); display:flex; gap:14px; align-items:stretch;
     position:relative; z-index:1;
     flex:1;
     height:100%;
     transition:box-shadow .12s ease;
   }
+  
+  /* SILHUETAS SEM BOX EM VOLTA */
   .villain-avatar-box{
-    width:78px; height:100%; min-height:110px; background:#171512; border:2.5px solid var(--ink); border-radius:12px;
-    display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:4px;
-    box-shadow:2.5px 2.5px 0 var(--ink);
+    width:80px; height:auto; min-height:110px; background:transparent; border:none; border-radius:0;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:0;
+    box-shadow:none;
   }
   @media(min-width:400px){
-    .villain-avatar-box{width:88px;}
+    .villain-avatar-box{width:95px;}
   }
-  .villain-silhouette{width:100%; height:100%; max-height:105px; object-fit:contain; filter:invert(1);}
+  .villain-silhouette{
+    width:100%; height:100%; max-height:115px; object-fit:contain;
+    filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.12));
+  }
   
   .villain-body-box{
     flex:1;
@@ -219,7 +232,7 @@
   }
   .clickable-boss:hover{
     transform:translate(-2px, -2px);
-    box-shadow:5px 5px 0 var(--yellow) !important;
+    box-shadow:6px 6px 0 var(--yellow) !important;
   }
 
   .notice-box{
@@ -325,19 +338,46 @@
   .arrow{font-size:20px; font-weight:bold; color:var(--ink); transition:transform .12s ease; flex-shrink:0;}
   .item-card:hover .arrow{transform:translateX(3px);}
 
-  .ens-alert-badge {
-    display: inline-block;
-    font-family: 'Bangers', Impact, sans-serif;
+  /* AVISO DE INGRESSOS INTEGRADO NA LATERAL DIREITA DO CARD */
+  .ens-header-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  @media (min-width: 720px) {
+    .ens-header-card {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  .ens-info-callout {
+    background: #FFF9E6;
+    border: 2.5px solid var(--ink);
+    border-left: 6px solid var(--yellow);
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 3px 3px 0 var(--ink);
     font-size: 13px;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    background: var(--yellow);
+    line-height: 1.4;
     color: var(--ink);
-    border: 2px solid var(--ink);
-    border-radius: 8px;
-    padding: 3px 10px;
-    margin-top: 8px;
-    box-shadow: 2px 2px 0 var(--ink);
+    max-width: 380px;
+  }
+
+  /* CARD DA SILHUETA NO ENSAIO COM FUNDO AMARELO CLARO DE ALTO CONTRASTE */
+  .silhouette-card{
+    display:flex; gap:14px; align-items:center;
+    background: #FFF9E6; color: var(--ink);
+    border-radius:14px; padding:12px 14px; border:3px solid var(--ink); box-shadow:3.5px 3.5px 0 var(--ink);
+    margin-bottom:16px;
+  }
+  .silhouette-avatar{
+    width:68px; height:85px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center;
+    border:none; flex-shrink:0; padding:0;
+  }
+  .silhouette-img{
+    width:100%; height:100%; object-fit:contain; display:block;
+    filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.15));
   }
 
   .btn{
@@ -393,17 +433,6 @@
     color:#fff; padding:4px 12px; border-radius:999px; border:2px solid var(--ink);
     text-shadow:1px 1px 0 rgba(0,0,0,0.35);
   }
-
-  .silhouette-card{
-    display:flex; gap:12px; align-items:center; background:#171512; color:#fff;
-    border-radius:14px; padding:12px 14px; border:3px solid var(--ink); box-shadow:3.5px 3.5px 0 var(--ink);
-    margin-bottom:16px;
-  }
-  .silhouette-avatar{
-    width:64px; height:80px; background:#fff; border-radius:10px; display:flex; align-items:center; justify-content:center;
-    border:2.5px solid var(--yellow); flex-shrink:0; padding:4px; overflow:hidden;
-  }
-  .silhouette-img{width:100%; height:100%; object-fit:contain; display:block;}
 
   .ens-mission-card{
     background:#FFF9E6; border:2.5px solid var(--ink); border-radius:12px;
@@ -464,7 +493,7 @@
 
   .hidden{display:none !important;}
 
-  /* MODAL COM CONTROLE DE VIEWPORT MOBILE */
+  /* MODAL */
   .modal-overlay{
     position:fixed; inset:0; background:rgba(0,0,0,.82); display:none;
     align-items:center; justify-content:center; z-index:999;
@@ -532,15 +561,24 @@
   }
 
   .dossier-avatar{
-    width:78px; height:98px; background:#171512; border:2.5px solid var(--ink); border-radius:10px;
-    display:flex; align-items:center; justify-content:center; padding:4px; flex-shrink:0;
+    width:85px; height:105px; background:transparent; border:none; border-radius:0;
+    display:flex; align-items:center; justify-content:center; padding:0; flex-shrink:0;
   }
-  .dossier-avatar.boss-avatar{
-    width:100%; height:150px; background:#FFFFFF; border:3px solid var(--ink);
-    padding:6px;
-  }
-  @media(min-width:480px){
-    .dossier-avatar.boss-avatar{width:180px; height:110px;}
+
+  /* BLOCO DE SIGILO DO CHEFÃO FINAL */
+  .boss-mystery-avatar {
+    width: 80px; height: 90px;
+    background: #171512;
+    border: 2.5px dashed var(--yellow);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--yellow);
+    font-family: 'Bangers', Impact, sans-serif;
+    font-size: 44px;
+    box-shadow: 2.5px 2.5px 0 var(--ink);
+    flex-shrink: 0;
   }
 
   .dossier-section{
@@ -568,7 +606,6 @@
   }
   .btn-close-bottom:active{transform:translate(2px, 2px); box-shadow:none;}
 
-  /* ---- SESSÕES: BLOQUEIO COM CADEADO.PNG ---- */
   .common-blur-wrap {
     position: relative;
     border-radius: 14px;
@@ -675,27 +712,31 @@
   <!-- ===================== 1. HISTÓRIA ===================== -->
   <div id="view-historia" class="view active">
     
-    <div class="panel">
+    <div class="story-loose-wrap">
       
+      <!-- INÍCIO: INSÍGNIA DIRETO NO CARD -->
       <div class="comic-prologue-card">
         <span class="comic-tag">Início · O Chamado da Liga</span>
         <div class="prologue-img-wrap">
           <img src="insigniavermelha.png" alt="Brasão SuperSonoros" class="prologue-img" />
         </div>
         <div style="flex:1;">
-          <h2 style="font-family:'Bangers', Impact, sans-serif; font-size:22px; color:#000000; margin:0 0 6px; text-transform:uppercase;">Ninguém Nasce Pronto: A Arte de se Tornar Herói</h2>
-          <p id="prologueTxt1" style="margin:0 0 6px; color:#000000; font-size:13.5px; line-height:1.45;"></p>
-          <p id="prologueTxt2" style="margin:0; color:#000000; font-size:13px; line-height:1.45;"></p>
+          <h2 style="font-family:'Bangers', Impact, sans-serif; font-size:23px; color:#000000; margin:0 0 6px; text-transform:uppercase;">Ninguém Nasce Pronto: A Arte de se Tornar Herói</h2>
+          <p id="prologueTxt1" style="margin:0 0 6px; color:#000000; font-size:14px; line-height:1.45;"></p>
+          <p id="prologueTxt2" style="margin:0; color:#000000; font-size:13.5px; line-height:1.45;"></p>
         </div>
       </div>
 
+      <!-- AS 4 AMEAÇAS -->
       <div class="comic-act-header">
         <span class="comic-badge-act">As 4 Ameaças</span>
-        <p id="threatSubtitle" style="font-size:13px; color:#000000; margin:4px 0 0;"></p>
+        <p id="threatSubtitle" style="font-size:13.5px; color:#FFFFFF; margin:6px 0 0; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.5);"></p>
       </div>
 
+      <!-- SILHUETAS DIRETAS NO CARD DE CADA DOSSIÊ -->
       <div class="comic-villain-strip">
         
+        <!-- VILÃO 1 -->
         <div class="folder-card-wrap" onclick="openVillainModal('v1')">
           <div class="folder-tab" style="border-top:3px solid var(--purple);">Dossiê #01</div>
           <div class="comic-villain-card" style="border-top:4.5px solid var(--purple);">
@@ -717,6 +758,7 @@
           </div>
         </div>
 
+        <!-- VILÃO 2 -->
         <div class="folder-card-wrap" onclick="openVillainModal('v2')">
           <div class="folder-tab" style="border-top:3px solid var(--gold);">Dossiê #02</div>
           <div class="comic-villain-card" style="border-top:4.5px solid var(--gold);">
@@ -738,6 +780,7 @@
           </div>
         </div>
 
+        <!-- VILÃO 3 -->
         <div class="folder-card-wrap" onclick="openVillainModal('v3')">
           <div class="folder-tab" style="border-top:3px solid var(--orange);">Dossiê #03</div>
           <div class="comic-villain-card" style="border-top:4.5px solid var(--orange);">
@@ -759,6 +802,7 @@
           </div>
         </div>
 
+        <!-- VILÃO 4 -->
         <div class="folder-card-wrap" onclick="openVillainModal('v4')">
           <div class="folder-tab" style="border-top:3px solid var(--green);">Dossiê #04</div>
           <div class="comic-villain-card" style="border-top:4.5px solid var(--green);">
@@ -782,24 +826,26 @@
 
       </div>
 
-      <div class="panel clickable-boss" style="background:#171512; border-color:var(--yellow); box-shadow:none; margin:0 0 16px; padding:16px;" onclick="openVillainModal('vBoss')">
+      <!-- CHEFÃO FINAL -->
+      <div class="panel clickable-boss" style="background:#171512; border:3.5px solid var(--yellow); box-shadow:5px 5px 0 var(--ink); margin:0; padding:18px;" onclick="openVillainModal('vBoss')">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
           <span style="background:var(--yellow); color:var(--ink); font-family:'Bangers', Impact, sans-serif; font-size:12.5px; letter-spacing:1px; padding:3px 10px; border-radius:999px; text-transform:uppercase;">A Conexão Sombria</span>
           <span style="color:#FFFFFF; font-size:11.5px; font-family:'Bangers', Impact, sans-serif; letter-spacing:1px; display:inline-flex; align-items:center; gap:5px;">
             <img src="lupa.png" class="icon-lupa" style="filter:invert(1);" alt="Lupa" /> ABRIR ARQUIVO
           </span>
         </div>
-        <h3 style="font-family:'Bangers', Impact, sans-serif; font-size:21px; letter-spacing:1.2px; color:#FFFFFF; margin:0 0 6px; text-transform:uppercase;">O Chefão Final:</h3>
+        <h3 style="font-family:'Bangers', Impact, sans-serif; font-size:22px; letter-spacing:1.2px; color:#FFFFFF; margin:0 0 6px; text-transform:uppercase;">O Chefão Final:</h3>
         <p id="bossDesc1" style="margin:0 0 8px; color:#FFFFFF; font-size:13.5px; line-height:1.45;"></p>
         <p id="bossDesc2" style="margin:0; color:#FFFFFF; font-size:13.5px; line-height:1.45;"></p>
       </div>
 
+      <!-- EPÍLOGO -->
       <div class="comic-prologue-card" style="background:#FFF9E6; border-color:var(--ink); margin-bottom:0; text-align:center; justify-content:center;">
-        <div style="max-width:800px; margin:0 auto;">
+        <div style="max-width:820px; margin:0 auto;">
           <span class="comic-tag" style="background:var(--red); color:#fff;">Epílogo · O Palco da Decisão</span>
-          <h2 style="font-family:'Bangers', Impact, sans-serif; font-size:21px; color:var(--ink); margin:4px 0 6px; text-transform:uppercase;">A Batalha Não Começa no Palco. Ela Termina Lá!</h2>
+          <h2 style="font-family:'Bangers', Impact, sans-serif; font-size:22px; color:var(--ink); margin:4px 0 6px; text-transform:uppercase;">A Batalha Não Começa no Palco. Ela Termina Lá!</h2>
           <p id="epilogueTxt" style="margin:0 0 10px; color:#000000; font-size:13.5px; line-height:1.45;"></p>
-          <div style="font-family:'Bangers', Impact, sans-serif; font-size:21px; letter-spacing:1px; color:var(--red); text-transform:uppercase;">SER ÚNICO É O SEU SUPERPODER!</div>
+          <div style="font-family:'Bangers', Impact, sans-serif; font-size:22px; letter-spacing:1.2px; color:var(--red); text-transform:uppercase;">SER ÚNICO É O SEU SUPERPODER!</div>
         </div>
       </div>
 
@@ -842,30 +888,35 @@
       </div>
     </div>
 
+    <!-- TELA DE DETALHES DO ENSAIO -->
     <div id="view-ensaio-detail" class="hidden">
       <button class="back-btn" onclick="goEnsaiosHome()">← Voltar aos Ensaios</button>
 
       <div class="panel">
-        <h1 id="ensTitle" style="font-size:26px;text-align:left;color:var(--yellow);margin:0 0 4px;">Ensaio</h1>
-        <p class="lede" style="color:#666;text-align:left;margin-bottom:8px;max-width:none;" id="ensDate"></p>
-
-        <div class="info-item" style="margin-bottom:6px;">
-          <span id="ensLocation"></span>
+        <div class="ens-header-card">
+          <div>
+            <h1 id="ensTitle" style="font-size:26px;text-align:left;color:var(--yellow);margin:0 0 4px;">Ensaio</h1>
+            <p class="lede" style="color:#666;text-align:left;margin-bottom:6px;max-width:none;" id="ensDate"></p>
+            <div class="info-item" style="margin-bottom:0;">
+              <span id="ensLocation"></span>
+            </div>
+          </div>
+          <!-- AVISO DE INGRESSOS INTEGRADO NA LATERAL DIREITA DO CARD -->
+          <div id="ensSpecialBadgeBox"></div>
         </div>
-
-        <div id="ensSpecialBadgeBox"></div>
       </div>
 
       <div class="grid-detail-cols">
         <div class="panel" style="margin-bottom:0;">
           
+          <!-- SILHUETA COM FUNDO CLARO DE ALTO CONTRASTE -->
           <div class="silhouette-card">
             <div class="silhouette-avatar">
               <img id="ensVillainImg" src="" alt="Silhueta do Vilão" class="silhouette-img" />
             </div>
             <div>
-              <div style="font-family:'Bangers', Impact, sans-serif; font-size:18px; letter-spacing:1px; color:var(--yellow); text-transform:uppercase;" id="ensVillainTitle">Ameaça</div>
-              <div id="ensVillainSubtitle" style="font-size:12.5px; color:#ccc; line-height:1.4; margin-top:2px;"></div>
+              <div style="font-family:'Bangers', Impact, sans-serif; font-size:19px; letter-spacing:1px; color:var(--ink); text-transform:uppercase;" id="ensVillainTitle">Ameaça</div>
+              <div id="ensVillainSubtitle" style="font-size:13px; color:#444; line-height:1.4; margin-top:2px;"></div>
             </div>
           </div>
 
@@ -889,7 +940,7 @@
     </div>
   </div>
 
-  <!-- ===================== 3. SESSÕES COM BLOQUEIO RETICULADO & CADEADO.PNG ===================== -->
+  <!-- ===================== 3. SESSÕES ===================== -->
   <div id="view-sessoes" class="view">
     <div id="view-sessoes-home">
       
@@ -1096,8 +1147,8 @@
       color: "#8E5FC7",
       img: "vilao1.png",
       isBoss: false,
-      avatarBg: "#171512",
-      invertImg: true,
+      avatarBg: "transparent",
+      invertImg: false,
       quem: "Age tentando anular a autenticidade de quem estuda música. Faz o estudante acreditar que reproduzir rigidamente fórmulas prontas é mais conveniente do que buscar sua própria expressão.",
       motivacao: "Incômodo com a originalidade alheia, já que não consegue inventar algo genuíno. Tenta fazer com que todas as interpretações fiquem sem personalidade.",
       posturas: ["'Copiar é mais fácil.'", "'Se já deu certo com ele, faz igual.'", "'Não inventa moda.'", "'O objetivo é ficar idêntico ao original.'"],
@@ -1109,8 +1160,8 @@
       color: "#D9A62B",
       img: "vilao2.png",
       isBoss: false,
-      avatarBg: "#171512",
-      invertImg: true,
+      avatarBg: "transparent",
+      invertImg: false,
       quem: "Uma parceria agitada onde uma parte age por impulso e a outra sempre quer se sobressair. Nenhuma delas se abre para perceber o ambiente e os parceiros.",
       motivacao: "Acreditam que o instrumentista de maior destaque é o que toca com mais intensidade de volume, tentando sufocar as dinâmicas delicadas.",
       posturas: ["'Se eu tocar mais alto, vão me ouvir.'", "'O importante é aparecer sozinho.'", "'Toca mais forte, não precisa prestar atenção nos outros.'"],
@@ -1122,8 +1173,8 @@
       color: "#E8792B",
       img: "vilao3.png",
       isBoss: false,
-      avatarBg: "#171512",
-      invertImg: true,
+      avatarBg: "transparent",
+      invertImg: false,
       quem: "Simboliza a falsa impressão de segurança precoce. Induz o instrumentista a crer que um único acerto ocasional representa domínio maduro da música.",
       motivacao: "Quer disseminar a ideia de atalhos e sorte, tentando mascarar que a verdadeira segurança nasce da constância e dedicação ao instrumento.",
       posturas: ["'Uma vez basta.'", "'Já tá bom, você já sabe.'", "'No palco sai na hora!'", "'Quem tem talento não precisa ensaiar tanto.'"],
@@ -1135,8 +1186,8 @@
       color: "#3CB878",
       img: "vilao4.png",
       isBoss: false,
-      avatarBg: "#171512",
-      invertImg: true,
+      avatarBg: "transparent",
+      invertImg: false,
       quem: "A dúvida que paralisa antes de agir. Surge silenciosamente momentos antes da entrada no palco ou da primeira contagem de tempo da banda.",
       motivacao: "Não suporta ver quem tem coragem de se expor artisticamente. Busca prender o instrumentista na hesitação prévia para que o som não ganhe vida.",
       posturas: ["'Será que você está pronto?'", "'E se você esquecer a letra?'", "'E se der branco na frente de todos? Melhor não tocar hoje...'"],
@@ -1146,10 +1197,7 @@
     vBoss: {
       code: "CHEFÃO FINAL",
       color: "#E63946",
-      img: "vilao5.png",
       isBoss: true,
-      avatarBg: "#FFFFFF",
-      invertImg: false,
       quem: "A manifestação do esvaziamento musical. Cresce e se expande quando as canções perdem o cuidado, o equilíbrio e a intenção de quem as executa.",
       motivacao: "Consumir melodias frágeis e descuidadas, manipulando silenciosamente os comportamentos anteriores para fragilizar o grupo.",
       posturas: ["Alimenta-se da falta de foco, da imitação sem alma e da renúncia no momento decisivo."],
@@ -1158,7 +1206,6 @@
     }
   };
 
-  /* RESETA O SCROLL DO MODAL DO DOSSIÊ PARA O TOPO */
   function openVillainModal(key){
     const v = VILOES_DOSSIE[key];
     const modalOverlay = document.getElementById("villainModal");
@@ -1166,21 +1213,29 @@
     const body = document.getElementById("villainModalBody");
     
     let posturasHtml = v.posturas.map(p => "<li>" + p + "</li>").join("");
-    let imgFilter = v.invertImg ? "filter:invert(1);" : "";
-    let avatarClass = v.isBoss ? "dossier-avatar boss-avatar" : "dossier-avatar";
-    let headerClass = v.isBoss ? "dossier-header boss-header" : "dossier-header";
 
-    body.innerHTML = 
-      '<div class="dossier-stamp">ARQUIVO CONFIDENCIAL // LIGA SUPERSONOROS</div>' +
-      '<div class="' + headerClass + '">' +
-        '<div class="' + avatarClass + '" style="background:' + v.avatarBg + ';">' +
-          '<img src="' + v.img + '" alt="' + v.code + '" style="width:100%;height:100%;object-fit:contain;' + imgFilter + '" />' +
+    let avatarHtml = "";
+    if (v.isBoss) {
+      avatarHtml = 
+        '<div class="boss-mystery-avatar">?</div>' +
+        '<div>' +
+          '<h2 style="font-family:\'Bangers\', Impact, sans-serif;font-size:26px;margin:0 0 2px;color:var(--red);-webkit-text-stroke:0.5px var(--ink);">' + v.code + '</h2>' +
+          '<div style="font-size:12px;font-weight:900;color:var(--red);letter-spacing:0.5px;">SINAL CODIFICADO // IDENTIDADE SOB SIGILO ABSOLUTO</div>' +
+        '</div>';
+    } else {
+      avatarHtml = 
+        '<div class="dossier-avatar">' +
+          '<img src="' + v.img + '" alt="' + v.code + '" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));" />' +
         '</div>' +
         '<div>' +
           '<h2 style="font-family:\'Bangers\', Impact, sans-serif;font-size:26px;margin:0 0 2px;color:' + v.color + ';-webkit-text-stroke:0.5px var(--ink);">' + v.code + '</h2>' +
           '<div style="font-size:12px;color:#666;">Status: Identidade sob sigilo</div>' +
-        '</div>' +
-      '</div>' +
+        '</div>';
+    }
+
+    body.innerHTML = 
+      '<div class="dossier-stamp">ARQUIVO CONFIDENCIAL // LIGA SUPERSONOROS</div>' +
+      '<div class="dossier-header">' + avatarHtml + '</div>' +
       '<div class="dossier-section">' +
         '<div class="dossier-section-title" style="color:var(--ink);">Comportamento Detectado:</div>' +
         '<p style="margin:0;">' + v.quem + '</p>' +
@@ -1230,7 +1285,7 @@
       villain:"Vilão 1", 
       img:"vilao1.png", 
       metaDesc:"Definição do nome oficial da banda e escolha da música",
-      specialNotice: "🎟️ Início das vendas de ingressos do espetáculo",
+      calloutText: "🎟️ <strong>Venda de ingressos do espetáculo:</strong><br>Presencialmente na sede das 8h às 18h.",
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', cursive; font-size:16px; color:var(--purple); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1258,7 +1313,7 @@
       villain:"Vilão 2", 
       img:"vilao2.png", 
       metaDesc:"Planejamento dos figurinos e foto oficial da banda",
-      specialNotice: "📸 Dia da foto oficial da banda",
+      calloutText: "📸 <strong>Atenção:</strong><br>Dia do registro da foto oficial individual e da banda!",
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', cursive; font-size:16px; color:var(--orange); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1286,7 +1341,7 @@
       villain:"Vilão 3", 
       img:"vilao3.png", 
       metaDesc:"Performance e validação final dos figurinos",
-      specialNotice: null,
+      calloutText: null,
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', cursive; font-size:16px; color:var(--orange); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1312,7 +1367,7 @@
       villain:"Vilão 4", 
       img:"vilao4.png", 
       metaDesc:"Movimentação, posicionamento e marcação de palco",
-      specialNotice: null,
+      calloutText: null,
       agenda: 
         '<div class="ens-mission-card">' +
           '<div style="font-family:\'Bangers\', Impact, sans-serif; font-size:16px; color:var(--green); margin-bottom:4px; text-transform:uppercase;">Missão do Ensaio:</div>' +
@@ -1358,8 +1413,8 @@
     document.getElementById("ensVillainTitle").textContent = "Ameaça: " + e.villain;
     
     const badgeBox = document.getElementById("ensSpecialBadgeBox");
-    if (e.specialNotice) {
-      badgeBox.innerHTML = '<span class="ens-alert-badge">' + e.specialNotice + '</span>';
+    if (e.calloutText) {
+      badgeBox.innerHTML = '<div class="ens-info-callout">' + e.calloutText + '</div>';
       badgeBox.style.display = "block";
     } else {
       badgeBox.innerHTML = "";
@@ -1445,21 +1500,26 @@
     window.scrollTo(0,0);
   }
 
+  /* JOGUINHOS 100% COM A ESTRUTURA ORIGINAL QUE FUNCIONAVA */
   const GAMES = {
-    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><style>
+    quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
       *{box-sizing:border-box;}
-      html,body{width:100%;height:100%;margin:0;padding:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-      body{font-family:'Comic Neue',Impact,'Arial Black',sans-serif;background:#2C4E9B;color:#171512;padding:14px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;}
+      html,body{margin:0;padding:0;}
+      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#2C4E9B;color:#171512;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
       .box-wrap{width:100%;max-width:380px;text-align:center;}
-      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;font-size:18px;margin:0 0 10px;text-transform:uppercase;font-family:'Bangers',Impact,sans-serif;}
+      h1{color:#F4C531;text-shadow:2px 2px 0 #171512;-webkit-text-stroke:1px #171512;font-size:22px;letter-spacing:1px;margin:0 0 10px;text-transform:uppercase;font-family:'Bangers', cursive;}
       .panel{background:#FBF6EA;border:3.5px solid #171512;border-radius:14px;box-shadow:4px 4px 0 #171512;padding:14px;text-align:center;}
-      .dot{width:22px;height:22px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:bold;background:#fff;margin:0 2px;}
+      .dot{width:22px;height:22px;border-radius:50%;border:2px solid #171512;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;background:#fff;margin:0 2px;font-family:'Bangers', cursive;}
       .dot.done{background:#E63946;color:#fff;}
-      .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:8px;padding:9px 12px;margin-bottom:7px;font-weight:700;font-size:13px;cursor:pointer;line-height:1.3;}
+      .opt{text-align:left;background:#fff;border:2px solid #171512;border-radius:8px;padding:9px 12px;margin-bottom:7px;font-weight:700;font-size:13.5px;cursor:pointer;line-height:1.35;box-shadow:2px 2px 0 #171512;}
       .opt:last-child{margin-bottom:0;}
       .opt:active{background:#F4C531;}
-      .btn{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;cursor:pointer;font-size:13px;text-transform:uppercase;margin-top:10px;font-family:'Bangers',Impact,sans-serif;}
-      .badge{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;border:3px solid #171512;}
+      .btn{width:100%;padding:10px;font-weight:bold;border:2.5px solid #171512;border-radius:8px;background:#F4C531;cursor:pointer;font-size:16px;letter-spacing:1px;text-transform:uppercase;margin-top:10px;font-family:'Bangers', cursive;box-shadow:3px 3px 0 #171512;}
+      .badge{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;border:3px solid #171512;font-family:'Bangers', cursive;}
     </style></head><body>
     <div class="box-wrap">
       <h1>QUAL É O SEU SUPERPODER?</h1>
@@ -1525,12 +1585,13 @@
         var q=Q[cur];
         var optsHtml = "";
         for(var i=0; i<q.o.length; i++){
-          optsHtml += '<div class="opt" onclick="pick(\\'' + q.o[i][1] + '\\')">' + q.o[i][0] + '</div>';
+          optsHtml += '<div class="opt" onclick="pick(' + i + ')">' + q.o[i][0] + '</div>';
         }
         document.getElementById("app").innerHTML =
-          '<div style="margin-bottom:8px;">'+dots()+'</div><h3 style="font-size:14px;margin:8px 0 10px;line-height:1.35;">'+q.t+'</h3>' + optsHtml;
+          '<div style="margin-bottom:8px;">'+dots()+'</div><h3 style="font-size:14.5px;margin:8px 0 10px;line-height:1.35;">'+q.t+'</h3>' + optsHtml;
       }
-      function pick(k){
+      function pick(idx){
+        var k = Q[cur].o[idx][1];
         sc[k]++; cur++;
         if(cur>=Q.length){ result(); } else { renderQ(); }
       }
@@ -1547,7 +1608,7 @@
         var r=R[w];
         document.getElementById("app").innerHTML =
           '<div class="badge" style="background:'+r.c+';">'+r.n.charAt(0)+'</div>'+
-          '<h2 style="margin:2px 0 4px;font-size:18px;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:11.5px;margin:0 0 8px;">Desenvolvido no '+r.e+'</p>' +
+          '<h2 style="margin:2px 0 4px;font-size:22px;font-family:\\'Bangers\\', cursive;letter-spacing:1px;color:'+r.c+';-webkit-text-stroke:0.5px #171512;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:11.5px;margin:0 0 8px;">Desenvolvido no '+r.e+'</p>' +
           '<p style="text-align:left;background:#F4EFE1;padding:8px 10px;border-radius:6px;border-left:3px solid #171512;font-size:12.5px;line-height:1.4;margin:0;">'+r.d+'</p>' +
           '<button class="btn" onclick="restart()">Refazer Quiz</button>';
       }
@@ -1556,7 +1617,6 @@
     <\/script>
     </body></html>`,
 
-    /* JOGO DA INSÍGNIA: PREVIEW PROPORCIONAL COM PRELOAD E CONTROLE DE VIEWPORT */
     insignia: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1806,11 +1866,9 @@
           ctx.imageSmoothingEnabled = true;
           ctx.imageSmoothingQuality = "high";
 
-          // 1. Fundo com cor de contraste oficial
           ctx.fillStyle = activeItem.bgColor;
           ctx.fillRect(0, 0, 1080, 1920);
 
-          // 2. Raios solares de gibi (Sunburst)
           ctx.save();
           ctx.translate(540, 750);
           ctx.fillStyle = "rgba(243, 244, 241, 0.15)";
@@ -1824,7 +1882,6 @@
           }
           ctx.restore();
 
-          // 3. Halftone Dots de fundo
           ctx.fillStyle = "rgba(17, 17, 17, 0.14)";
           for(var x=20; x<1080; x+=36){
             for(var y=20; y<1920; y+=36){
@@ -1834,14 +1891,12 @@
             }
           }
 
-          // 4. Nuvem oficial sobreposta (nuvem.png em 1080x1920)
           try{
             if(cloudImage && cloudImage.complete && cloudImage.naturalWidth > 0){
               ctx.drawImage(cloudImage, 0, 0, 1080, 1920);
             }
           }catch(e){}
 
-          // 5. Insígnia central proporcional (1:1 sem distorção e sem delay)
           try{
             if(badgeImage && badgeImage.complete && badgeImage.naturalWidth > 0){
               var maxDim = 680;
@@ -1856,7 +1911,6 @@
             }
           }catch(e){}
 
-          // 6. Nome do SuperSonoro com contorno de gibi
           ctx.save();
           ctx.font = "900 96px 'Comic Neue', Impact, 'Arial Black', sans-serif";
           ctx.textAlign = "center";
@@ -1869,7 +1923,6 @@
           ctx.fillText(currentName, 540, 1270);
           ctx.restore();
 
-          // 7. Faixas oficiais amarelas inclinadas
           function drawComicBanner(y, rot, text, fontSize){
             ctx.save();
             ctx.translate(540, y);
@@ -1916,19 +1969,22 @@
       <\/script>
     </body></html>`,
 
-    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><style>
+    batalha: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
       *{box-sizing:border-box;}
-      html,body{width:100%;height:100%;margin:0;padding:0;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-      body{font-family:'Comic Neue',Impact,'Arial Black',sans-serif;background:#171512;color:#fff;margin:0;padding:12px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100%;}
-      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:14px;padding:14px;max-width:390px;width:100%;margin:0 auto;}
-      h1{color:#FF5A79;font-size:16px;margin:0 0 8px;text-transform:uppercase;font-family:'Bangers',Impact,sans-serif;}
+      body{font-family:'Comic Neue', cursive, sans-serif;font-weight:700;background:#171512;color:#fff;margin:0;padding:12px;text-align:center;}
+      .box{background:#23201d;border:3.5px solid #F4C531;border-radius:14px;padding:14px;max-width:390px;margin:0 auto;}
+      h1{color:#FF5A79;font-size:20px;letter-spacing:1px;margin:0 0 8px;text-transform:uppercase;font-family:'Bangers', cursive;-webkit-text-stroke:0.5px #000;}
       .hp-bar{background:#444;border-radius:10px;height:16px;overflow:hidden;margin-bottom:8px;border:2px solid #fff;}
       .hp-fill{background:#E63946;height:100%;width:100%;transition:width .2s;}
       .boss-sprite{font-size:44px;margin:4px 0;}
-      .prompt{background:#fff;color:#171512;padding:10px 12px;border-radius:8px;font-weight:900;font-size:12.5px;margin-bottom:10px;line-height:1.4;}
+      .prompt{background:#fff;color:#171512;padding:10px 12px;border-radius:8px;font-weight:900;font-size:13px;margin-bottom:10px;line-height:1.4;}
       .grid{display:grid;grid-template-columns:1fr;gap:7px;}
-      .btn-atk{padding:10px 8px;border:2px solid #171512;border-radius:8px;font-weight:900;font-size:11.5px;cursor:pointer;color:#fff;text-align:left;line-height:1.3;}
-      .status{font-size:12px;font-weight:bold;margin-top:8px;min-height:16px;color:#F4C531;}
+      .btn-atk{padding:10px 8px;border:2px solid #171512;border-radius:8px;font-family:'Comic Neue', cursive;font-weight:700;font-size:12px;cursor:pointer;color:#fff;text-align:left;line-height:1.35;box-shadow:2px 2px 0 #000;}
+      .status{font-size:14px;font-family:'Bangers', cursive;letter-spacing:0.8px;margin-top:8px;min-height:16px;color:#F4C531;text-transform:uppercase;}
     </style></head><body>
     <div class="box">
       <h1>Devorador de Sons</h1>
