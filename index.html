@@ -450,13 +450,13 @@
   }
 
   .silhouette-card{
-    display:flex; gap:12px; align-items:center;
+    display:flex; gap:14px; align-items:center;
     background: #FFF9E6; color: var(--ink);
-    border-radius:14px; padding:10px 12px; border:3px solid var(--ink); box-shadow:3.5px 3.5px 0 var(--ink);
-    margin-bottom:14px;
+    border-radius:14px; padding:12px 14px; border:3px solid var(--ink); box-shadow:3.5px 3.5px 0 var(--ink);
+    margin-bottom:16px;
   }
   .silhouette-avatar{
-    width:64px; height:80px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center;
+    width:68px; height:85px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center;
     border:none; flex-shrink:0; padding:0;
   }
   .silhouette-img{
@@ -507,11 +507,11 @@
   }
   .lineup-name{flex:1; font-weight:700;}
 
-  .info-item{display:block; margin-bottom:6px; font-size:13px; line-height:1.18;}
+  .info-item{display:block; margin-bottom:10px; font-size:13.5px; line-height:1.2;}
   .info-item:last-child{margin-bottom:0;}
 
-  .recap-box{background:#F4EFE1; border-left:4px solid var(--ink); border-radius:8px; padding:12px; font-size:13px; line-height:1.2; color:#333;}
-  .chip-list{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;}
+  .recap-box{background:#F4EFE1; border-left:4px solid var(--ink); border-radius:8px; padding:14px; font-size:13px; line-height:1.22; color:#333;}
+  .chip-list{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
   .power-chip{
     font-family:'Bangers', Impact, sans-serif; font-size:13.5px; letter-spacing:.5px; text-transform:uppercase;
     color:#fff; padding:4px 12px; border-radius:999px; border:2px solid var(--ink);
@@ -520,17 +520,17 @@
 
   .ens-mission-card{
     background:#FFF9E6; border:2.5px solid var(--ink); border-radius:12px;
-    padding:10px 12px; margin-bottom:10px;
+    padding:12px; margin-bottom:12px;
   }
   .ens-narrative-card{
     background:#fff; border-left:4px solid var(--ink); border-radius:6px;
-    padding:8px 10px; font-size:13px; line-height:1.18; color:#222; margin-bottom:10px;
+    padding:10px 12px; font-size:13px; line-height:1.2; color:#222; margin-bottom:12px;
   }
-  .agenda-list{margin:0; padding-left:18px; font-size:13px; line-height:1.2; color:#333;}
-  .agenda-list li{margin-bottom:4px;}
+  .agenda-list{margin:0; padding-left:18px; font-size:13px; line-height:1.25; color:#333;}
+  .agenda-list li{margin-bottom:6px;}
   .agenda-list li:last-child{margin-bottom:0;}
 
-  .photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px;}
+  .photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:12px;}
   .photo-slot{
     aspect-ratio:1/1; background:#EFE9D8; border:2px dashed #c9c0a8; border-radius:10px;
     display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:18px; color:#9b927a;
@@ -623,7 +623,7 @@
     padding:16px; box-shadow:4px 4px 0 var(--ink);
   }
   .dossier-stamp{
-    display:inline-block; font-family:'Bangers', Impact, sans-serif; font-size:11px; letter-spacing:1px;
+    display:inline-block; font-family:'Bangers', cursive; font-size:11px; letter-spacing:1px;
     text-transform:uppercase; color:var(--red); border:2px dashed var(--red); padding:2px 6px;
     border-radius:4px; margin-bottom:10px; transform:rotate(-1.5deg);
   }
@@ -657,7 +657,7 @@
     margin-bottom:12px; font-size:13px; line-height:1.2; color:#000000;
   }
   .dossier-section-title{
-    font-family:'Bangers', Impact, sans-serif; font-size:15px; letter-spacing:1px;
+    font-family:'Bangers', cursive; font-size:15px; letter-spacing:1px;
     text-transform:uppercase; margin-bottom:3px;
   }
 
@@ -667,7 +667,7 @@
     color:#fff;
     border:2.5px solid var(--ink);
     border-radius:10px;
-    font-family:'Bangers', Impact, sans-serif;
+    font-family:'Bangers', cursive;
     font-size:15px;
     letter-spacing:1px;
     text-transform:uppercase;
@@ -717,7 +717,7 @@
     width: 100%; height: 100%; object-fit: contain; display: block;
   }
   .opt4-stamp {
-    font-family: 'Bangers', Impact, sans-serif;
+    font-family: 'Bangers', cursive;
     font-size: clamp(11.5px, 3.2vw, 18px);
     letter-spacing: 0.6px;
     color: var(--red);
@@ -761,6 +761,115 @@
     0%, 100% { width: 60%; opacity: 0.85; }
     50% { width: 78%; opacity: 1; }
   }
+
+  /* ========================================================
+     AJUSTE EXCLUSIVO MOBILE: FONTES MAIORES EM CELULARES
+     ======================================================== */
+  @media (max-width: 600px) {
+    body {
+      font-size: 15px;
+      line-height: 1.25;
+    }
+    p.lede {
+      font-size: 15px;
+      line-height: 1.25;
+    }
+    .eyebrow {
+      font-size: 13.5px;
+      padding: 6px 16px;
+    }
+    .tab {
+      font-size: 15px;
+      padding: 10px 2px;
+    }
+    .comic-tag {
+      font-size: 13px;
+    }
+    .comic-badge-act {
+      font-size: 16px;
+    }
+    .folder-tab {
+      font-size: 12.5px;
+      height: 20px;
+    }
+    .villain-summary-txt {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .villain-comic-phrase {
+      font-size: 13.5px;
+      line-height: 1.25;
+    }
+    .click-hint {
+      font-size: 13px;
+    }
+    .notice-box {
+      font-size: 14.5px;
+      line-height: 1.25;
+    }
+    .btn-whats {
+      font-size: 16px;
+    }
+    .ensaios-manifesto-box {
+      font-size: 14.5px;
+      line-height: 1.25;
+    }
+    .album-callout {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .section-title {
+      font-size: 20px;
+    }
+    .item-name {
+      font-size: 19px;
+    }
+    .item-meta {
+      font-size: 13.5px;
+      line-height: 1.25;
+    }
+    .ens-info-callout {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .ens-mission-card {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .ens-narrative-card {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .agenda-list {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .recap-box {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .info-item {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .opt4-msg {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .dossier-section {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .dossier-section-title {
+      font-size: 16px;
+    }
+    .btn {
+      font-size: 17px;
+    }
+    .back-btn {
+      font-size: 15px;
+    }
+  }
 </style>
 </head>
 <body id="body">
@@ -798,16 +907,16 @@
           <img src="insigniavermelha.png" alt="Brasão SuperSonoros" class="prologue-img" />
         </div>
         <div style="flex:1;">
-          <h2 style="font-family:'Bangers', Impact, sans-serif; font-size:23px; color:#000000; margin:0 0 6px; text-transform:uppercase;">Ninguém Nasce Pronto: A Arte de se Tornar Herói</h2>
-          <p id="prologueTxt1" style="margin:0 0 4px; color:#000000; font-size:13.5px; line-height:1.18;"></p>
-          <p id="prologueTxt2" style="margin:0; color:#000000; font-size:13px; line-height:1.18;"></p>
+          <h2 style="font-family:'Bangers', cursive; font-size:23px; color:#000000; margin:0 0 6px; text-transform:uppercase;">Ninguém Nasce Pronto: A Arte de se Tornar Herói</h2>
+          <p id="prologueTxt1" style="margin:0 0 6px; color:#000000; font-size:14px; line-height:1.25;"></p>
+          <p id="prologueTxt2" style="margin:0; color:#000000; font-size:13.5px; line-height:1.25;"></p>
         </div>
       </div>
 
       <!-- AS 4 AMEAÇAS -->
       <div class="comic-act-header">
         <span class="comic-badge-act">As 4 Ameaças</span>
-        <p id="threatSubtitle" style="font-size:13.5px; color:#FFFFFF; margin:6px 0 0; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.5); line-height:1.18;"></p>
+        <p id="threatSubtitle" style="font-size:13.5px; color:#FFFFFF; margin:6px 0 0; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.5);"></p>
       </div>
 
       <!-- DOSSIÊS -->
@@ -822,7 +931,7 @@
             </div>
             <div class="villain-body-box">
               <div>
-                <div style="font-family:'Bangers', Impact, sans-serif; font-size:20px; color:var(--purple); margin:0 0 2px;">Vilão 1</div>
+                <div style="font-family:'Bangers', cursive; font-size:20px; color:var(--purple); margin:0 0 2px;">Vilão 1</div>
                 <div id="v1Summary" class="villain-summary-txt"></div>
               </div>
               <div>
@@ -844,7 +953,7 @@
             </div>
             <div class="villain-body-box">
               <div>
-                <div style="font-family:'Bangers', Impact, sans-serif; font-size:20px; color:var(--gold); margin:0 0 2px;">Vilão 2</div>
+                <div style="font-family:'Bangers', cursive; font-size:20px; color:var(--gold); margin:0 0 2px;">Vilão 2</div>
                 <div id="v2Summary" class="villain-summary-txt"></div>
               </div>
               <div>
@@ -866,7 +975,7 @@
             </div>
             <div class="villain-body-box">
               <div>
-                <div style="font-family:'Bangers', Impact, sans-serif; font-size:20px; color:var(--orange); margin:0 0 2px;">Vilão 3</div>
+                <div style="font-family:'Bangers', cursive; font-size:20px; color:var(--orange); margin:0 0 2px;">Vilão 3</div>
                 <div id="v3Summary" class="villain-summary-txt"></div>
               </div>
               <div>
@@ -888,7 +997,7 @@
             </div>
             <div class="villain-body-box">
               <div>
-                <div style="font-family:'Bangers', Impact, sans-serif; font-size:20px; color:var(--green); margin:0 0 2px;">Vilão 4</div>
+                <div style="font-family:'Bangers', cursive; font-size:20px; color:var(--green); margin:0 0 2px;">Vilão 4</div>
                 <div id="v4Summary" class="villain-summary-txt"></div>
               </div>
               <div>
