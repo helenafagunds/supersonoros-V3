@@ -501,7 +501,7 @@
   }
   .modal-overlay.show{display:flex;}
   .modal-box{
-    width:100%; max-width:440px; height:92vh; height:92dvh; max-height:860px;
+    width:100%; max-width:440px; height:auto; max-height:92dvh;
     background:transparent; border-radius:20px; position:relative;
     display:flex; flex-direction:column;
   }
@@ -575,7 +575,7 @@
     align-items: center;
     justify-content: center;
     color: var(--yellow);
-    font-family: 'Bangers', Impact, sans-serif;
+    font-family: 'Bangers', cursive;
     font-size: 44px;
     box-shadow: 2.5px 2.5px 0 var(--ink);
     flex-shrink: 0;
@@ -714,7 +714,7 @@
     
     <div class="story-loose-wrap">
       
-      <!-- INÍCIO: INSÍGNIA DIRETO NO CARD -->
+      <!-- INÍCIO -->
       <div class="comic-prologue-card">
         <span class="comic-tag">Início · O Chamado da Liga</span>
         <div class="prologue-img-wrap">
@@ -733,7 +733,7 @@
         <p id="threatSubtitle" style="font-size:13.5px; color:#FFFFFF; margin:6px 0 0; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.5);"></p>
       </div>
 
-      <!-- SILHUETAS DIRETAS NO CARD DE CADA DOSSIÊ -->
+      <!-- DOSSIÊS -->
       <div class="comic-villain-strip">
         
         <!-- VILÃO 1 -->
@@ -1111,7 +1111,7 @@
     document.getElementById("ensPhotosDisclaimer").textContent = decodeHex("417320666f746f7320736572c3a36f2061646963696f6e616461732061717569206170c3b3732061207265616c697a61c3a7c3a36f20646f20656e7361696f2e");
 
     document.getElementById("sessRecapPrefix").textContent = decodeHex("4174c3a920617175692c206f73205375706572536f6e6f726f73206ac3a120636f6e71756973746172616d206f732071756174726f207375706572706f6465726573206e6f73204772616e64657320456e7361696f733a");
-    document.getElementById("sessInfoLocation").innerHTML = decodeHex("3c7374726f6e673e4c6f63616c3a3c2f7374726f6e673e2054656174726f20556e6973696e6f7320e280942041762e2044722e204e696c6f205065c3a7616e68612c2031363030202d20426f612056697374612c20506f72746f20416c656772652e");
+    document.getElementById("sessInfoLocation").innerHTML = decodeHex("3c7374726f6e673e4c6f63616c3a3c2f7374726f6e673e20536564652064612047756974617272c3ad7373696d6120e280942052756120436f726f6e656c20436f727465205265616c2c20383839202d2050657472c3b3706f6c69732c20506f72746f20416c656772652e");
     document.getElementById("sessInfoParking").innerHTML = decodeHex("3c7374726f6e673e4573746163696f6e616d656e746f3a3c2f7374726f6e673e204573746163696f6e616d656e746f20636f6e76656e6961646f206e6f207072c3b37072696f206c6f63616c2e");
     document.getElementById("sessInfoCheckin").innerHTML = decodeHex("3c7374726f6e673e436865636b2d696e20646520616c756e6f733a3c2f7374726f6e673e20446569786520736575206172746973746120636f6d20612065717569706520726573706f6e73c3a176656c20616e74657320646f206573706574c3a163756c6f2e20526574697261646120616f2066696e616c2064612073657373c3a36f2e");
     document.getElementById("sessSharePrompt").textContent = decodeHex("4d617271756520612047756974617272c3ad7373696d6120652075736520612068617368746167206f66696369616c206e6f7320736575732073746f72696573206520706f73747320646f2073686f7721");
@@ -1500,7 +1500,7 @@
     window.scrollTo(0,0);
   }
 
-  /* JOGUINHOS 100% COM A ESTRUTURA ORIGINAL QUE FUNCIONAVA */
+  /* JOGUINHOS: 100% PRESERVADOS NA LÓGICA ORIGINAL COM APENAS A FONTE ATUALIZADA */
   const GAMES = {
     quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1609,7 +1609,7 @@
         document.getElementById("app").innerHTML =
           '<div class="badge" style="background:'+r.c+';">'+r.n.charAt(0)+'</div>'+
           '<h2 style="margin:2px 0 4px;font-size:22px;font-family:\\'Bangers\\', cursive;letter-spacing:1px;color:'+r.c+';-webkit-text-stroke:0.5px #171512;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:11.5px;margin:0 0 8px;">Desenvolvido no '+r.e+'</p>' +
-          '<p style="text-align:left;background:#F4EFE1;padding:8px 10px;border-radius:6px;border-left:3px solid #171512;font-size:12.5px;line-height:1.4;margin:0;">'+r.d+'</p>' +
+          '<p style="text-align:left;background:#F4EFE1;padding:8px 10px;border-radius:6px;border-left:3px solid '+r.c+';font-size:13px;line-height:1.4;margin:0;">'+r.d+'</p>' +
           '<button class="btn" onclick="restart()">Refazer Quiz</button>';
       }
       function restart(){cur=0;sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};renderQ();}
@@ -1625,7 +1625,7 @@
       *{box-sizing:border-box;margin:0;padding:0;}
       html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden;}
       body{
-        font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
+        font-family:'Comic Neue', cursive, sans-serif;
         font-weight:700;
         background:#111111;
         color:#F3F4F1;
@@ -1644,20 +1644,36 @@
       }
       header{text-align:center;z-index:1;flex-shrink:0;}
       h1{
-        font-family:'Bangers',Impact,sans-serif;
+        font-family:'Bangers', cursive;
         color:#FDD12E;
-        font-size:20px;
+        font-size:22px;
         letter-spacing:1px;
         text-shadow:2px 2px 0 #111111;
         margin-bottom:1px;
         line-height:1.1;
       }
       p.sub{
-        font-size:11px;
+        font-size:11.5px;
         color:rgba(243,244,241,0.85);
         letter-spacing:0.2px;
       }
-      
+      .insta-callout{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:6px;
+        background:var(--yellow);
+        color:var(--ink);
+        border:2px solid #111111;
+        border-radius:8px;
+        padding:4px 10px;
+        margin-top:5px;
+        font-size:11.5px;
+        font-family:'Comic Neue', cursive, sans-serif;
+        font-weight:700;
+        box-shadow:2px 2px 0 #111111;
+        line-height:1.2;
+      }
       .preview-stage{
         flex:1 1 0;
         min-height:0;
@@ -1699,7 +1715,7 @@
         flex-shrink:0;
       }
       .dock-label{
-        font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
+        font-family:'Comic Neue', cursive, sans-serif;
         font-weight:700;
         font-size:10.5px;
         letter-spacing:.4px;
@@ -1711,7 +1727,7 @@
         display:flex;
         justify-content:space-between;
         align-items:center;
-        padding:0 2px;
+        padding:2px 2px 6px;
       }
       .color-dot{
         width:25px;
@@ -1720,11 +1736,10 @@
         border:2px solid #111111;
         cursor:pointer;
         box-shadow:1.5px 1.5px 0 #111111;
-        transition:transform .12s ease;
+        transition:box-shadow .12s ease;
       }
       .color-dot.selected{
-        transform:scale(1.18);
-        outline:2px solid #111111;
+        box-shadow:0 0 0 2.5px #111111;
       }
       
       input[type="text"]{
@@ -1733,7 +1748,7 @@
         border:2px solid #111111;
         border-radius:8px;
         padding:5px 8px;
-        font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
+        font-family:'Comic Neue', cursive, sans-serif;
         font-weight:700;
         font-size:12.5px;
         color:#111111;
@@ -1748,7 +1763,7 @@
         border:2px solid #111111;
         border-radius:10px;
         padding:8px 6px;
-        font-family:'Comic Neue',Impact,'Arial Black',sans-serif;
+        font-family:'Comic Neue', cursive, sans-serif;
         font-weight:700;
         font-size:12.5px;
         letter-spacing:0.5px;
@@ -1767,6 +1782,9 @@
       <header>
         <h1>GERADOR DE INSÍGNIA</h1>
         <p class="sub">Personalize sua insígnia e compartilhe com os seus amigos</p>
+        <div class="insta-callout">
+          📸 Poste no Instagram nos Stories e marque a <strong>@guitarrissima</strong>!
+        </div>
       </header>
 
       <div class="preview-stage">
@@ -1857,6 +1875,36 @@
           });
         }
 
+        /* TEXTO CURVADO ACOMPANHANDO O TOPO DA INSÍGNIA */
+        function drawCurvedText(ctx, text, centerX, centerY, radius, startAngle) {
+          ctx.save();
+          ctx.font = "900 68px 'Comic Neue', cursive, sans-serif";
+          ctx.fillStyle = "#FFFFFF";
+          ctx.strokeStyle = "#111111";
+          ctx.lineWidth = 14;
+          ctx.lineJoin = "round";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+
+          var angleStep = 0.088; 
+          var totalAngle = (text.length - 1) * angleStep;
+          var currentAngle = startAngle - (totalAngle / 2);
+
+          for (var i = 0; i < text.length; i++) {
+            var char = text[i];
+            ctx.save();
+            var x = centerX + radius * Math.cos(currentAngle);
+            var y = centerY + radius * Math.sin(currentAngle);
+            ctx.translate(x, y);
+            ctx.rotate(currentAngle + Math.PI / 2);
+            ctx.strokeText(char, 0, 0);
+            ctx.fillText(char, 0, 0);
+            ctx.restore();
+            currentAngle += angleStep;
+          }
+          ctx.restore();
+        }
+
         function renderCanvasStory(){
           var canvas = document.getElementById("storyCanvas");
           var ctx = canvas.getContext("2d");
@@ -1866,9 +1914,11 @@
           ctx.imageSmoothingEnabled = true;
           ctx.imageSmoothingQuality = "high";
 
+          // 1. Fundo com cor de contraste oficial
           ctx.fillStyle = activeItem.bgColor;
           ctx.fillRect(0, 0, 1080, 1920);
 
+          // 2. Raios solares de gibi (Sunburst)
           ctx.save();
           ctx.translate(540, 750);
           ctx.fillStyle = "rgba(243, 244, 241, 0.15)";
@@ -1882,6 +1932,7 @@
           }
           ctx.restore();
 
+          // 3. Halftone Dots de fundo
           ctx.fillStyle = "rgba(17, 17, 17, 0.14)";
           for(var x=20; x<1080; x+=36){
             for(var y=20; y<1920; y+=36){
@@ -1891,12 +1942,17 @@
             }
           }
 
+          // 4. Nuvem oficial sobreposta (nuvem.png em 1080x1920)
           try{
             if(cloudImage && cloudImage.complete && cloudImage.naturalWidth > 0){
               ctx.drawImage(cloudImage, 0, 0, 1080, 1920);
             }
           }catch(e){}
 
+          // 5. Texto Curvado Fixo "EU AMO MÚSICA"
+          drawCurvedText(ctx, "EU AMO MÚSICA", 540, 770, 395, -Math.PI / 2);
+
+          // 6. Insígnia central proporcional (1:1 sem distorção e sem delay)
           try{
             if(badgeImage && badgeImage.complete && badgeImage.naturalWidth > 0){
               var maxDim = 680;
@@ -1911,6 +1967,7 @@
             }
           }catch(e){}
 
+          // 7. Nome do SuperSonoro com contorno de gibi
           ctx.save();
           ctx.font = "900 96px 'Comic Neue', Impact, 'Arial Black', sans-serif";
           ctx.textAlign = "center";
@@ -1923,6 +1980,7 @@
           ctx.fillText(currentName, 540, 1270);
           ctx.restore();
 
+          // 8. Faixas amarelas oficiais: Mantendo a frase original e as hashtags
           function drawComicBanner(y, rot, text, fontSize){
             ctx.save();
             ctx.translate(540, y);
@@ -2097,6 +2155,17 @@
 
   function openGame(key){
     const frame = document.getElementById("gameFrame");
+    const modalBox = document.getElementById("modalBox");
+
+    // Limites de altura dinâmicos conforme solicitado nas marcações
+    if(key === 'quiz') {
+      modalBox.style.height = "500px";
+    } else if(key === 'batalha') {
+      modalBox.style.height = "540px";
+    } else {
+      modalBox.style.height = "92dvh";
+    }
+
     frame.srcdoc = GAMES[key];
     document.getElementById("gameModal").classList.add("show");
   }
