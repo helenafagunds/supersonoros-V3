@@ -20,7 +20,7 @@
   body{
     font-family:'Comic Neue', cursive, sans-serif;
     font-weight:700;
-    line-height:1.2;
+    line-height:1.15;
     background:var(--red); color:var(--ink); min-height:100vh; min-height:100dvh;
     display:flex; justify-content:center; padding:24px 12px calc(60px + env(safe-area-inset-bottom));
     transition:background .4s ease;
@@ -38,7 +38,7 @@
     z-index:2;
   }
 
-  /* LATERAIS DESKTOP */
+  /* ================= CAMADA DESKTOP LATERAL ================= */
   .desktop-backdrop-layer {
     display: none;
     position: fixed;
@@ -104,8 +104,12 @@
   }
   .peeking-left { left: -45px; }
   .peeking-right { right: -45px; }
-  .peeking-villain:hover { transform: translateX(25px); }
-  .peeking-right:hover { transform: translateX(-25px); }
+  .peeking-villain:hover {
+    transform: translateX(25px);
+  }
+  .peeking-right:hover {
+    transform: translateX(-25px);
+  }
   .peeking-villain.captured {
     transform: translateY(-80px) scale(0.2) rotate(45deg);
     opacity: 0;
@@ -127,10 +131,11 @@
     box-shadow: 4px 4px 0 var(--ink);
     display: none;
   }
+  /* ========================================================== */
 
   .brand-banner-single{
     display:flex; align-items:center; justify-content:center;
-    margin-bottom:18px; padding:4px 0;
+    margin-bottom:16px; padding:4px 0;
   }
   .logo-super{
     height:clamp(85px, 16vw, 170px);
@@ -139,37 +144,37 @@
     transition:transform .2s ease;
   }
 
-  .header-intro{text-align:center; margin-bottom:20px;}
+  .header-intro{text-align:center; margin-bottom:16px;}
   .eyebrow{
-    display:inline-block; font-family:'Bangers', cursive; font-size:clamp(12px, 3.2vw, 16px); letter-spacing:1px;
+    display:inline-block; font-family:'Bangers', Impact, sans-serif; font-size:clamp(12px, 3.2vw, 16px); letter-spacing:1px;
     text-transform:uppercase; background:var(--ink); color:var(--yellow); padding:5px 16px;
-    border-radius:999px; margin-bottom:10px; text-shadow:1px 1px 0 rgba(0,0,0,0.4);
+    border-radius:999px; margin-bottom:8px; text-shadow:1px 1px 0 rgba(0,0,0,0.4);
   }
   h1{
-    font-family:'Bangers', cursive; font-size:clamp(24px, 6.5vw, 40px); letter-spacing:1.5px;
-    text-transform:uppercase; line-height:1.1; color:var(--yellow);
+    font-family:'Bangers', Impact, sans-serif; font-size:clamp(24px, 6.5vw, 40px); letter-spacing:1.5px;
+    text-transform:uppercase; line-height:1.05; color:var(--yellow);
     -webkit-text-stroke:1.2px var(--ink); text-shadow:2.5px 2.5px 0 var(--ink);
-    margin:0 0 8px; text-align:center;
+    margin:0 0 6px; text-align:center;
   }
   p.lede{
-    color:rgba(255,255,255,.96); font-size:clamp(13px, 3.3vw, 16.5px); line-height:1.22;
+    color:rgba(255,255,255,.96); font-size:clamp(13px, 3.3vw, 16.5px); line-height:1.18;
     margin:0 auto; max-width:760px; text-align:center;
   }
 
   .panel{
     background:var(--cream); border:3.5px solid var(--ink); border-radius:18px;
-    box-shadow:5px 5px 0 var(--ink); padding:clamp(14px, 3vw, 28px); margin-bottom:18px;
+    box-shadow:5px 5px 0 var(--ink); padding:clamp(14px, 3vw, 24px); margin-bottom:16px;
   }
 
   .tabs{
-    display:flex; gap:6px; margin:0 auto 18px;
+    display:flex; gap:6px; margin:0 auto 16px;
     max-width:720px; width:100%;
     flex-wrap:nowrap;
   }
   .tab{
-    flex:1; text-align:center; font-family:'Bangers', cursive; font-size:clamp(13px, 3.2vw, 19px); letter-spacing:.6px;
+    flex:1; text-align:center; font-family:'Bangers', Impact, sans-serif; font-size:clamp(13px, 3.2vw, 19px); letter-spacing:.6px;
     text-transform:uppercase; background:#fff; border:2.5px solid var(--ink); border-radius:10px;
-    padding:9px 2px; cursor:pointer; box-shadow:2.5px 2.5px 0 var(--ink);
+    padding:8px 2px; cursor:pointer; box-shadow:2.5px 2.5px 0 var(--ink);
     transition:transform .12s ease, box-shadow .12s ease;
     white-space:nowrap;
   }
@@ -180,22 +185,22 @@
   .view.active{display:block;}
 
   .story-loose-wrap{
-    display:flex; flex-direction:column; gap:18px; margin-bottom:20px;
+    display:flex; flex-direction:column; gap:16px; margin-bottom:18px;
   }
 
   .comic-prologue-card{
-    background:#fff; border:3.5px solid var(--ink); border-radius:18px; padding:18px;
+    background:#fff; border:3.5px solid var(--ink); border-radius:18px; padding:16px;
     box-shadow:5px 5px 0 var(--ink); position:relative;
-    display:flex; flex-direction:column; gap:14px; align-items:center;
+    display:flex; flex-direction:column; gap:12px; align-items:center;
   }
   @media(min-width:720px){
     .comic-prologue-card{
-      flex-direction:row; padding:24px; gap:24px;
+      flex-direction:row; padding:20px; gap:20px;
     }
   }
 
   .prologue-img-wrap{
-    width:clamp(90px, 22vw, 130px); height:clamp(90px, 22vw, 130px);
+    width:clamp(85px, 20vw, 120px); height:clamp(85px, 20vw, 120px);
     flex-shrink:0; display:flex; align-items:center; justify-content:center;
     background:transparent; border:none; box-shadow:none; padding:0;
   }
@@ -205,27 +210,27 @@
   }
   .comic-tag{
     position:absolute; top:-12px; left:14px; background:var(--ink); color:var(--yellow);
-    font-family:'Bangers', cursive; font-size:12px; letter-spacing:1px; padding:3px 12px;
+    font-family:'Bangers', Impact, sans-serif; font-size:12px; letter-spacing:1px; padding:3px 12px;
     border-radius:6px; text-transform:uppercase;
   }
 
   .comic-act-header{
-    text-align:center; margin:8px 0 6px;
+    text-align:center; margin:4px 0 4px;
   }
   .comic-badge-act{
-    display:inline-block; font-family:'Bangers', cursive; font-size:15px; letter-spacing:1px;
+    display:inline-block; font-family:'Bangers', Impact, sans-serif; font-size:15px; letter-spacing:1px;
     text-transform:uppercase; background:var(--yellow); color:var(--ink); border:2.5px solid var(--ink);
     padding:4px 16px; border-radius:999px; box-shadow:3px 3px 0 var(--ink); margin-bottom:4px;
   }
 
   .comic-villain-strip{
-    display:grid; grid-template-columns:1fr; gap:16px;
+    display:grid; grid-template-columns:1fr; gap:14px;
     align-items:stretch;
   }
   @media(min-width:720px){
     .comic-villain-strip{
       grid-template-columns:repeat(2, 1fr);
-      gap:22px;
+      gap:18px;
     }
   }
   
@@ -258,7 +263,7 @@
     border:2.5px solid var(--ink);
     border-bottom:none;
     border-radius:8px 8px 0 0;
-    font-family:'Bangers', cursive;
+    font-family:'Bangers', Impact, sans-serif;
     font-size:11px;
     letter-spacing:1px;
     text-transform:uppercase;
@@ -267,8 +272,8 @@
   }
 
   .comic-villain-card{
-    background:#fff; border:3.5px solid var(--ink); border-radius:0 18px 18px 18px; padding:14px;
-    box-shadow:4px 4px 0 var(--ink); display:flex; gap:14px; align-items:stretch;
+    background:#fff; border:3.5px solid var(--ink); border-radius:0 18px 18px 18px; padding:12px 14px;
+    box-shadow:4px 4px 0 var(--ink); display:flex; gap:12px; align-items:stretch;
     position:relative; z-index:1;
     flex:1;
     height:100%;
@@ -276,15 +281,15 @@
   }
   
   .villain-avatar-box{
-    width:80px; height:auto; min-height:110px; background:transparent; border:none; border-radius:0;
+    width:80px; height:auto; min-height:105px; background:transparent; border:none; border-radius:0;
     display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:0;
     box-shadow:none;
   }
   @media(min-width:400px){
-    .villain-avatar-box{width:95px;}
+    .villain-avatar-box{width:90px;}
   }
   .villain-silhouette{
-    width:100%; height:100%; max-height:115px; object-fit:contain;
+    width:100%; height:100%; max-height:110px; object-fit:contain;
     filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.12));
   }
   
@@ -296,21 +301,21 @@
     min-width:0;
   }
   .villain-summary-txt{
-    font-size:12.5px; color:#333; line-height:1.2;
-    min-height:34px;
+    font-size:12.5px; color:#333; line-height:1.15;
+    min-height:30px;
     word-break:break-word;
   }
   .villain-comic-phrase{
     font-family:'Comic Neue', cursive; font-style:italic; font-size:12px; color:#222;
-    background:#FBF6EA; border-left:3.5px solid var(--ink); padding:6px 10px; border-radius:4px;
-    margin:6px 0 0; line-height:1.2;
-    min-height:44px;
+    background:#FBF6EA; border-left:3.5px solid var(--ink); padding:5px 8px; border-radius:4px;
+    margin:5px 0 0; line-height:1.15;
+    min-height:40px;
     display:flex;
     align-items:center;
   }
   .click-hint{
-    display:inline-flex; align-items:center; gap:5px; font-family:'Bangers', cursive; font-size:11.5px;
-    letter-spacing:0.8px; text-transform:uppercase; color:var(--red); margin-top:6px;
+    display:inline-flex; align-items:center; gap:5px; font-family:'Bangers', Impact, sans-serif; font-size:11.5px;
+    letter-spacing:0.8px; text-transform:uppercase; color:var(--red); margin-top:5px;
   }
   .icon-lupa{
     width:13px; height:13px; object-fit:contain; display:inline-block; vertical-align:middle;
@@ -318,7 +323,7 @@
 
   .notice-box{
     background:#FFF9E6; border:3px solid var(--ink); border-radius:16px;
-    padding:14px 16px; margin-bottom:18px; font-size:13.5px; line-height:1.25;
+    padding:12px 14px; margin-bottom:16px; font-size:13.5px; line-height:1.2;
     display:flex; flex-direction:column; gap:10px;
   }
   @media (min-width: 720px) {
@@ -328,7 +333,7 @@
   }
   .btn-whats{
     display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--whatsapp); color:#fff;
-    font-family:'Bangers', cursive; font-size:15px; letter-spacing:1px; text-transform:uppercase;
+    font-family:'Bangers', Impact, sans-serif; font-size:15px; letter-spacing:1px; text-transform:uppercase;
     padding:9px 16px; border-radius:10px; border:2.5px solid var(--ink); text-decoration:none;
     box-shadow:3px 3px 0 var(--ink); text-shadow:1px 1px 0 rgba(0,0,0,0.4); flex-shrink:0;
     width:100%;
@@ -342,12 +347,12 @@
 
   .ensaios-manifesto-box{
     background:#FFF9E6; border:3px solid var(--ink); border-radius:16px;
-    padding:14px 16px; margin-bottom:18px; font-size:13.5px; line-height:1.25;
+    padding:12px 14px; margin-bottom:16px; font-size:13.5px; line-height:1.2;
     box-shadow:3.5px 3.5px 0 var(--ink);
   }
   .album-callout{
     background:var(--cream); border-left:4px solid var(--red);
-    padding:8px 12px; border-radius:6px; margin-top:8px; font-size:13px; line-height:1.25;
+    padding:8px 12px; border-radius:6px; margin-top:8px; font-size:13px; line-height:1.2;
   }
 
   .grid-2-even{
@@ -410,19 +415,19 @@
   .item-dot{
     width:44px; height:44px; border-radius:50%; flex-shrink:0; display:flex;
     align-items:center; justify-content:center;
-    color:#fff; font-family:'Bangers', cursive; font-size:19px; letter-spacing:.5px;
+    color:#fff; font-family:'Bangers', Impact, sans-serif; font-size:19px; letter-spacing:.5px;
     border:2.5px solid var(--ink); text-shadow:1.5px 1.5px 0 var(--ink);
   }
   .item-info{flex:1; min-width:0;}
-  .item-name{font-family:'Bangers', cursive; font-size:18px; letter-spacing:.6px; text-transform:uppercase; margin:0 0 2px;}
-  .item-meta{font-size:12.5px; color:#555; line-height:1.2; word-break:break-word;}
+  .item-name{font-family:'Bangers', Impact, sans-serif; font-size:18px; letter-spacing:.6px; text-transform:uppercase; margin:0 0 2px; line-height:1.05;}
+  .item-meta{font-size:12.5px; color:#555; line-height:1.18; word-break:break-word;}
   .arrow{font-size:20px; font-weight:bold; color:var(--ink); transition:transform .12s ease; flex-shrink:0;}
   .item-card:hover .arrow{transform:translateX(3px);}
 
   .ens-header-card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
   @media (min-width: 720px) {
     .ens-header-card {
@@ -436,22 +441,22 @@
     border: 2.5px solid var(--ink);
     border-left: 6px solid var(--yellow);
     border-radius: 12px;
-    padding: 10px 14px;
+    padding: 8px 12px;
     box-shadow: 3px 3px 0 var(--ink);
     font-size: 13px;
-    line-height: 1.22;
+    line-height: 1.18;
     color: var(--ink);
     max-width: 380px;
   }
 
   .silhouette-card{
-    display:flex; gap:14px; align-items:center;
+    display:flex; gap:12px; align-items:center;
     background: #FFF9E6; color: var(--ink);
-    border-radius:14px; padding:12px 14px; border:3px solid var(--ink); box-shadow:3.5px 3.5px 0 var(--ink);
-    margin-bottom:16px;
+    border-radius:14px; padding:10px 12px; border:3px solid var(--ink); box-shadow:3.5px 3.5px 0 var(--ink);
+    margin-bottom:14px;
   }
   .silhouette-avatar{
-    width:68px; height:85px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center;
+    width:64px; height:80px; background:transparent; border-radius:0; display:flex; align-items:center; justify-content:center;
     border:none; flex-shrink:0; padding:0;
   }
   .silhouette-img{
@@ -461,8 +466,8 @@
 
   .btn{
     display:flex; align-items:center; justify-content:center; gap:8px; width:100%; border:3px solid var(--ink); border-radius:12px;
-    background:var(--yellow); color:var(--ink); font-family:'Bangers', cursive; font-size:16px; letter-spacing:1px;
-    text-transform:uppercase; padding:12px 14px; cursor:pointer; box-shadow:3.5px 3.5px 0 var(--ink); text-decoration:none;
+    background:var(--yellow); color:var(--ink); font-family:'Bangers', Impact, sans-serif; font-size:16px; letter-spacing:1px;
+    text-transform:uppercase; padding:10px 14px; cursor:pointer; box-shadow:3.5px 3.5px 0 var(--ink); text-decoration:none;
     text-align:center;
   }
   .btn:active{transform:translate(2px,2px); box-shadow:1.5px 1.5px 0 var(--ink);}
@@ -470,22 +475,22 @@
 
   .back-btn{
     display:inline-flex; align-items:center; gap:6px; background:var(--ink); color:#fff;
-    font-family:'Bangers', cursive; font-size:14px; letter-spacing:1px; text-transform:uppercase;
-    border:none; border-radius:999px; padding:7px 16px; margin-bottom:14px; cursor:pointer;
+    font-family:'Bangers', Impact, sans-serif; font-size:14px; letter-spacing:1px; text-transform:uppercase;
+    border:none; border-radius:999px; padding:6px 14px; margin-bottom:12px; cursor:pointer;
   }
 
   .section-title{
-    font-family:'Bangers', cursive; font-size:18px; letter-spacing:1.2px;
-    text-transform:uppercase; color:var(--red); margin:0 0 14px;
+    font-family:'Bangers', Impact, sans-serif; font-size:18px; letter-spacing:1.2px;
+    text-transform:uppercase; color:var(--red); margin:0 0 12px;
     text-shadow:1px 1px 0 rgba(0,0,0,0.1);
   }
 
   .lineup-row{
-    display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:2px dashed #e6e0d2; font-size:14px;
+    display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:2px dashed #e6e0d2; font-size:13.5px;
   }
   .lineup-row:last-child{border-bottom:none;}
   .lineup-order{
-    font-family:'Bangers', cursive;
+    font-family:'Bangers', Impact, sans-serif;
     background:var(--blue);
     color:#fff;
     border:2px solid var(--ink);
@@ -502,35 +507,35 @@
   }
   .lineup-name{flex:1; font-weight:700;}
 
-  .info-item{display:block; margin-bottom:10px; font-size:13.5px; line-height:1.2;}
+  .info-item{display:block; margin-bottom:6px; font-size:13px; line-height:1.18;}
   .info-item:last-child{margin-bottom:0;}
 
-  .recap-box{background:#F4EFE1; border-left:4px solid var(--ink); border-radius:8px; padding:14px; font-size:13px; line-height:1.25; color:#333;}
-  .chip-list{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+  .recap-box{background:#F4EFE1; border-left:4px solid var(--ink); border-radius:8px; padding:12px; font-size:13px; line-height:1.2; color:#333;}
+  .chip-list{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;}
   .power-chip{
-    font-family:'Bangers', cursive; font-size:13.5px; letter-spacing:.5px; text-transform:uppercase;
+    font-family:'Bangers', Impact, sans-serif; font-size:13.5px; letter-spacing:.5px; text-transform:uppercase;
     color:#fff; padding:4px 12px; border-radius:999px; border:2px solid var(--ink);
     text-shadow:1px 1px 0 rgba(0,0,0,0.35);
   }
 
   .ens-mission-card{
     background:#FFF9E6; border:2.5px solid var(--ink); border-radius:12px;
-    padding:12px; margin-bottom:12px;
+    padding:10px 12px; margin-bottom:10px;
   }
   .ens-narrative-card{
     background:#fff; border-left:4px solid var(--ink); border-radius:6px;
-    padding:10px 12px; font-size:13px; line-height:1.2; color:#222; margin-bottom:12px;
+    padding:8px 10px; font-size:13px; line-height:1.18; color:#222; margin-bottom:10px;
   }
-  .agenda-list{margin:0; padding-left:18px; font-size:13px; line-height:1.25; color:#333;}
-  .agenda-list li{margin-bottom:6px;}
+  .agenda-list{margin:0; padding-left:18px; font-size:13px; line-height:1.2; color:#333;}
+  .agenda-list li{margin-bottom:4px;}
   .agenda-list li:last-child{margin-bottom:0;}
 
-  .photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:12px;}
+  .photo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:10px;}
   .photo-slot{
     aspect-ratio:1/1; background:#EFE9D8; border:2px dashed #c9c0a8; border-radius:10px;
     display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:18px; color:#9b927a;
   }
-  .photo-slot span{font-family:'Bangers', cursive; font-size:11.5px; letter-spacing:.5px; text-transform:uppercase; margin-top:2px;}
+  .photo-slot span{font-family:'Bangers', Impact, sans-serif; font-size:11.5px; letter-spacing:.5px; text-transform:uppercase; margin-top:2px;}
 
   .footer-signature {
     display: flex;
@@ -540,7 +545,7 @@
     margin-top: 28px;
   }
   .footer-label {
-    font-family: 'Bangers', cursive;
+    font-family: 'Bangers', Impact, sans-serif;
     font-size: 14px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -618,7 +623,7 @@
     padding:16px; box-shadow:4px 4px 0 var(--ink);
   }
   .dossier-stamp{
-    display:inline-block; font-family:'Bangers', cursive; font-size:11px; letter-spacing:1px;
+    display:inline-block; font-family:'Bangers', Impact, sans-serif; font-size:11px; letter-spacing:1px;
     text-transform:uppercase; color:var(--red); border:2px dashed var(--red); padding:2px 6px;
     border-radius:4px; margin-bottom:10px; transform:rotate(-1.5deg);
   }
@@ -652,7 +657,7 @@
     margin-bottom:12px; font-size:13px; line-height:1.2; color:#000000;
   }
   .dossier-section-title{
-    font-family:'Bangers', cursive; font-size:15px; letter-spacing:1px;
+    font-family:'Bangers', Impact, sans-serif; font-size:15px; letter-spacing:1px;
     text-transform:uppercase; margin-bottom:3px;
   }
 
@@ -662,7 +667,7 @@
     color:#fff;
     border:2.5px solid var(--ink);
     border-radius:10px;
-    font-family:'Bangers', cursive;
+    font-family:'Bangers', Impact, sans-serif;
     font-size:15px;
     letter-spacing:1px;
     text-transform:uppercase;
@@ -673,7 +678,6 @@
   }
   .btn-close-bottom:active{transform:translate(2px, 2px); box-shadow:none;}
 
-  /* SESSÕES: BLOQUEIO */
   .common-blur-wrap {
     position: relative;
     border-radius: 14px;
@@ -712,7 +716,7 @@
     width: 100%; height: 100%; object-fit: contain; display: block;
   }
   .opt4-stamp {
-    font-family: 'Bangers', cursive;
+    font-family: 'Bangers', Impact, sans-serif;
     font-size: clamp(11.5px, 3.2vw, 18px);
     letter-spacing: 0.6px;
     color: var(--red);
@@ -760,6 +764,7 @@
 </head>
 <body id="body">
 
+<!-- CAMADA DE FUNDO DESKTOP -->
 <div class="desktop-backdrop-layer" id="desktopBackdrop"></div>
 <div class="hunt-score-badge" id="huntScore">VILÕES CAPTURADOS: <span id="huntCount">0</span>/4</div>
 
@@ -793,16 +798,16 @@
           <img src="insigniavermelha.png" alt="Brasão SuperSonoros" class="prologue-img" />
         </div>
         <div style="flex:1;">
-          <h2 style="font-family:'Bangers', cursive; font-size:23px; color:#000000; margin:0 0 6px; text-transform:uppercase;">Ninguém Nasce Pronto: A Arte de se Tornar Herói</h2>
-          <p id="prologueTxt1" style="margin:0 0 6px; color:#000000; font-size:14px; line-height:1.25;"></p>
-          <p id="prologueTxt2" style="margin:0; color:#000000; font-size:13.5px; line-height:1.25;"></p>
+          <h2 style="font-family:'Bangers', Impact, sans-serif; font-size:23px; color:#000000; margin:0 0 6px; text-transform:uppercase;">Ninguém Nasce Pronto: A Arte de se Tornar Herói</h2>
+          <p id="prologueTxt1" style="margin:0 0 4px; color:#000000; font-size:13.5px; line-height:1.18;"></p>
+          <p id="prologueTxt2" style="margin:0; color:#000000; font-size:13px; line-height:1.18;"></p>
         </div>
       </div>
 
       <!-- AS 4 AMEAÇAS -->
       <div class="comic-act-header">
         <span class="comic-badge-act">As 4 Ameaças</span>
-        <p id="threatSubtitle" style="font-size:13.5px; color:#FFFFFF; margin:6px 0 0; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.5);"></p>
+        <p id="threatSubtitle" style="font-size:13.5px; color:#FFFFFF; margin:6px 0 0; text-shadow:1.5px 1.5px 0 rgba(0,0,0,0.5); line-height:1.18;"></p>
       </div>
 
       <!-- DOSSIÊS -->
@@ -817,7 +822,7 @@
             </div>
             <div class="villain-body-box">
               <div>
-                <div style="font-family:'Bangers', cursive; font-size:20px; color:var(--purple); margin:0 0 2px;">Vilão 1</div>
+                <div style="font-family:'Bangers', Impact, sans-serif; font-size:20px; color:var(--purple); margin:0 0 2px;">Vilão 1</div>
                 <div id="v1Summary" class="villain-summary-txt"></div>
               </div>
               <div>
@@ -839,7 +844,7 @@
             </div>
             <div class="villain-body-box">
               <div>
-                <div style="font-family:'Bangers', cursive; font-size:20px; color:var(--gold); margin:0 0 2px;">Vilão 2</div>
+                <div style="font-family:'Bangers', Impact, sans-serif; font-size:20px; color:var(--gold); margin:0 0 2px;">Vilão 2</div>
                 <div id="v2Summary" class="villain-summary-txt"></div>
               </div>
               <div>
@@ -861,7 +866,7 @@
             </div>
             <div class="villain-body-box">
               <div>
-                <div style="font-family:'Bangers', cursive; font-size:20px; color:var(--orange); margin:0 0 2px;">Vilão 3</div>
+                <div style="font-family:'Bangers', Impact, sans-serif; font-size:20px; color:var(--orange); margin:0 0 2px;">Vilão 3</div>
                 <div id="v3Summary" class="villain-summary-txt"></div>
               </div>
               <div>
@@ -883,7 +888,7 @@
             </div>
             <div class="villain-body-box">
               <div>
-                <div style="font-family:'Bangers', cursive; font-size:20px; color:var(--green); margin:0 0 2px;">Vilão 4</div>
+                <div style="font-family:'Bangers', Impact, sans-serif; font-size:20px; color:var(--green); margin:0 0 2px;">Vilão 4</div>
                 <div id="v4Summary" class="villain-summary-txt"></div>
               </div>
               <div>
@@ -922,10 +927,10 @@
         </div>
       </div>
 
-      <!-- EPÍLOGO -->
+      <!-- EPÍLOGO (TAG COM CONTRASTE PRETO E AMARELO) -->
       <div class="comic-prologue-card" style="background:#FFF9E6; border-color:var(--ink); margin-bottom:0; text-align:center; justify-content:center;">
         <div style="max-width:820px; margin:0 auto;">
-          <span class="comic-tag" style="background:var(--red); color:#fff;">Epílogo · O Palco da Decisão</span>
+          <span class="comic-tag" style="background:var(--ink); color:var(--yellow);">Epílogo · O Palco da Decisão</span>
           <h2 style="font-family:'Bangers', cursive; font-size:22px; color:var(--ink); margin:4px 0 6px; text-transform:uppercase;">A Batalha Não Começa no Palco. Ela Termina Lá!</h2>
           <p id="epilogueTxt" style="margin:0 0 10px; color:#000000; font-size:13.5px; line-height:1.25;"></p>
           <div style="font-family:'Bangers', cursive; font-size:22px; letter-spacing:1.2px; color:var(--red); text-transform:uppercase;">SER ÚNICO É O SEU SUPERPODER!</div>
@@ -1449,7 +1454,7 @@
           '<img src="' + v.img + '" alt="' + v.code + '" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(2px 2px 0 rgba(0,0,0,0.15));" />' +
         '</div>' +
         '<div>' +
-          '<h2 style="font-family:\'Bangers\', cursive;font-size:26px;margin:0 0 2px;color:' + v.color + ';-webkit-text-stroke:0.5px var(--ink);">' + v.code + '</h2>' +
+          '<h2 style="font-family:\'Bangers\', cursive;font-size:25px;margin:0 0 2px;color:' + v.color + ';-webkit-text-stroke:0.5px var(--ink);">' + v.code + '</h2>' +
           '<div style="font-size:12px;color:#666;">Status: Identidade sob sigilo</div>' +
         '</div>';
     }
@@ -2297,7 +2302,7 @@
               navigator.share({
                 files:[file],
                 title:"Minha Insígnia SuperSonoros",
-                text:"Minha insígnia oficial da Liga SuperSonoros na Guitarríssima!"
+                text:"eu sou um supersonoro da liga guitarrissima!"
               }).catch(function(){});
             } else {
               var a = document.createElement("a");
@@ -2465,7 +2470,7 @@
     if (e.target === gModal) closeGame();
   });
 
-  /* INICIALIZAÇÃO SEGURA */
+  /* INICIALIZAÇÃO */
   renderDynamicTexts();
   renderEnsaios();
   renderLockedSessions();
