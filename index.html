@@ -575,7 +575,7 @@
     align-items: center;
     justify-content: center;
     color: var(--yellow);
-    font-family: 'Bangers', cursive;
+    font-family: 'Bangers', Impact, sans-serif;
     font-size: 44px;
     box-shadow: 2.5px 2.5px 0 var(--ink);
     flex-shrink: 0;
@@ -1500,7 +1500,7 @@
     window.scrollTo(0,0);
   }
 
-  /* JOGUINHOS: 100% PRESERVADOS NA LÓGICA ORIGINAL COM APENAS A FONTE ATUALIZADA */
+  /* JOGUINHOS */
   const GAMES = {
     quiz: `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1609,7 +1609,7 @@
         document.getElementById("app").innerHTML =
           '<div class="badge" style="background:'+r.c+';">'+r.n.charAt(0)+'</div>'+
           '<h2 style="margin:2px 0 4px;font-size:22px;font-family:\\'Bangers\\', cursive;letter-spacing:1px;color:'+r.c+';-webkit-text-stroke:0.5px #171512;">'+r.n+'</h2><p style="color:#666;font-weight:bold;font-size:11.5px;margin:0 0 8px;">Desenvolvido no '+r.e+'</p>' +
-          '<p style="text-align:left;background:#F4EFE1;padding:8px 10px;border-radius:6px;border-left:3px solid '+r.c+';font-size:13px;line-height:1.4;margin:0;">'+r.d+'</p>' +
+          '<p style="text-align:left;background:#F4EFE1;padding:8px 10px;border-radius:6px;border-left:4px solid '+r.c+';font-size:13px;line-height:1.4;margin:0;">'+r.d+'</p>' +
           '<button class="btn" onclick="restart()">Refazer Quiz</button>';
       }
       function restart(){cur=0;sc={autenticidade:0,escuta:0,disciplina:0,iniciativa:0};renderQ();}
@@ -1633,7 +1633,7 @@
         flex-direction:column;
         align-items:center;
         justify-content:space-between;
-        padding:8px 10px 10px;
+        padding:12px 10px 10px;
         height:100%;
         height:100dvh;
       }
@@ -1642,37 +1642,39 @@
         background-image:radial-gradient(rgba(243,244,241,0.08) 1.5px,transparent 1.5px);
         background-size:16px 16px;pointer-events:none;
       }
-      header{text-align:center;z-index:1;flex-shrink:0;}
+      header{
+        text-align:center;
+        z-index:1;
+        flex-shrink:0;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:4px;
+      }
       h1{
         font-family:'Bangers', cursive;
         color:#FDD12E;
-        font-size:22px;
-        letter-spacing:1px;
+        font-size:24px;
+        letter-spacing:1.2px;
         text-shadow:2px 2px 0 #111111;
-        margin-bottom:1px;
         line-height:1.1;
-      }
-      p.sub{
-        font-size:11.5px;
-        color:rgba(243,244,241,0.85);
-        letter-spacing:0.2px;
       }
       .insta-callout{
         display:inline-flex;
         align-items:center;
         justify-content:center;
         gap:6px;
-        background:var(--yellow);
-        color:var(--ink);
+        background:#FDD12E;
+        color:#111111;
         border:2px solid #111111;
         border-radius:8px;
-        padding:4px 10px;
-        margin-top:5px;
-        font-size:11.5px;
+        padding:4px 12px;
+        font-size:11px;
         font-family:'Comic Neue', cursive, sans-serif;
         font-weight:700;
         box-shadow:2px 2px 0 #111111;
         line-height:1.2;
+        letter-spacing:0.2px;
       }
       .preview-stage{
         flex:1 1 0;
@@ -1682,7 +1684,7 @@
         align-items:center;
         justify-content:center;
         z-index:1;
-        padding:2px 0;
+        padding:4px 0;
       }
       .preview-card{
         height:100%;
@@ -1781,7 +1783,6 @@
     </style></head><body>
       <header>
         <h1>GERADOR DE INSÍGNIA</h1>
-        <p class="sub">Personalize sua insígnia e compartilhe com os seus amigos</p>
         <div class="insta-callout">
           📸 Poste no Instagram nos Stories e marque a <strong>@guitarrissima</strong>!
         </div>
@@ -1875,32 +1876,38 @@
           });
         }
 
-        /* TEXTO CURVADO ACOMPANHANDO O TOPO DA INSÍGNIA */
-        function drawCurvedText(ctx, text, centerX, centerY, radius, startAngle) {
+        /* TEXTO CURVADO COM FONTE E TAMANHO 96PX PADRONIZADOS */
+        function drawCurvedText(ctx, text, centerX, centerY, radius) {
           ctx.save();
-          ctx.font = "900 68px 'Comic Neue', cursive, sans-serif";
-          ctx.fillStyle = "#FFFFFF";
+          ctx.font = "900 96px 'Comic Neue', Impact, 'Arial Black', sans-serif";
+          ctx.fillStyle = "#F3F4F1";
           ctx.strokeStyle = "#111111";
-          ctx.lineWidth = 14;
+          ctx.lineWidth = 18;
           ctx.lineJoin = "round";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
 
-          var angleStep = 0.088; 
-          var totalAngle = (text.length - 1) * angleStep;
-          var currentAngle = startAngle - (totalAngle / 2);
-
+          var charAngles = [];
+          var totalAngle = 0;
           for (var i = 0; i < text.length; i++) {
-            var char = text[i];
+            var w = ctx.measureText(text[i]).width + 10;
+            var a = w / radius;
+            charAngles.push(a);
+            totalAngle += a;
+          }
+
+          var currentAngle = (-Math.PI / 2) - (totalAngle / 2);
+          for (var i = 0; i < text.length; i++) {
+            currentAngle += charAngles[i] / 2;
             ctx.save();
             var x = centerX + radius * Math.cos(currentAngle);
             var y = centerY + radius * Math.sin(currentAngle);
             ctx.translate(x, y);
             ctx.rotate(currentAngle + Math.PI / 2);
-            ctx.strokeText(char, 0, 0);
-            ctx.fillText(char, 0, 0);
+            ctx.strokeText(text[i], 0, 0);
+            ctx.fillText(text[i], 0, 0);
             ctx.restore();
-            currentAngle += angleStep;
+            currentAngle += charAngles[i] / 2;
           }
           ctx.restore();
         }
@@ -1950,7 +1957,7 @@
           }catch(e){}
 
           // 5. Texto Curvado Fixo "EU AMO MÚSICA"
-          drawCurvedText(ctx, "EU AMO MÚSICA", 540, 770, 395, -Math.PI / 2);
+          drawCurvedText(ctx, "EU AMO MÚSICA", 540, 770, 440);
 
           // 6. Insígnia central proporcional (1:1 sem distorção e sem delay)
           try{
@@ -2057,7 +2064,7 @@
       
       var CHALLENGES = [
         {
-          threat: "O vilão sussurra: 'Copie idêntico ao original, ninguém liga pra sua identidade!'",
+          threat: "A Ameaça #1 ataca: 'Copie idêntico ao original, ninguém liga pra sua identidade!'",
           needed: "autenticidade",
           options: [
             { id: "autenticidade", text: "Defendo minha própria voz e toco do meu jeito!", color: "#8E5FC7" },
@@ -2067,7 +2074,7 @@
           ]
         },
         {
-          threat: "As Irmãs Decibel atacam: o palco virou um caos onde todos competem por volume!",
+          threat: "A Ameaça #2 ataca: O palco virou um caos onde todos competem por volume!",
           needed: "escuta",
           options: [
             { id: "escuta",        text: "Escuto o grupo com atenção e equilibro meu volume!", color: "#D9A62B" },
@@ -2077,7 +2084,7 @@
           ]
         },
         {
-          threat: "O Ensaiador tenta te iludir: 'Acertou uma vez, já chega! No palco a sorte resolve!'",
+          threat: "A Ameaça #3 tenta te iludir: 'Acertou uma vez, já chega! No palco a sorte resolve!'",
           needed: "disciplina",
           options: [
             { id: "disciplina",    text: "Uso o Repeteco consciente até conquistar segurança!", color: "#E8792B" },
@@ -2087,7 +2094,7 @@
           ]
         },
         {
-          threat: "Véspera planta a dúvida: 'E se der branco na frente de todos? Melhor não tocar hoje...'",
+          threat: "A Ameaça #4 planta a dúvida: 'E se der branco na frente de todos? Melhor não tocar hoje...'",
           needed: "iniciativa",
           options: [
             { id: "iniciativa",    text: "Dou o primeiro acorde e ajo apesar do nervosismo!", color: "#3CB878" },
@@ -2157,7 +2164,6 @@
     const frame = document.getElementById("gameFrame");
     const modalBox = document.getElementById("modalBox");
 
-    // Limites de altura dinâmicos conforme solicitado nas marcações
     if(key === 'quiz') {
       modalBox.style.height = "500px";
     } else if(key === 'batalha') {
